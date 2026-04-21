@@ -1,0 +1,963 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="View our portfolio of websites, SEO projects, and digital products built for Nigerian businesses. Premium work. Real results."
+    />
+    <meta
+      name="keywords"
+      content="Nigerian web design portfolio, digital agency work, website examples Nigeria"
+    />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Our Work | NgwaNgwa Digital Portfolio" />
+    <meta
+      property="og:description"
+      content="Premium digital work for Nigerian businesses competing internationally."
+    />
+    <meta
+      property="og:image"
+      content="https://ngwangwadigital.com/og-image.jpg"
+    />
+    <meta
+      property="og:url"
+      content="https://ngwangwadigital.com/portfolio.html"
+    />
+
+    <title>Portfolio | NgwaNgwa Digital — Our Work</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+
+    <style>
+      .filter-tabs {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 40px 0;
+      }
+
+      .filter-tab {
+        padding: 12px 24px;
+        border: 1px solid var(--border-light);
+        background: white;
+        border-radius: 8px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: var(--transition-base);
+      }
+
+      .filter-tab:hover {
+        border-color: var(--sage-green);
+        color: var(--sage-green);
+      }
+
+      .filter-tab.active {
+        background: var(--orange-accent);
+        border-color: var(--orange-accent);
+        color: white;
+      }
+
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 32px;
+        margin-top: 60px;
+      }
+
+      .portfolio-item {
+        background: white;
+        border-radius: 16px;
+        overflow: hidden;
+        transition: var(--transition-smooth);
+        border: 1px solid var(--border-light);
+      }
+
+      .portfolio-item:hover {
+        transform: scale(1.02);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+      }
+
+      .portfolio-item.featured {
+        grid-column: 1 / -1;
+      }
+
+      .portfolio-image {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        background: linear-gradient(
+          135deg,
+          var(--sage-green),
+          var(--dark-olive)
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+        color: white;
+        position: relative;
+      }
+
+      .featured .portfolio-image {
+        aspect-ratio: 21 / 9;
+      }
+
+      .portfolio-badge {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        background: var(--orange-accent);
+        color: white;
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+
+      .portfolio-content {
+        padding: 24px;
+      }
+
+      .portfolio-category {
+        display: inline-block;
+        color: var(--orange-accent);
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 8px;
+      }
+
+      .portfolio-item h3 {
+        color: var(--near-black);
+        font-size: 1.5rem;
+        margin-bottom: 12px;
+      }
+
+      .portfolio-item p {
+        color: var(--dark-olive);
+        line-height: 1.6;
+        margin-bottom: 16px;
+      }
+
+      .portfolio-link {
+        color: var(--sage-green);
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: var(--transition-base);
+      }
+
+      .portfolio-link:hover {
+        color: var(--orange-accent);
+        gap: 12px;
+      }
+
+      /* Feature Tags */
+      .feature-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 16px;
+      }
+
+      .feature-tag {
+        display: inline-block;
+        padding: 6px 12px;
+        background: rgba(122, 140, 104, 0.1);
+        color: var(--sage-green);
+        border: 1px solid rgba(122, 140, 104, 0.2);
+        border-radius: 6px;
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+
+      /* Demo Actions */
+      .demo-actions {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-top: 20px;
+      }
+
+      .btn-view-demo {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 24px;
+        background: var(--orange-accent);
+        color: white;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        text-decoration: none;
+      }
+
+      .btn-view-demo:hover {
+        background: #e85a2b;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+      }
+
+      .btn-want-this {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        color: var(--dark-olive);
+        font-size: 0.9rem;
+        font-weight: 500;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .btn-want-this:hover {
+        color: var(--orange-accent);
+      }
+
+      .empty-state {
+        text-align: center;
+        padding: 80px 20px;
+        color: var(--light-grey);
+      }
+
+      .empty-state h3 {
+        color: var(--dark-olive);
+        margin-bottom: 16px;
+      }
+
+      /* Mobile Mockup Styles */
+      .phone-mockup {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+        position: relative;
+        aspect-ratio: 9 / 19;
+      }
+
+      .phone-frame {
+        width: 100%;
+        height: 100%;
+        background: #1a1a1a;
+        border-radius: 32px;
+        border: 12px solid #2a2a2a;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      }
+
+      .phone-notch {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 120px;
+        height: 24px;
+        background: #2a2a2a;
+        border-radius: 0 0 16px 16px;
+        z-index: 10;
+      }
+
+      .phone-screen {
+        width: 100%;
+        height: 100%;
+        background: var(--off-white);
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+      }
+
+      .demo-badge {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        background: rgba(122, 140, 104, 0.95);
+        color: white;
+        padding: 4px 12px;
+        border-radius: 12px;
+        font-size: 0.7rem;
+        font-weight: 600;
+        z-index: 5;
+      }
+
+      @media (max-width: 768px) {
+        .portfolio-grid {
+          grid-template-columns: 1fr;
+        }
+
+        /* KDR Section Mobile Responsive */
+        .animate-on-scroll.fade-up
+          > div[style*="grid-template-columns: 1fr 1fr"] {
+          grid-template-columns: 1fr !important;
+          gap: 40px !important;
+        }
+
+        .animate-on-scroll.fade-up h2 {
+          font-size: 1.8rem !important;
+        }
+
+        .animate-on-scroll.fade-up p {
+          font-size: 1rem !important;
+        }
+
+        .phone-mockup {
+          max-width: 280px;
+        }
+
+        .btn {
+          width: 100%;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navigation">
+      <div class="nav-container">
+        <a href="index.html" class="logo">
+          <span class="logo-main">NgwaNgwa</span>
+          <span class="logo-sub">Digital</span>
+        </a>
+
+        <button class="menu-toggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <ul class="nav-links">
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="min-height: 60vh">
+      <div class="container hero-container">
+        <div
+          class="hero-content"
+          style="max-width: 800px; margin: 0 auto; text-align: center"
+        >
+          <span class="label hero-label">OUR WORK</span>
+
+          <h1 class="hero-headline">
+            Demo Projects &<br />
+            <span class="highlight">Capabilities</span>
+          </h1>
+
+          <p class="hero-subheadline" style="max-width: 100%; margin: 0 auto">
+            Examples of what we can build for your business. Real demos,
+            professional quality.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="section section-light">
+      <div class="container">
+        <!-- Filter Tabs -->
+        <div class="filter-tabs animate-on-scroll fade-in">
+          <button class="filter-tab active" data-filter="all">All</button>
+          <button class="filter-tab" data-filter="websites">Websites</button>
+          <button class="filter-tab" data-filter="seo">SEO</button>
+          <button class="filter-tab" data-filter="products">Products</button>
+          <button class="filter-tab" data-filter="systems">Systems</button>
+        </div>
+
+        <!-- Featured Demo: Virtual Waitress -->
+        <div class="animate-on-scroll fade-up" style="margin-bottom: 80px">
+          <div
+            style="
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 60px;
+              align-items: center;
+              max-width: 1200px;
+              margin: 0 auto;
+            "
+          >
+            <!-- Left: Description -->
+            <div>
+              <span
+                class="label"
+                style="
+                  color: var(--orange-accent);
+                  margin-bottom: 12px;
+                  display: inline-block;
+                "
+                >LIVE PRODUCT DEMO</span
+              >
+              <h2
+                style="font-size: 2.5rem; margin-bottom: 24px; line-height: 1.2"
+              >
+                Virtual Waitress —<br />
+                <span style="color: var(--sage-green)">Kitchen De Royale</span>
+              </h2>
+              <p
+                style="
+                  font-size: 1.1rem;
+                  line-height: 1.8;
+                  color: var(--dark-olive);
+                  margin-bottom: 24px;
+                "
+              >
+                Nigeria's first AI-powered virtual waitress for restaurants.
+                Customers scan a QR code and order directly from their phones.
+                No more shouting for waiters.
+              </p>
+              <p
+                style="
+                  font-size: 1rem;
+                  line-height: 1.8;
+                  color: var(--dark-olive);
+                  margin-bottom: 32px;
+                "
+              >
+                <strong style="color: var(--orange-accent)"
+                  >👉 This is a real working demo.</strong
+                >
+                Try it in the phone mockup on the right →
+              </p>
+              <div style="display: flex; flex-direction: column; gap: 12px">
+                <a
+                  href="https://kdr-menu.netlify.app"
+                  target="_blank"
+                  rel="noopener"
+                  class="btn btn-primary"
+                  style="width: fit-content"
+                >
+                  Open Full Demo →
+                </a>
+                <a
+                  href="products.html"
+                  class="btn btn-secondary"
+                  style="width: fit-content"
+                >
+                  Learn More About Virtual Waitress
+                </a>
+              </div>
+            </div>
+
+            <!-- Right: Phone Mockup -->
+            <div style="display: flex; justify-content: center">
+              <div class="phone-mockup">
+                <div class="phone-frame">
+                  <div class="phone-notch"></div>
+                  <div
+                    class="phone-screen"
+                    style="padding: 0; overflow: hidden"
+                  >
+                    <iframe
+                      src="https://kdr-menu.netlify.app"
+                      style="
+                        width: 100%;
+                        height: 100%;
+                        border: none;
+                        display: block;
+                      "
+                      title="Virtual Waitress Live Demo"
+                      loading="lazy"
+                    >
+                    </iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Portfolio Grid -->
+        <div class="portfolio-grid">
+          <!-- Portfolio Item 2 -->
+          <div
+            class="portfolio-item animate-on-scroll fade-up"
+            data-category="websites"
+          >
+            <div
+              class="portfolio-image"
+              style="
+                background:
+                  linear-gradient(rgba(10, 22, 40, 0.7), rgba(10, 22, 40, 0.7)),
+                  url(&quot;https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=800&q=80&quot;)
+                    center/cover;
+              "
+            >
+              <span class="demo-badge">DEMO CONCEPT</span>
+            </div>
+            <div class="portfolio-content">
+              <span class="portfolio-category"
+                >🏭 MANUFACTURING & INDUSTRIAL</span
+              >
+              <h3>Industrial Manufacturing Website</h3>
+              <p>
+                Professional website concept for manufacturing companies.
+                Showcases products, capabilities, certifications, and includes a
+                contact/quote system for Nigerian manufacturing businesses.
+              </p>
+              <div class="feature-tags">
+                <span class="feature-tag">Product Catalog</span>
+                <span class="feature-tag">Quote System</span>
+                <span class="feature-tag">Certifications</span>
+              </div>
+              <div class="demo-actions">
+                <a
+                  href="demos/manufacturing-demo.html"
+                  class="btn-view-demo"
+                  target="_blank"
+                >
+                  View Demo →
+                </a>
+                <a href="contact.html" class="btn-want-this">
+                  💬 I want this
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Portfolio Item 3 -->
+          <div
+            class="portfolio-item animate-on-scroll fade-up"
+            data-category="websites seo"
+          >
+            <div
+              class="portfolio-image"
+              style="
+                background:
+                  linear-gradient(rgba(45, 80, 22, 0.7), rgba(45, 80, 22, 0.7)),
+                  url(&quot;https://images.unsplash.com/photo-1615485500704-8e990f9900f7?w=800&q=80&quot;)
+                    center/cover;
+              "
+            >
+              <span class="demo-badge">DEMO CONCEPT</span>
+            </div>
+            <div class="portfolio-content">
+              <span class="portfolio-category">🌾 AGRICULTURE & EXPORT</span>
+              <h3>Agricultural Export Website</h3>
+              <p>
+                Website concept for agricultural export companies. SEO-optimized
+                product gallery, certification showcase, and export information
+                to attract international buyers.
+              </p>
+              <div class="feature-tags">
+                <span class="feature-tag">Product Gallery</span>
+                <span class="feature-tag">Export Info</span>
+                <span class="feature-tag">Certifications</span>
+              </div>
+              <div class="demo-actions">
+                <a
+                  href="demos/agricultural-demo.html"
+                  class="btn-view-demo"
+                  target="_blank"
+                >
+                  View Demo →
+                </a>
+                <a href="contact.html" class="btn-want-this">
+                  💬 I want this
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Portfolio Item 4 -->
+          <div
+            class="portfolio-item animate-on-scroll fade-up"
+            data-category="systems"
+          >
+            <div
+              class="portfolio-image"
+              style="
+                background:
+                  linear-gradient(
+                    rgba(108, 92, 231, 0.8),
+                    rgba(108, 92, 231, 0.8)
+                  ),
+                  url(&quot;https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80&quot;)
+                    center/cover;
+              "
+            >
+              <span class="demo-badge">DEMO CONCEPT</span>
+            </div>
+            <div class="portfolio-content">
+              <span class="portfolio-category">📊 BUSINESS SYSTEM</span>
+              <h3>Client Portal Dashboard</h3>
+              <p>
+                Custom client portal for trading companies. Order tracking,
+                invoice management, real-time updates, and secure client
+                messaging system.
+              </p>
+              <div class="feature-tags">
+                <span class="feature-tag">Order Tracking</span>
+                <span class="feature-tag">Invoice System</span>
+                <span class="feature-tag">Messaging</span>
+              </div>
+              <div class="demo-actions">
+                <a
+                  href="demos/portal-demo.html"
+                  class="btn-view-demo"
+                  target="_blank"
+                >
+                  View Demo →
+                </a>
+                <a href="contact.html" class="btn-want-this">
+                  💬 I want this
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Portfolio Item 5 -->
+          <div
+            class="portfolio-item animate-on-scroll fade-up"
+            data-category="websites"
+          >
+            <div
+              class="portfolio-image"
+              style="
+                background:
+                  linear-gradient(
+                    rgba(0, 102, 255, 0.7),
+                    rgba(0, 102, 255, 0.7)
+                  ),
+                  url(&quot;https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80&quot;)
+                    center/cover;
+              "
+            >
+              <span class="demo-badge">DEMO CONCEPT</span>
+            </div>
+            <div class="portfolio-content">
+              <span class="portfolio-category">🔧 ENGINEERING & EQUIPMENT</span>
+              <h3>Engineering Services Website</h3>
+              <p>
+                Modern website for industrial equipment dealers. Service
+                showcase, equipment catalog, project portfolio, and inquiry
+                system with mobile-first design.
+              </p>
+              <div class="feature-tags">
+                <span class="feature-tag">Service Menu</span>
+                <span class="feature-tag">Equipment Catalog</span>
+                <span class="feature-tag">Projects</span>
+              </div>
+              <div class="demo-actions">
+                <a
+                  href="demos/engineering-demo.html"
+                  class="btn-view-demo"
+                  target="_blank"
+                >
+                  View Demo →
+                </a>
+                <a href="contact.html" class="btn-want-this">
+                  💬 I want this
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Portfolio Item 6 -->
+          <div
+            class="portfolio-item animate-on-scroll fade-up"
+            data-category="seo"
+          >
+            <div
+              class="portfolio-image"
+              style="background: linear-gradient(135deg, #50c878, #2e7d32)"
+            >
+              <span>🔍</span>
+              <span class="demo-badge">DEMO CONCEPT</span>
+            </div>
+            <div class="portfolio-content">
+              <span class="portfolio-category">SEO Demo</span>
+              <h3>Manufacturing SEO Strategy</h3>
+              <p>
+                SEO strategy concept to increase organic traffic and rank for
+                high-value international buyer keywords.
+              </p>
+              <a href="contact.html" class="portfolio-link">
+                Get SEO Quote →
+              </a>
+            </div>
+          </div>
+
+          <!-- Portfolio Item 7 -->
+          <div
+            class="portfolio-item animate-on-scroll fade-up"
+            data-category="websites"
+          >
+            <div
+              class="portfolio-image"
+              style="
+                background:
+                  linear-gradient(
+                    rgba(220, 20, 60, 0.7),
+                    rgba(220, 20, 60, 0.7)
+                  ),
+                  url(&quot;https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800&q=80&quot;)
+                    center/cover;
+              "
+            >
+              <span class="demo-badge">DEMO CONCEPT</span>
+            </div>
+            <div class="portfolio-content">
+              <span class="portfolio-category">🚗 AUTO PARTS & E-COMMERCE</span>
+              <h3>Auto Parts E-Commerce</h3>
+              <p>
+                E-commerce ready website for auto parts suppliers. Product
+                catalog with categories, shopping cart, search system, and
+                customer account features.
+              </p>
+              <div class="feature-tags">
+                <span class="feature-tag">Product Catalog</span>
+                <span class="feature-tag">Shopping Cart</span>
+                <span class="feature-tag">Search System</span>
+              </div>
+              <div class="demo-actions">
+                <a
+                  href="demos/autoparts-demo.html"
+                  class="btn-view-demo"
+                  target="_blank"
+                >
+                  View Demo →
+                </a>
+                <a href="contact.html" class="btn-want-this">
+                  💬 I want this
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Call to Action Message -->
+        <div
+          class="empty-state animate-on-scroll fade-up"
+          style="margin-top: 60px"
+        >
+          <h3>Ready to bring your vision to life?</h3>
+          <p>
+            These are demo concepts. Let's build something custom for your
+            business. 🚀
+          </p>
+          <a
+            href="contact.html"
+            class="btn btn-primary"
+            style="margin-top: 24px"
+          >
+            Start Your Project
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="section section-sage">
+      <div class="container">
+        <div class="text-center">
+          <span
+            class="label animate-on-scroll fade-in"
+            style="color: var(--dark-olive)"
+            >WHY CHOOSE US</span
+          >
+          <h2
+            class="animate-on-scroll fade-up"
+            style="color: var(--off-white); margin-bottom: 60px"
+          >
+            What Makes NgwaNgwa Different
+          </h2>
+        </div>
+
+        <div class="grid-3 stagger-container">
+          <div class="card animate-on-scroll fade-up">
+            <div style="font-size: 2.5rem; margin-bottom: 16px">⚡</div>
+            <h3 style="color: var(--dark-olive); margin-bottom: 12px">
+              NgwaNgwa Speed
+            </h3>
+            <p>
+              NgwaNgwa means "Quick Quick" in Igbo. We deliver websites in days,
+              not months. Fast turnaround without compromising quality.
+            </p>
+          </div>
+
+          <div class="card animate-on-scroll fade-up">
+            <div style="font-size: 2.5rem; margin-bottom: 16px">🇳🇬</div>
+            <h3 style="color: var(--dark-olive); margin-bottom: 12px">
+              Built for Nigeria
+            </h3>
+            <p>
+              We understand Nigerian business realities. Our websites work
+              perfectly on slow networks and convert local and international
+              clients.
+            </p>
+          </div>
+
+          <div class="card animate-on-scroll fade-up">
+            <div style="font-size: 2.5rem; margin-bottom: 16px">💡</div>
+            <h3 style="color: var(--dark-olive); margin-bottom: 12px">
+              Innovators First
+            </h3>
+            <p>
+              We don't just build for clients — we build our own products like
+              Virtual Waitress. We're innovators who understand technology.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section section-orange">
+      <div class="container text-center">
+        <h2
+          class="animate-on-scroll fade-up"
+          style="color: var(--off-white); margin-bottom: 16px"
+        >
+          Ready to make your project a reality?
+        </h2>
+
+        <p
+          class="animate-on-scroll fade-up"
+          style="
+            color: var(--off-white);
+            font-size: 1.2rem;
+            margin-bottom: 32px;
+          "
+        >
+          These are demo concepts. Let's build something custom for you.
+        </p>
+
+        <div class="btn-group" style="justify-content: center">
+          <a href="contact.html" class="btn btn-dark animate-on-scroll fade-up">
+            Start Your Project
+          </a>
+          <a
+            href="services.html"
+            class="btn"
+            style="
+              border: 1px solid white;
+              color: white;
+              background: transparent;
+            "
+          >
+            View Services
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <div class="logo">
+              <span class="logo-main">NgwaNgwa</span>
+              <span class="logo-sub">Digital</span>
+            </div>
+            <p class="footer-tagline">
+              We Build Business Systems<br />
+              That Win Clients.
+            </p>
+          </div>
+
+          <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="portfolio.html">Portfolio</a></li>
+              <li><a href="products.html">Products</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-links">
+            <h4>What We Build</h4>
+            <ul>
+              <li><a href="services.html#websites">Business Websites</a></li>
+              <li><a href="services.html#seo">SEO Optimization</a></li>
+              <li><a href="services.html#systems">Business Systems</a></li>
+              <li><a href="products.html">Virtual Waitress</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-contact">
+            <h4>Get In Touch</h4>
+            <p>📧 ngwangwadigital@gmail.com</p>
+            <p>📱 WhatsApp: +234 707 607 7265</p>
+            <p>📍 Anambra, Nigeria 🌍</p>
+            <p style="margin-top: 12px">
+              <a
+                href="https://instagram.com/ngwangwa.digital"
+                target="_blank"
+                rel="noopener"
+                style="color: var(--orange-accent)"
+              >
+                @ngwangwa.digital
+              </a>
+            </p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2025 NgwaNgwa Digital. Built in Nigeria 🇳🇬</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+      // Portfolio Filter Functionality
+      const filterTabs = document.querySelectorAll(".filter-tab");
+      const portfolioItems = document.querySelectorAll(".portfolio-item");
+
+      filterTabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          // Update active tab
+          filterTabs.forEach((t) => t.classList.remove("active"));
+          tab.classList.add("active");
+
+          const filter = tab.dataset.filter;
+
+          // Filter items
+          portfolioItems.forEach((item) => {
+            if (filter === "all" || item.dataset.category.includes(filter)) {
+              item.style.display = "block";
+              setTimeout(() => {
+                item.style.opacity = "1";
+                item.style.transform = "scale(1)";
+              }, 10);
+            } else {
+              item.style.opacity = "0";
+              item.style.transform = "scale(0.95)";
+              setTimeout(() => {
+                item.style.display = "none";
+              }, 300);
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

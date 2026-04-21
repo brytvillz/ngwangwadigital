@@ -1,0 +1,800 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Virtual Waitress — Nigeria's first AI-powered virtual waitress for restaurants. Digital products built by NgwaNgwa Digital."
+    />
+    <meta
+      name="keywords"
+      content="Virtual Waitress Nigeria, restaurant ordering system, QR code menu Nigeria, digital products Nigeria"
+    />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Our Products | NgwaNgwa Digital" />
+    <meta
+      property="og:description"
+      content="We don't just build for clients — we build our own digital products for African businesses."
+    />
+    <meta
+      property="og:image"
+      content="https://ngwangwadigital.com/og-image.jpg"
+    />
+    <meta
+      property="og:url"
+      content="https://ngwangwadigital.com/products.html"
+    />
+
+    <title>Products | NgwaNgwa Digital — Virtual Waitress & More</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+
+    <style>
+      .product-hero-card {
+        background: var(--near-black);
+        border-radius: 24px;
+        padding: 60px;
+        margin: 60px 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+      }
+
+      .product-badge {
+        display: inline-block;
+        background: var(--orange-accent);
+        color: white;
+        padding: 8px 20px;
+        border-radius: 24px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        margin-bottom: 24px;
+        letter-spacing: 0.05em;
+      }
+
+      .product-mockup {
+        background: linear-gradient(
+          135deg,
+          var(--sage-green),
+          var(--dark-olive)
+        );
+        border-radius: 16px;
+        padding: 40px;
+        text-align: center;
+        min-height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+
+      .phone-frame {
+        width: 280px;
+        height: 560px;
+        background: var(--near-black);
+        border-radius: 32px;
+        border: 12px solid #2a2a2a;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+      }
+
+      .phone-notch {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 120px;
+        height: 24px;
+        background: #2a2a2a;
+        border-radius: 0 0 16px 16px;
+        z-index: 10;
+      }
+
+      .phone-screen {
+        width: 100%;
+        height: 100%;
+        background: var(--off-white);
+        padding: 32px 16px 16px;
+        overflow-y: auto;
+        font-size: 0.7rem;
+      }
+
+      .feature-list {
+        list-style: none;
+        margin: 24px 0;
+      }
+
+      .feature-list li {
+        padding: 16px 0;
+        padding-left: 40px;
+        position: relative;
+        color: var(--sage-green);
+        font-size: 1.05rem;
+        line-height: 1.6;
+      }
+
+      .feature-list li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--orange-accent);
+        font-weight: bold;
+        font-size: 1.5rem;
+      }
+
+      .waitlist-form {
+        display: flex;
+        gap: 12px;
+        margin-top: 32px;
+      }
+
+      .waitlist-form input {
+        flex: 1;
+        padding: 16px 20px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        color: var(--off-white);
+        font-size: 1rem;
+      }
+
+      .waitlist-form input::placeholder {
+        color: rgba(247, 247, 242, 0.6);
+      }
+
+      .waitlist-form button {
+        padding: 16px 32px;
+        background: var(--orange-accent);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: var(--transition-base);
+      }
+
+      .waitlist-form button:hover {
+        transform: scale(1.02);
+        box-shadow: 0 8px 24px rgba(255, 107, 53, 0.3);
+      }
+
+      .coming-soon-card {
+        background: white;
+        border: 2px dashed var(--border-light);
+        border-radius: 16px;
+        padding: 48px 32px;
+        text-align: center;
+        transition: var(--transition-smooth);
+      }
+
+      .coming-soon-card:hover {
+        border-color: var(--sage-green);
+        transform: translateY(-4px);
+      }
+
+      .coming-soon-card h3 {
+        color: var(--dark-olive);
+        margin: 20px 0 12px;
+      }
+
+      .coming-soon-card p {
+        color: var(--light-grey);
+      }
+
+      @media (max-width: 768px) {
+        .product-hero-card {
+          grid-template-columns: 1fr;
+          padding: 32px 24px;
+        }
+
+        .phone-frame {
+          width: 240px;
+          height: 480px;
+        }
+
+        .waitlist-form {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navigation">
+      <div class="nav-container">
+        <a href="index.html" class="logo">
+          <span class="logo-main">NgwaNgwa</span>
+          <span class="logo-sub">Digital</span>
+        </a>
+
+        <button class="menu-toggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <ul class="nav-links">
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="min-height: 60vh">
+      <div class="container hero-container">
+        <div
+          class="hero-content"
+          style="max-width: 800px; margin: 0 auto; text-align: center"
+        >
+          <span class="label hero-label">OUR PRODUCTS</span>
+
+          <h1 class="hero-headline">
+            We Build<br />
+            <span class="highlight">Products</span> Too.
+          </h1>
+
+          <p class="hero-subheadline" style="max-width: 100%; margin: 0 auto">
+            Not just client work — we build our own digital products for African
+            businesses.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Virtual Waitress Product Section -->
+    <section class="section section-light">
+      <div class="container">
+        <div class="product-hero-card animate-on-scroll fade-up">
+          <div>
+            <span class="product-badge">COMING SOON</span>
+
+            <h2
+              style="
+                font-size: 3rem;
+                color: var(--off-white);
+                margin-bottom: 12px;
+              "
+            >
+              Virtual Waitress
+            </h2>
+
+            <p
+              style="
+                color: var(--sage-green);
+                font-size: 1rem;
+                margin-bottom: 24px;
+              "
+            >
+              by NgwaNgwa Digital
+            </p>
+
+            <p
+              style="
+                color: var(--sage-green);
+                font-size: 1.2rem;
+                line-height: 1.8;
+                margin-bottom: 32px;
+              "
+            >
+              Nigeria's first AI-powered virtual waitress for restaurants.
+              Customers scan a QR code, meet Ada (your virtual waitress), browse
+              the menu, and place orders — all from their phones.
+              <br /><br />
+              No more shouting for waiters. No more waiting to be served.
+            </p>
+
+            <div
+              style="
+                display: flex;
+                gap: 16px;
+                flex-wrap: wrap;
+                margin-bottom: 32px;
+              "
+            >
+              <a
+                href="https://kdr-menu.netlify.app"
+                target="_blank"
+                rel="noopener"
+                class="btn btn-primary demo-link"
+              >
+                View Live Demo
+              </a>
+              <a href="#waitlist" class="btn btn-secondary"> Join Waitlist </a>
+            </div>
+
+            <p
+              style="
+                color: var(--light-grey);
+                font-size: 0.9rem;
+                font-style: italic;
+              "
+            >
+              Currently in beta testing at Kitchen De Royale, Anambra.
+            </p>
+          </div>
+
+          <div class="product-mockup">
+            <div class="phone-frame">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <div style="text-align: center; padding: 20px 0">
+                  <div style="font-size: 2rem; margin-bottom: 8px">👋</div>
+                  <h3
+                    style="
+                      font-size: 1.2rem;
+                      color: var(--near-black);
+                      margin-bottom: 4px;
+                    "
+                  >
+                    Hi! I'm Ada
+                  </h3>
+                  <p
+                    style="
+                      font-size: 0.8rem;
+                      color: var(--sage-green);
+                      margin-bottom: 16px;
+                    "
+                  >
+                    Your Virtual Waitress
+                  </p>
+
+                  <div
+                    style="
+                      background: var(--off-white);
+                      border: 1px solid var(--border-light);
+                      border-radius: 12px;
+                      padding: 12px;
+                      margin: 16px 0;
+                      text-align: left;
+                    "
+                  >
+                    <div
+                      style="
+                        font-size: 0.7rem;
+                        color: var(--light-grey);
+                        margin-bottom: 4px;
+                      "
+                    >
+                      POPULAR
+                    </div>
+                    <div
+                      style="
+                        font-weight: 600;
+                        color: var(--near-black);
+                        margin-bottom: 2px;
+                      "
+                    >
+                      Jollof Rice
+                    </div>
+                    <div style="font-size: 0.65rem; color: var(--sage-green)">
+                      ₦2,500
+                    </div>
+                  </div>
+
+                  <div
+                    style="
+                      background: var(--off-white);
+                      border: 1px solid var(--border-light);
+                      border-radius: 12px;
+                      padding: 12px;
+                      margin: 16px 0;
+                      text-align: left;
+                    "
+                  >
+                    <div
+                      style="
+                        font-size: 0.7rem;
+                        color: var(--light-grey);
+                        margin-bottom: 4px;
+                      "
+                    >
+                      CHEF'S SPECIAL
+                    </div>
+                    <div
+                      style="
+                        font-weight: 600;
+                        color: var(--near-black);
+                        margin-bottom: 2px;
+                      "
+                    >
+                      Pepper Soup
+                    </div>
+                    <div style="font-size: 0.65rem; color: var(--sage-green)">
+                      ₦3,000
+                    </div>
+                  </div>
+
+                  <div
+                    style="
+                      margin-top: 20px;
+                      padding: 10px;
+                      background: var(--orange-accent);
+                      color: white;
+                      border-radius: 8px;
+                      font-weight: 600;
+                      font-size: 0.75rem;
+                    "
+                  >
+                    Order Now
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="content-wrapper" style="margin-top: 80px">
+          <h2
+            class="text-center animate-on-scroll fade-up"
+            style="margin-bottom: 48px"
+          >
+            Why Restaurant Owners Love It
+          </h2>
+
+          <div class="grid-2x2 stagger-container">
+            <div class="card animate-on-scroll fade-up">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+              </div>
+              <h3>Faster Service</h3>
+              <p>
+                Customers order instantly from their phones. No waiting for a
+                waiter. Orders go straight to the kitchen.
+              </p>
+            </div>
+
+            <div class="card animate-on-scroll fade-up">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24">
+                  <line x1="12" y1="1" x2="12" y2="23"></line>
+                  <path
+                    d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
+                  ></path>
+                </svg>
+              </div>
+              <h3>Higher Revenue</h3>
+              <p>
+                Customers browse at their own pace. Clear photos and
+                descriptions increase order values.
+              </p>
+            </div>
+
+            <div class="card animate-on-scroll fade-up">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+              <h3>Less Staff Stress</h3>
+              <p>
+                Your waiters focus on hospitality, not taking orders. Fewer
+                mistakes. Happier staff.
+              </p>
+            </div>
+
+            <div class="card animate-on-scroll fade-up">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24">
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                </svg>
+              </div>
+              <h3>Premium Experience</h3>
+              <p>
+                Give customers a modern, contactless ordering experience. Stand
+                out from other restaurants.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- How It Works -->
+        <div class="content-wrapper" style="margin-top: 80px">
+          <h2
+            class="text-center animate-on-scroll fade-up"
+            style="margin-bottom: 48px"
+          >
+            How It Works (Simple)
+          </h2>
+
+          <div class="grid-3 stagger-container">
+            <div class="text-center animate-on-scroll fade-up">
+              <div style="font-size: 3rem; margin-bottom: 16px">📱</div>
+              <h3>1. Scan QR Code</h3>
+              <p>Customer scans the QR code on their table with their phone.</p>
+            </div>
+
+            <div class="text-center animate-on-scroll fade-up">
+              <div style="font-size: 3rem; margin-bottom: 16px">🍽️</div>
+              <h3>2. Browse & Order</h3>
+              <p>They meet Ada, browse your menu, and place their order.</p>
+            </div>
+
+            <div class="text-center animate-on-scroll fade-up">
+              <div style="font-size: 3rem; margin-bottom: 16px">✓</div>
+              <h3>3. Order Received</h3>
+              <p>
+                Order goes directly to your kitchen. Customer gets confirmation.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Waitlist Section -->
+        <div
+          id="waitlist"
+          class="content-wrapper text-center"
+          style="
+            margin-top: 100px;
+            padding: 60px 40px;
+            background: var(--near-black);
+            border-radius: 20px;
+          "
+        >
+          <h2
+            class="animate-on-scroll fade-up"
+            style="color: var(--off-white); margin-bottom: 16px"
+          >
+            Be The First To Get Virtual Waitress
+          </h2>
+
+          <p
+            class="animate-on-scroll fade-up"
+            style="
+              color: var(--sage-green);
+              font-size: 1.1rem;
+              margin-bottom: 32px;
+            "
+          >
+            Join the waitlist and get notified when we launch. Early adopters
+            get special pricing.
+          </p>
+
+          <form
+            class="waitlist-form animate-on-scroll fade-up"
+            style="max-width: 500px; margin: 0 auto"
+            name="waitlist"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+          >
+            <!-- Netlify Form Setup -->
+            <input type="hidden" name="form-name" value="waitlist" />
+
+            <!-- Honeypot for spam protection -->
+            <p style="display: none">
+              <label
+                >Don't fill this out if you're human: <input name="bot-field"
+              /></label>
+            </p>
+
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter your email address"
+              required
+              aria-label="Email address"
+            />
+            <button type="submit">Notify Me</button>
+          </form>
+
+          <p
+            style="
+              color: var(--light-grey);
+              font-size: 0.85rem;
+              margin-top: 16px;
+            "
+          >
+            ✓ No spam. Just updates about Virtual Waitress.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Future Products Section -->
+    <section class="section section-light" style="background: white">
+      <div class="container">
+        <div class="text-center" style="margin-bottom: 60px">
+          <span
+            class="label animate-on-scroll fade-in"
+            style="color: var(--orange-accent)"
+            >WHAT'S NEXT</span
+          >
+          <h2 class="animate-on-scroll fade-up">More Products Coming Soon</h2>
+          <p
+            class="animate-on-scroll fade-up"
+            style="
+              color: var(--dark-olive);
+              max-width: 600px;
+              margin: 16px auto 0;
+            "
+          >
+            We're not just an agency. We're building a portfolio of digital
+            products that solve real problems for African businesses.
+          </p>
+        </div>
+
+        <div class="grid-2x2 stagger-container">
+          <div class="coming-soon-card animate-on-scroll fade-up">
+            <div style="font-size: 3rem">📦</div>
+            <h3>Inventory Manager</h3>
+            <p>
+              Simple inventory management for small businesses. Track stock. Get
+              low-stock alerts. Export reports.
+            </p>
+            <div
+              style="
+                margin-top: 16px;
+                color: var(--sage-green);
+                font-weight: 600;
+                font-size: 0.9rem;
+              "
+            >
+              In Development
+            </div>
+          </div>
+
+          <div class="coming-soon-card animate-on-scroll fade-up">
+            <div style="font-size: 3rem">💬</div>
+            <h3>QuickQuote</h3>
+            <p>
+              Generate professional business quotes and invoices in seconds.
+              Perfect for Nigerian B2B businesses.
+            </p>
+            <div
+              style="
+                margin-top: 16px;
+                color: var(--sage-green);
+                font-weight: 600;
+                font-size: 0.9rem;
+              "
+            >
+              Concept Stage
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center" style="margin-top: 48px">
+          <p style="color: var(--light-grey); font-style: italic">
+            Have an idea for a product we should build?
+            <a
+              href="contact.html"
+              style="color: var(--orange-accent); font-weight: 600"
+              >Let us know</a
+            >
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section section-orange">
+      <div class="container text-center">
+        <h2
+          class="animate-on-scroll fade-up"
+          style="color: var(--off-white); margin-bottom: 16px"
+        >
+          Want a custom product built for your business?
+        </h2>
+
+        <p
+          class="animate-on-scroll fade-up"
+          style="
+            color: var(--off-white);
+            font-size: 1.2rem;
+            margin-bottom: 32px;
+          "
+        >
+          We build custom digital products and business systems.
+        </p>
+
+        <div class="btn-group" style="justify-content: center">
+          <a href="contact.html" class="btn btn-dark animate-on-scroll fade-up">
+            Discuss Your Idea
+          </a>
+          <a
+            href="services.html#systems"
+            class="btn"
+            style="
+              border: 1px solid white;
+              color: white;
+              background: transparent;
+            "
+          >
+            View Business Systems
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <div class="logo">
+              <span class="logo-main">NgwaNgwa</span>
+              <span class="logo-sub">Digital</span>
+            </div>
+            <p class="footer-tagline">
+              We Build Business Systems<br />
+              That Win Clients.
+            </p>
+          </div>
+
+          <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="portfolio.html">Portfolio</a></li>
+              <li><a href="products.html">Products</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-links">
+            <h4>What We Build</h4>
+            <ul>
+              <li><a href="services.html#websites">Business Websites</a></li>
+              <li><a href="services.html#seo">SEO Optimization</a></li>
+              <li><a href="services.html#systems">Business Systems</a></li>
+              <li><a href="products.html">Virtual Waitress</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-contact">
+            <h4>Get In Touch</h4>
+            <p>📧 ngwangwadigital@gmail.com</p>
+            <p>📱 WhatsApp: +234 707 607 7265</p>
+            <p>📍 Anambra, Nigeria 🌍</p>
+            <p style="margin-top: 12px">
+              <a
+                href="https://instagram.com/ngwangwa.digital"
+                target="_blank"
+                rel="noopener"
+                style="color: var(--orange-accent)"
+              >
+                @ngwangwa.digital
+              </a>
+            </p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2025 NgwaNgwa Digital. Built in Nigeria 🇳🇬</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,218 @@
+/* NgwaNgwa Digital — Scroll Animations */
+
+/* ===== ANIMATION SETUP ===== */
+.animate-on-scroll {
+  opacity: 0;
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+.animate-on-scroll.animated {
+  opacity: 1;
+}
+
+/* ===== ANIMATION VARIANTS ===== */
+
+/* Fade Up */
+.fade-up {
+  transform: translateY(30px);
+}
+
+.fade-up.animated {
+  transform: translateY(0);
+}
+
+/* Fade In */
+.fade-in {
+  opacity: 0;
+}
+
+.fade-in.animated {
+  opacity: 1;
+}
+
+/* Slide from Right */
+.slide-right {
+  transform: translateX(50px);
+  opacity: 0;
+}
+
+.slide-right.animated {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Slide from Left */
+.slide-left {
+  transform: translateX(-50px);
+  opacity: 0;
+}
+
+.slide-left.animated {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Scale Up */
+.scale-up {
+  transform: scale(0.95);
+  opacity: 0;
+}
+
+.scale-up.animated {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* ===== STAGGER ANIMATIONS ===== */
+.stagger-container .animate-on-scroll {
+  transition-delay: 0s;
+}
+
+.stagger-container .animate-on-scroll:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.stagger-container .animate-on-scroll:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.stagger-container .animate-on-scroll:nth-child(3) {
+  transition-delay: 0.3s;
+}
+
+.stagger-container .animate-on-scroll:nth-child(4) {
+  transition-delay: 0.4s;
+}
+
+.stagger-container .animate-on-scroll:nth-child(5) {
+  transition-delay: 0.5s;
+}
+
+.stagger-container .animate-on-scroll:nth-child(6) {
+  transition-delay: 0.6s;
+}
+
+/* ===== PAGE LOAD ANIMATION ===== */
+.page-load-fade {
+  animation: pageLoadFade 0.5s ease 0.3s both;
+}
+
+@keyframes pageLoadFade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== HOVER ANIMATIONS ===== */
+.hover-lift {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+}
+
+.hover-scale {
+  transition: transform 0.2s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.02);
+}
+
+/* ===== BUTTON ANIMATIONS ===== */
+.btn-animated {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-animated::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition:
+    width 0.6s,
+    height 0.6s;
+}
+
+.btn-animated:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* ===== LOADING STATES ===== */
+.loading {
+  position: relative;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.loading::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===== SUCCESS ANIMATION ===== */
+.success-checkmark {
+  animation: successPop 0.5s ease;
+}
+
+@keyframes successPop {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ===== REDUCE MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .animate-on-scroll {
+    opacity: 1;
+    transform: none;
+  }
+}

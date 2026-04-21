@@ -1,0 +1,1103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TechForce Engineering - Industrial Equipment & Services</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --electric-blue: #0066ff;
+        --charcoal: #2c3e50;
+        --white: #ffffff;
+        --light-gray: #ecf0f1;
+        --cyan: #00d9ff;
+        --dark-blue: #001f3f;
+      }
+
+      body {
+        font-family: "Roboto", sans-serif;
+        background: var(--white);
+        color: var(--charcoal);
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Orbitron", sans-serif;
+        font-weight: 700;
+      }
+
+      /* Demo Banner */
+      .demo-banner {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: var(--electric-blue);
+        color: white;
+        padding: 12px 20px;
+        text-align: center;
+        font-size: 0.9rem;
+        font-weight: 600;
+        z-index: 10000;
+        box-shadow: 0 -4px 20px rgba(0, 102, 255, 0.3);
+      }
+
+      .demo-banner a {
+        color: white;
+        text-decoration: underline;
+        margin-left: 8px;
+        font-weight: 700;
+      }
+
+      /* Top Navigation Bar */
+      .top-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 20px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+        border-bottom: 1px solid rgba(0, 102, 255, 0.1);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      }
+
+      .logo {
+        font-family: "Orbitron", sans-serif;
+        font-size: 1.5rem;
+        font-weight: 900;
+        color: var(--electric-blue);
+        text-decoration: none;
+        letter-spacing: 1px;
+      }
+
+      .logo span {
+        color: var(--charcoal);
+        font-weight: 500;
+      }
+
+      .main-nav {
+        display: flex;
+        gap: 40px;
+        list-style: none;
+      }
+
+      .main-nav a {
+        color: var(--charcoal);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.95rem;
+        transition: color 0.3s ease;
+        position: relative;
+        padding: 5px 0;
+      }
+
+      .main-nav a::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: var(--electric-blue);
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+      }
+
+      .main-nav a:hover::before {
+        width: 100%;
+      }
+
+      .main-nav a:hover {
+        color: var(--electric-blue);
+      }
+
+      /* Mobile Menu */
+      .mobile-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+      }
+
+      .mobile-toggle span {
+        width: 25px;
+        height: 3px;
+        background: var(--electric-blue);
+        transition: all 0.3s ease;
+        border-radius: 2px;
+      }
+
+      .mobile-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+      }
+
+      .mobile-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .mobile-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+      }
+
+      .mobile-menu {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 30px;
+        transform: translateY(-120%);
+        transition: transform 0.4s ease;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+      }
+
+      .mobile-menu.active {
+        transform: translateY(0);
+      }
+
+      .mobile-menu ul {
+        list-style: none;
+        text-align: center;
+      }
+
+      .mobile-menu li {
+        margin: 20px 0;
+      }
+
+      .mobile-menu a {
+        color: var(--charcoal);
+        text-decoration: none;
+        font-size: 1.2rem;
+        font-weight: 500;
+      }
+
+      /* Dot Navigation */
+      .dot-nav {
+        position: fixed;
+        right: 30px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 999;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .dot-nav a {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: rgba(0, 102, 255, 0.3);
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .dot-nav a:hover,
+      .dot-nav a.active {
+        background: var(--electric-blue);
+        transform: scale(1.3);
+      }
+
+      .dot-nav a::after {
+        content: attr(data-label);
+        position: absolute;
+        right: 25px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: var(--charcoal);
+        color: white;
+        padding: 5px 12px;
+        border-radius: 4px;
+        font-size: 0.75rem;
+        white-space: nowrap;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+      }
+
+      .dot-nav a:hover::after {
+        opacity: 1;
+      }
+
+      /* Hero Section */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, var(--dark-blue), var(--charcoal));
+        position: relative;
+        overflow: hidden;
+        padding-top: 80px;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background:
+          linear-gradient(90deg, rgba(0, 102, 255, 0.1) 1px, transparent 1px),
+          linear-gradient(rgba(0, 102, 255, 0.1) 1px, transparent 1px);
+        background-size: 50px 50px;
+        opacity: 0.3;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        max-width: 900px;
+        padding: 0 40px;
+      }
+
+      .hero-label {
+        display: inline-block;
+        background: var(--electric-blue);
+        color: white;
+        padding: 8px 20px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 30px;
+        border-radius: 50px;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.5rem, 6vw, 5rem);
+        color: white;
+        line-height: 1.2;
+        margin-bottom: 30px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      .hero h1 .highlight {
+        color: var(--cyan);
+      }
+
+      .hero-description {
+        font-size: 1.2rem;
+        color: var(--light-gray);
+        line-height: 1.8;
+        margin-bottom: 40px;
+      }
+
+      .hero-buttons {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        padding: 16px 40px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.95rem;
+        border-radius: 0;
+        transition: all 0.3s ease;
+        display: inline-block;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-family: "Orbitron", sans-serif;
+        clip-path: polygon(
+          10px 0,
+          100% 0,
+          100% calc(100% - 10px),
+          calc(100% - 10px) 100%,
+          0 100%,
+          0 10px
+        );
+      }
+
+      .btn-primary {
+        background: var(--electric-blue);
+        color: white;
+        border: none;
+        box-shadow: 0 10px 30px rgba(0, 102, 255, 0.3);
+      }
+
+      .btn-primary:hover {
+        background: var(--cyan);
+        transform: translateY(-2px);
+        box-shadow: 0 15px 40px rgba(0, 217, 255, 0.4);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: white;
+        border: 2px solid white;
+      }
+
+      .btn-secondary:hover {
+        background: white;
+        color: var(--charcoal);
+      }
+
+      /* Section */
+      .section {
+        padding: 100px 40px;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 80px;
+      }
+
+      .section-label {
+        color: var(--electric-blue);
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+        display: block;
+      }
+
+      .section h2 {
+        font-size: clamp(2rem, 4vw, 3.5rem);
+        color: var(--charcoal);
+        margin-bottom: 20px;
+        text-transform: uppercase;
+      }
+
+      .section-description {
+        font-size: 1.1rem;
+        color: var(--charcoal);
+        max-width: 700px;
+        margin: 0 auto;
+        line-height: 1.8;
+        opacity: 0.8;
+      }
+
+      /* Services Grid */
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+        margin-top: 60px;
+      }
+
+      .service-card {
+        background: white;
+        padding: 50px 40px;
+        border: 2px solid var(--light-gray);
+        position: relative;
+        overflow: hidden;
+        transition: all 0.4s ease;
+        clip-path: polygon(
+          20px 0,
+          100% 0,
+          100% calc(100% - 20px),
+          calc(100% - 20px) 100%,
+          0 100%,
+          0 20px
+        );
+      }
+
+      .service-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(0, 102, 255, 0.05),
+          transparent
+        );
+        transition: left 0.5s ease;
+      }
+
+      .service-card:hover::before {
+        left: 100%;
+      }
+
+      .service-card:hover {
+        border-color: var(--electric-blue);
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 102, 255, 0.1);
+      }
+
+      .service-number {
+        font-family: "Orbitron", sans-serif;
+        font-size: 4rem;
+        font-weight: 900;
+        color: rgba(0, 102, 255, 0.1);
+        line-height: 1;
+        margin-bottom: 20px;
+      }
+
+      .service-card h3 {
+        font-size: 1.5rem;
+        color: var(--charcoal);
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .service-card p {
+        color: var(--charcoal);
+        line-height: 1.7;
+        opacity: 0.8;
+        margin-bottom: 20px;
+      }
+
+      .service-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .tag {
+        background: var(--electric-blue);
+        color: white;
+        padding: 6px 14px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        clip-path: polygon(
+          5px 0,
+          100% 0,
+          100% calc(100% - 5px),
+          calc(100% - 5px) 100%,
+          0 100%,
+          0 5px
+        );
+      }
+
+      /* Stats Section */
+      .stats-section {
+        background: linear-gradient(135deg, var(--electric-blue), var(--cyan));
+        padding: 80px 40px;
+        margin: 80px 0;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 50px;
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .stat-item {
+        color: white;
+      }
+
+      .stat-number {
+        font-family: "Orbitron", sans-serif;
+        font-size: 4rem;
+        font-weight: 900;
+        line-height: 1;
+        margin-bottom: 15px;
+      }
+
+      .stat-label {
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 500;
+        opacity: 0.9;
+      }
+
+      /* Equipment Grid */
+      .equipment-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+        margin-top: 60px;
+      }
+
+      .equipment-item {
+        background: var(--light-gray);
+        padding: 40px 30px;
+        text-align: center;
+        transition: all 0.3s ease;
+        clip-path: polygon(
+          15px 0,
+          100% 0,
+          100% calc(100% - 15px),
+          calc(100% - 15px) 100%,
+          0 100%,
+          0 15px
+        );
+      }
+
+      .equipment-item:hover {
+        background: var(--charcoal);
+        color: white;
+        transform: scale(1.05);
+      }
+
+      .equipment-icon {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+        display: block;
+      }
+
+      .equipment-item h4 {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .equipment-item p {
+        font-size: 0.85rem;
+        opacity: 0.7;
+      }
+
+      /* Contact Section */
+      .contact-section {
+        background: var(--charcoal);
+        padding: 100px 40px;
+        color: white;
+        text-align: center;
+      }
+
+      .contact-section h2 {
+        color: white;
+        margin-bottom: 30px;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        max-width: 1000px;
+        margin: 50px auto;
+      }
+
+      .contact-card {
+        background: rgba(255, 255, 255, 0.05);
+        border: 2px solid rgba(0, 102, 255, 0.3);
+        padding: 35px 25px;
+        clip-path: polygon(
+          15px 0,
+          100% 0,
+          100% calc(100% - 15px),
+          calc(100% - 15px) 100%,
+          0 100%,
+          0 15px
+        );
+        transition: all 0.3s ease;
+      }
+
+      .contact-card:hover {
+        background: rgba(0, 102, 255, 0.1);
+        border-color: var(--cyan);
+        transform: translateY(-5px);
+      }
+
+      .contact-card strong {
+        display: block;
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+        color: var(--cyan);
+        font-family: "Orbitron", sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .contact-card span {
+        color: var(--light-gray);
+      }
+
+      /* Footer */
+      .footer {
+        background: var(--dark-blue);
+        color: var(--light-gray);
+        padding: 60px 40px 30px;
+        text-align: center;
+      }
+
+      .footer-logo {
+        font-family: "Orbitron", sans-serif;
+        font-size: 1.8rem;
+        font-weight: 900;
+        color: var(--cyan);
+        margin-bottom: 20px;
+        letter-spacing: 2px;
+      }
+
+      .footer p {
+        opacity: 0.7;
+        font-size: 0.9rem;
+      }
+
+      /* Mobile Responsive */
+      @media (max-width: 1024px) {
+        .dot-nav {
+          display: none;
+        }
+
+        .main-nav {
+          display: none;
+        }
+
+        .mobile-toggle {
+          display: flex;
+        }
+
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .stats-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 40px;
+        }
+
+        .equipment-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .section {
+          padding: 60px 30px;
+        }
+
+        .hero {
+          padding-top: 100px;
+        }
+
+        .hero-content {
+          padding: 0 20px;
+        }
+
+        .hero-buttons {
+          flex-direction: column;
+        }
+
+        .btn {
+          width: 100%;
+          text-align: center;
+        }
+
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .stats-section {
+          padding: 60px 30px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .stats-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .equipment-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .service-number {
+          font-size: 3rem;
+        }
+
+        .stat-number {
+          font-size: 3rem;
+        }
+      }
+    </style>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const toggle = document.querySelector(".mobile-toggle");
+        const mobileMenu = document.querySelector(".mobile-menu");
+        const mobileLinks = document.querySelectorAll(".mobile-menu a");
+
+        toggle.addEventListener("click", () => {
+          toggle.classList.toggle("active");
+          mobileMenu.classList.toggle("active");
+        });
+
+        mobileLinks.forEach((link) => {
+          link.addEventListener("click", () => {
+            toggle.classList.remove("active");
+            mobileMenu.classList.remove("active");
+          });
+        });
+
+        // Dot navigation active state
+        const sections = document.querySelectorAll("section[id]");
+        const dotLinks = document.querySelectorAll(".dot-nav a");
+
+        window.addEventListener("scroll", () => {
+          let current = "";
+          sections.forEach((section) => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (scrollY >= sectionTop - 200) {
+              current = section.getAttribute("id");
+            }
+          });
+
+          dotLinks.forEach((link) => {
+            link.classList.remove("active");
+            if (link.getAttribute("href") === `#${current}`) {
+              link.classList.add("active");
+            }
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <!-- Demo Banner -->
+    <div class="demo-banner">
+      🎨 This is a demo website built by NgwaNgwa Digital.
+      <a href="../contact.html">Want one like this? Contact us →</a>
+    </div>
+
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+      <a href="#" class="logo">TECH<span>FORCE</span></a>
+
+      <ul class="main-nav">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#equipment">Equipment</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="mobile-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#equipment">Equipment</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Dot Navigation -->
+    <div class="dot-nav">
+      <a href="#services" data-label="Services"></a>
+      <a href="#equipment" data-label="Equipment"></a>
+      <a href="#projects" data-label="Projects"></a>
+      <a href="#contact" data-label="Contact"></a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-label">ENGINEERING EXCELLENCE</div>
+
+        <h1>
+          Industrial Equipment<br />
+          <span class="highlight">Sales & Service</span>
+        </h1>
+
+        <p class="hero-description">
+          Your trusted partner for industrial machinery, engineering solutions,
+          and technical services across Nigeria. From generators to heavy
+          equipment.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#contact" class="btn btn-primary">Get a Quote</a>
+          <a href="#services" class="btn btn-secondary">Our Services</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <div class="stats-section">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">15+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">500+</div>
+          <div class="stat-label">Projects Done</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">200+</div>
+          <div class="stat-label">Happy Clients</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">24/7</div>
+          <div class="stat-label">Support</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+      <div class="section-header">
+        <span class="section-label">WHAT WE DO</span>
+        <h2>Engineering Services</h2>
+        <p class="section-description">
+          Comprehensive engineering solutions for industrial, commercial, and
+          residential projects.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-number">01</div>
+          <h3>Equipment Sales</h3>
+          <p>
+            We supply industrial generators, compressors, welding machines,
+            pumps, and other heavy equipment from trusted brands. New and fairly
+            used options available.
+          </p>
+          <div class="service-tags">
+            <span class="tag">Generators</span>
+            <span class="tag">Compressors</span>
+            <span class="tag">Welding</span>
+            <span class="tag">Pumps</span>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-number">02</div>
+          <h3>Maintenance & Repairs</h3>
+          <p>
+            Scheduled maintenance, emergency repairs, and servicing for all
+            types of industrial equipment. Our technicians are trained and
+            certified.
+          </p>
+          <div class="service-tags">
+            <span class="tag">Preventive</span>
+            <span class="tag">Emergency</span>
+            <span class="tag">Overhaul</span>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-number">03</div>
+          <h3>Engineering Consulting</h3>
+          <p>
+            Technical consultations, project planning, feasibility studies, and
+            equipment recommendations for your industrial projects.
+          </p>
+          <div class="service-tags">
+            <span class="tag">Planning</span>
+            <span class="tag">Feasibility</span>
+            <span class="tag">Support</span>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-number">04</div>
+          <h3>Installation Services</h3>
+          <p>
+            Professional installation of generators, HVAC systems, electrical
+            panels, and industrial machinery. Fully tested and commissioned.
+          </p>
+          <div class="service-tags">
+            <span class="tag">Installation</span>
+            <span class="tag">HVAC</span>
+            <span class="tag">Commission</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Equipment Section -->
+    <section id="equipment" class="section">
+      <div class="section-header">
+        <span class="section-label">EQUIPMENT CATALOG</span>
+        <h2>Available Equipment</h2>
+        <p class="section-description">
+          Browse our selection of industrial equipment. Contact us for
+          specifications and pricing.
+        </p>
+      </div>
+
+      <div class="equipment-grid">
+        <div class="equipment-item">
+          <span class="equipment-icon">🔌</span>
+          <h4>Diesel Generators</h4>
+          <p>10KVA - 500KVA</p>
+        </div>
+
+        <div class="equipment-item">
+          <span class="equipment-icon">💨</span>
+          <h4>Air Compressors</h4>
+          <p>Portable & Stationary</p>
+        </div>
+
+        <div class="equipment-item">
+          <span class="equipment-icon">⚡</span>
+          <h4>Welding Machines</h4>
+          <p>Arc, TIG, MIG</p>
+        </div>
+
+        <div class="equipment-item">
+          <span class="equipment-icon">💧</span>
+          <h4>Water Pumps</h4>
+          <p>All Types</p>
+        </div>
+
+        <div class="equipment-item">
+          <span class="equipment-icon">🔥</span>
+          <h4>Industrial Boilers</h4>
+          <p>Steam & Hot Water</p>
+        </div>
+
+        <div class="equipment-item">
+          <span class="equipment-icon">🏭</span>
+          <h4>Factory Equipment</h4>
+          <p>Conveyors, Mixers</p>
+        </div>
+
+        <div class="equipment-item">
+          <span class="equipment-icon">🔩</span>
+          <h4>Workshop Tools</h4>
+          <p>Drills, Grinders</p>
+        </div>
+
+        <div class="equipment-item">
+          <span class="equipment-icon">📐</span>
+          <h4>Precision Tools</h4>
+          <p>Measurement</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+      <div class="section-header">
+        <span class="section-label">CASE STUDIES</span>
+        <h2>Recent Projects</h2>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-number">#1</div>
+          <h3>Factory Power Solution</h3>
+          <p>
+            Supplied and installed 3 x 250KVA generators for a manufacturing
+            plant in Onitsha. Includes automatic changeover system and
+            synchronization panel.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-number">#2</div>
+          <h3>Hotel HVAC System</h3>
+          <p>
+            Complete HVAC installation for a 40-room hotel in Abuja. Central air
+            conditioning with individual room controls.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-number">#3</div>
+          <h3>Maintenance Contract</h3>
+          <p>
+            Monthly maintenance services for a logistics company's fleet of
+            generators and industrial equipment across 5 locations.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-number">#4</div>
+          <h3>Equipment Upgrade</h3>
+          <p>
+            Replaced outdated machinery with modern equipment for a food
+            processing facility. Increased production efficiency by 40%.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+      <h2>Need Equipment or Technical Support?</h2>
+      <p style="font-size: 1.2rem; margin-bottom: 50px; opacity: 0.9">
+        Contact our engineering team for quotes, consultations, or emergency
+        support.
+      </p>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <strong>📧 Email</strong>
+          <span>info@techforceeng.com.ng</span>
+        </div>
+
+        <div class="contact-card">
+          <strong>📱 Phone</strong>
+          <span>+234 802 XXX XXXX</span>
+        </div>
+
+        <div class="contact-card">
+          <strong>🚨 Emergency</strong>
+          <span>+234 803 XXX XXXX (24/7)</span>
+        </div>
+
+        <div class="contact-card">
+          <strong>📍 Location</strong>
+          <span>Onitsha, Anambra State</span>
+        </div>
+      </div>
+
+      <a
+        href="../contact.html"
+        class="btn btn-primary"
+        style="margin-top: 50px"
+      >
+        Get a Custom Website Like This
+      </a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-logo">TECHFORCE</div>
+      <p style="margin-bottom: 15px">
+        Industrial Equipment Sales & Engineering Services
+      </p>
+      <p>© 2026 TechForce Engineering. Demo website by NgwaNgwa Digital</p>
+    </footer>
+  </body>
+</html>

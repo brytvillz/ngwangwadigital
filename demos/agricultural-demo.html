@@ -1,0 +1,1000 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AgroExport Nigeria - Premium Agricultural Products</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Open+Sans:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --forest-green: #2d5016;
+        --warm-beige: #f5e6d3;
+        --terracotta: #e07a5f;
+        --cream: #fff8f0;
+        --dark-brown: #4a3c2e;
+        --sage: #8ba888;
+      }
+
+      body {
+        font-family: "Open Sans", sans-serif;
+        background: var(--cream);
+        color: var(--dark-brown);
+        line-height: 1.6;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "Merriweather", serif;
+        font-weight: 700;
+      }
+
+      /* Demo Banner */
+      .demo-banner {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: var(--terracotta);
+        color: white;
+        padding: 12px 20px;
+        text-align: center;
+        font-size: 0.9rem;
+        font-weight: 600;
+        z-index: 10000;
+      }
+
+      .demo-banner a {
+        color: white;
+        text-decoration: underline;
+        margin-left: 8px;
+      }
+
+      /* Sidebar Navigation */
+      .sidebar-nav {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 280px;
+        height: 100vh;
+        background: var(--forest-green);
+        padding: 40px 30px;
+        z-index: 999;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .sidebar-logo {
+        font-size: 1.8rem;
+        font-family: "Merriweather", serif;
+        color: var(--warm-beige);
+        margin-bottom: 50px;
+        line-height: 1.2;
+      }
+
+      .sidebar-logo small {
+        display: block;
+        font-size: 0.9rem;
+        color: var(--sage);
+        font-weight: 300;
+        margin-top: 8px;
+      }
+
+      .sidebar-menu {
+        list-style: none;
+        flex-grow: 1;
+      }
+
+      .sidebar-menu li {
+        margin-bottom: 25px;
+      }
+
+      .sidebar-menu a {
+        color: var(--warm-beige);
+        text-decoration: none;
+        font-size: 1.05rem;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 0;
+        transition: all 0.3s ease;
+        border-left: 3px solid transparent;
+        padding-left: 15px;
+        margin-left: -15px;
+      }
+
+      .sidebar-menu a:hover {
+        color: var(--terracotta);
+        border-left-color: var(--terracotta);
+      }
+
+      .sidebar-footer {
+        padding-top: 30px;
+        border-top: 1px solid rgba(245, 230, 211, 0.2);
+        color: var(--sage);
+        font-size: 0.85rem;
+      }
+
+      /* Mobile Hamburger */
+      .mobile-toggle {
+        display: none;
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 1001;
+        background: var(--forest-green);
+        padding: 12px;
+        border-radius: 8px;
+        cursor: pointer;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .mobile-toggle span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background: var(--warm-beige);
+        margin: 5px 0;
+        transition: all 0.3s ease;
+        border-radius: 2px;
+      }
+
+      .mobile-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(7px, 7px);
+      }
+
+      .mobile-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .mobile-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+      }
+
+      .sidebar-nav.mobile-active {
+        left: 0 !important;
+      }
+
+      /* Main Content */
+      .main-content {
+        margin-left: 280px;
+        min-height: 100vh;
+      }
+
+      /* Hero Section - Split Design */
+      .hero {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        min-height: 100vh;
+        position: relative;
+      }
+
+      .hero-left {
+        background: linear-gradient(135deg, var(--forest-green), #1a3a0f);
+        padding: 80px 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-left::before {
+        content: "🌾";
+        position: absolute;
+        font-size: 20rem;
+        opacity: 0.05;
+        right: -50px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .hero-label {
+        color: var(--terracotta);
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        color: var(--warm-beige);
+        line-height: 1.2;
+        margin-bottom: 30px;
+      }
+
+      .hero-description {
+        color: var(--sage);
+        font-size: 1.2rem;
+        line-height: 1.8;
+        margin-bottom: 40px;
+        max-width: 500px;
+      }
+
+      .hero-stats {
+        display: flex;
+        gap: 50px;
+        margin-top: 50px;
+      }
+
+      .hero-stat {
+        text-align: left;
+      }
+
+      .hero-stat-number {
+        font-size: 3rem;
+        font-weight: 700;
+        color: var(--terracotta);
+        line-height: 1;
+        margin-bottom: 8px;
+      }
+
+      .hero-stat-label {
+        color: var(--sage);
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .hero-right {
+        background: url("https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=1200&q=80")
+          center/cover;
+        position: relative;
+      }
+
+      .hero-right::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(45, 80, 22, 0.3),
+          rgba(224, 122, 95, 0.2)
+        );
+      }
+
+      .cta-group {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        padding: 16px 35px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.95rem;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+        display: inline-block;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .btn-primary {
+        background: var(--terracotta);
+        color: white;
+        border: 2px solid var(--terracotta);
+      }
+
+      .btn-primary:hover {
+        background: transparent;
+        color: var(--terracotta);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: var(--warm-beige);
+        border: 2px solid var(--warm-beige);
+      }
+
+      .btn-secondary:hover {
+        background: var(--warm-beige);
+        color: var(--forest-green);
+      }
+
+      /* Section */
+      .section {
+        padding: 100px 60px;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 70px;
+      }
+
+      .section-label {
+        color: var(--terracotta);
+        font-size: 0.9rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+        display: block;
+      }
+
+      .section h2 {
+        font-size: clamp(2rem, 4vw, 3.5rem);
+        color: var(--forest-green);
+        margin-bottom: 20px;
+      }
+
+      .section-description {
+        font-size: 1.1rem;
+        color: var(--dark-brown);
+        max-width: 700px;
+        margin: 0 auto;
+        line-height: 1.8;
+      }
+
+      /* Products Masonry Grid */
+      .products-masonry {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+      }
+
+      .product-card {
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(45, 80, 22, 0.1);
+        transition: all 0.4s ease;
+        position: relative;
+      }
+
+      .product-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 50px rgba(45, 80, 22, 0.2);
+      }
+
+      .product-image {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+      }
+
+      .product-content {
+        padding: 30px;
+      }
+
+      .product-tag {
+        display: inline-block;
+        background: var(--forest-green);
+        color: var(--warm-beige);
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 15px;
+      }
+
+      .product-card h3 {
+        font-size: 1.5rem;
+        color: var(--forest-green);
+        margin-bottom: 12px;
+      }
+
+      .product-card p {
+        color: var(--dark-brown);
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      /* Certifications */
+      .cert-section {
+        background: var(--forest-green);
+        padding: 80px 60px;
+        text-align: center;
+      }
+
+      .cert-section h2 {
+        color: var(--warm-beige);
+        margin-bottom: 50px;
+      }
+
+      .cert-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 25px;
+        justify-content: center;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .cert-badge {
+        background: rgba(245, 230, 211, 0.1);
+        border: 2px solid var(--sage);
+        padding: 18px 30px;
+        border-radius: 50px;
+        color: var(--warm-beige);
+        font-weight: 600;
+        font-size: 0.95rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        transition: all 0.3s ease;
+      }
+
+      .cert-badge:hover {
+        background: var(--terracotta);
+        border-color: var(--terracotta);
+        transform: scale(1.05);
+      }
+
+      /* Wave Divider */
+      .wave-divider {
+        width: 100%;
+        height: 80px;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120'%3E%3Cpath fill='%232D5016' d='M0,0V46.29c0,0,297.76,96.13,600,0C898.76,142.42,1200,46.29,1200,46.29V0Z'%3E%3C/path%3E%3C/svg%3E")
+          no-repeat center;
+        background-size: cover;
+        margin-top: -1px;
+      }
+
+      /* Contact Section */
+      .contact-section {
+        background: linear-gradient(135deg, var(--terracotta), #d4654a);
+        padding: 100px 60px;
+        color: white;
+        text-align: center;
+      }
+
+      .contact-section h2 {
+        color: white;
+        margin-bottom: 30px;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+        max-width: 1000px;
+        margin: 50px auto;
+      }
+
+      .contact-card {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        padding: 30px;
+        border-radius: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .contact-card strong {
+        display: block;
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+      }
+
+      /* Footer */
+      .footer {
+        background: var(--dark-brown);
+        color: var(--warm-beige);
+        text-align: center;
+        padding: 50px 60px 30px;
+      }
+
+      .footer-logo {
+        font-size: 1.5rem;
+        font-family: "Merriweather", serif;
+        margin-bottom: 20px;
+      }
+
+      .footer p {
+        color: var(--sage);
+        font-size: 0.9rem;
+      }
+
+      /* Mobile Responsive */
+      @media (max-width: 1024px) {
+        .sidebar-nav {
+          left: -280px;
+          transition: left 0.3s ease;
+        }
+
+        .mobile-toggle {
+          display: block;
+        }
+
+        .main-content {
+          margin-left: 0;
+        }
+
+        .hero {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-right {
+          min-height: 300px;
+        }
+
+        .section {
+          padding: 60px 30px;
+        }
+
+        .hero-left {
+          padding: 60px 30px;
+        }
+
+        .products-masonry {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-stats {
+          flex-direction: column;
+          gap: 30px;
+        }
+
+        .cta-group {
+          flex-direction: column;
+        }
+
+        .btn {
+          width: 100%;
+          text-align: center;
+        }
+
+        .cert-section,
+        .contact-section {
+          padding: 60px 30px;
+        }
+
+        .footer {
+          padding: 40px 30px 25px;
+        }
+      }
+    </style>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const toggle = document.querySelector(".mobile-toggle");
+        const sidebar = document.querySelector(".sidebar-nav");
+        const sidebarLinks = document.querySelectorAll(".sidebar-menu a");
+
+        toggle.addEventListener("click", () => {
+          toggle.classList.toggle("active");
+          sidebar.classList.toggle("mobile-active");
+        });
+
+        sidebarLinks.forEach((link) => {
+          link.addEventListener("click", () => {
+            if (window.innerWidth <= 1024) {
+              toggle.classList.remove("active");
+              sidebar.classList.remove("mobile-active");
+            }
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <!-- Demo Banner -->
+    <div class="demo-banner">
+      🎨 This is a demo website built by NgwaNgwa Digital.
+      <a href="../contact.html">Want one like this? Contact us →</a>
+    </div>
+
+    <!-- Mobile Toggle -->
+    <div class="mobile-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar-nav">
+      <div class="sidebar-logo">
+        AgroExport<br />Nigeria
+        <small>Premium Agricultural Products</small>
+      </div>
+
+      <ul class="sidebar-menu">
+        <li><a href="#products">🌾 Products</a></li>
+        <li><a href="#certifications">✓ Certifications</a></li>
+        <li><a href="#export">📦 Export Info</a></li>
+        <li><a href="#contact">📧 Contact</a></li>
+      </ul>
+
+      <div class="sidebar-footer">
+        Connecting African<br />
+        farms to global markets
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="hero-left">
+          <div class="hero-label">EXPORT QUALITY</div>
+
+          <h1>
+            Premium Nigerian<br />
+            Agricultural Products
+          </h1>
+
+          <p class="hero-description">
+            Connecting African farms to global markets. We export high-quality
+            ginger, sesame seeds, cashew nuts, and more to buyers worldwide.
+          </p>
+
+          <div class="cta-group">
+            <a href="#contact" class="btn btn-primary">Request Quote</a>
+            <a href="#products" class="btn btn-secondary">View Products</a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <div class="hero-stat-number">25+</div>
+              <div class="hero-stat-label">Countries</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat-number">500+</div>
+              <div class="hero-stat-label">Tons Yearly</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat-number">ISO</div>
+              <div class="hero-stat-label">Certified</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-right"></div>
+      </section>
+
+      <!-- Products Section -->
+      <section id="products" class="section">
+        <div class="section-header">
+          <span class="section-label">OUR PRODUCTS</span>
+          <h2>Export-Grade Agricultural Products</h2>
+          <p class="section-description">
+            All products are carefully sourced, processed, and packaged to meet
+            international export standards.
+          </p>
+        </div>
+
+        <div class="products-masonry">
+          <div class="product-card">
+            <img
+              src="https://images.unsplash.com/photo-1615485500704-8e990f9900f7?w=600&q=80"
+              alt="Fresh Ginger"
+              class="product-image"
+            />
+            <div class="product-content">
+              <span class="product-tag">Top Seller</span>
+              <h3>Fresh Ginger</h3>
+              <p>
+                Premium quality Nigerian ginger. Rich in flavor and high in
+                gingerol content. Available in bulk quantities for international
+                buyers.
+              </p>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <img
+              src="https://images.unsplash.com/photo-1509358271058-acd22cc93898?w=600&q=80"
+              alt="Cashew Nuts"
+              class="product-image"
+            />
+            <div class="product-content">
+              <span class="product-tag">Premium</span>
+              <h3>Cashew Nuts</h3>
+              <p>
+                Raw cashew nuts from Nigerian farms. Perfect for processing or
+                direct consumption. W320, W240 grades available.
+              </p>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <img
+              src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=600&q=80"
+              alt="Sesame Seeds"
+              class="product-image"
+            />
+            <div class="product-content">
+              <span class="product-tag">Certified</span>
+              <h3>Sesame Seeds</h3>
+              <p>
+                White and brown sesame seeds. High oil content, low moisture.
+                Cleaned and sorted to export specifications.
+              </p>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <img
+              src="https://images.unsplash.com/photo-1589927986089-35812376d4a4?w=600&q=80"
+              alt="Dried Hibiscus"
+              class="product-image"
+            />
+            <div class="product-content">
+              <span class="product-tag">Organic</span>
+              <h3>Dried Hibiscus</h3>
+              <p>
+                Premium zobo leaves (hibiscus sabdariffa). Bright red, clean,
+                and properly dried for maximum shelf life.
+              </p>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <img
+              src="https://images.unsplash.com/photo-1608797178974-15b35a64ede9?w=600&q=80"
+              alt="Groundnuts"
+              class="product-image"
+            />
+            <div class="product-content">
+              <span class="product-tag">Bulk Available</span>
+              <h3>Groundnuts</h3>
+              <p>
+                High-quality groundnuts (peanuts) in shell or shelled. Suitable
+                for oil extraction or direct consumption.
+              </p>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <img
+              src="https://images.unsplash.com/photo-1587049332773-5f4e4fe14322?w=600&q=80"
+              alt="Palm Kernel"
+              class="product-image"
+            />
+            <div class="product-content">
+              <span class="product-tag">Sustainable</span>
+              <h3>Palm Kernel</h3>
+              <p>
+                Palm kernel nuts and cake. Sourced from sustainable farms. Used
+                in oil production and animal feed.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Wave Divider -->
+      <div class="wave-divider"></div>
+
+      <!-- Certifications Section -->
+      <section id="certifications" class="cert-section">
+        <h2>Certifications & Standards</h2>
+        <p
+          style="
+            color: var(--sage);
+            font-size: 1.1rem;
+            margin-bottom: 50px;
+            max-width: 700px;
+            margin: 0 auto 50px;
+          "
+        >
+          We maintain the highest quality standards and hold all necessary
+          certifications for international agricultural export.
+        </p>
+
+        <div class="cert-grid">
+          <div class="cert-badge">✓ ISO 9001:2015</div>
+          <div class="cert-badge">✓ NAFDAC Certified</div>
+          <div class="cert-badge">✓ SON Certified</div>
+          <div class="cert-badge">✓ Phytosanitary Certificate</div>
+          <div class="cert-badge">✓ Certificate of Origin</div>
+          <div class="cert-badge">✓ Fumigation Certificate</div>
+        </div>
+      </section>
+
+      <!-- Export Info Section -->
+      <section id="export" class="section">
+        <div class="section-header">
+          <span class="section-label">EXPORT SERVICES</span>
+          <h2>How We Work With Buyers</h2>
+        </div>
+
+        <div class="products-masonry" style="max-width: 1000px; margin: 0 auto">
+          <div
+            style="
+              background: white;
+              padding: 40px;
+              border-radius: 20px;
+              box-shadow: 0 10px 30px rgba(45, 80, 22, 0.1);
+            "
+          >
+            <div
+              style="
+                font-size: 2.5rem;
+                color: var(--terracotta);
+                margin-bottom: 20px;
+              "
+            >
+              01
+            </div>
+            <h3
+              style="
+                color: var(--forest-green);
+                margin-bottom: 15px;
+                font-size: 1.5rem;
+              "
+            >
+              Request a Quote
+            </h3>
+            <p>
+              Send us your product requirements, quantity needed, and
+              destination. We'll provide a detailed quote within 24 hours.
+            </p>
+          </div>
+
+          <div
+            style="
+              background: white;
+              padding: 40px;
+              border-radius: 20px;
+              box-shadow: 0 10px 30px rgba(45, 80, 22, 0.1);
+            "
+          >
+            <div
+              style="
+                font-size: 2.5rem;
+                color: var(--terracotta);
+                margin-bottom: 20px;
+              "
+            >
+              02
+            </div>
+            <h3
+              style="
+                color: var(--forest-green);
+                margin-bottom: 15px;
+                font-size: 1.5rem;
+              "
+            >
+              Quality Inspection
+            </h3>
+            <p>
+              We source the best products and conduct thorough quality checks.
+              You can request third-party inspection if needed.
+            </p>
+          </div>
+
+          <div
+            style="
+              background: white;
+              padding: 40px;
+              border-radius: 20px;
+              box-shadow: 0 10px 30px rgba(45, 80, 22, 0.1);
+            "
+          >
+            <div
+              style="
+                font-size: 2.5rem;
+                color: var(--terracotta);
+                margin-bottom: 20px;
+              "
+            >
+              03
+            </div>
+            <h3
+              style="
+                color: var(--forest-green);
+                margin-bottom: 15px;
+                font-size: 1.5rem;
+              "
+            >
+              Documentation
+            </h3>
+            <p>
+              We handle all export documentation including phytosanitary
+              certificates, certificate of origin, and shipping documents.
+            </p>
+          </div>
+
+          <div
+            style="
+              background: white;
+              padding: 40px;
+              border-radius: 20px;
+              box-shadow: 0 10px 30px rgba(45, 80, 22, 0.1);
+            "
+          >
+            <div
+              style="
+                font-size: 2.5rem;
+                color: var(--terracotta);
+                margin-bottom: 20px;
+              "
+            >
+              04
+            </div>
+            <h3
+              style="
+                color: var(--forest-green);
+                margin-bottom: 15px;
+                font-size: 1.5rem;
+              "
+            >
+              Shipping & Delivery
+            </h3>
+            <p>
+              We arrange shipping via sea freight or air freight. Track your
+              shipment from Lagos to your destination port.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="contact-section">
+        <h2>Ready to Place an Order?</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 50px">
+          Contact our export team for quotes, samples, or any inquiries.
+        </p>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <strong>📧 Email</strong>
+            <span>export@agroexportnigeria.com</span>
+          </div>
+
+          <div class="contact-card">
+            <strong>📱 WhatsApp</strong>
+            <span>+234 805 XXX XXXX</span>
+          </div>
+
+          <div class="contact-card">
+            <strong>📍 Office</strong>
+            <span>Apapa, Lagos, Nigeria</span>
+          </div>
+
+          <div class="contact-card">
+            <strong>🕒 Business Hours</strong>
+            <span>Mon-Fri, 8AM - 5PM WAT</span>
+          </div>
+        </div>
+
+        <a
+          href="../contact.html"
+          class="btn"
+          style="
+            background: white;
+            color: var(--terracotta);
+            border: 2px solid white;
+            margin-top: 30px;
+          "
+        >
+          Get a Custom Website Like This
+        </a>
+      </section>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="footer-logo">AgroExport Nigeria</div>
+        <p style="margin-bottom: 20px">
+          Premium Nigerian Agricultural Products for Global Markets
+        </p>
+        <p>© 2026 AgroExport Nigeria. Demo website by NgwaNgwa Digital</p>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,1167 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apex Manufacturing Ltd - Industrial Excellence</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --navy: #0a1628;
+        --steel: #8b9dc3;
+        --yellow: #ffd60a;
+        --dark-steel: #3d5a80;
+        --light-gray: #edf2f4;
+        --white: #ffffff;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: var(--navy);
+        color: var(--white);
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Rajdhani", sans-serif;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+
+      /* Demo Banner */
+      .demo-banner {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: var(--yellow);
+        color: var(--navy);
+        padding: 12px 20px;
+        text-align: center;
+        font-size: 0.9rem;
+        font-weight: 600;
+        z-index: 10000;
+        box-shadow: 0 -4px 20px rgba(255, 214, 10, 0.3);
+      }
+
+      .demo-banner a {
+        color: var(--navy);
+        text-decoration: underline;
+        margin-left: 8px;
+        font-weight: 700;
+      }
+
+      /* Navigation */
+      .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 20px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+        background: transparent;
+        transition: all 0.3s ease;
+      }
+
+      .nav.scrolled {
+        background: rgba(10, 22, 40, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 15px 40px;
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--white);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .logo span {
+        color: var(--yellow);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 40px;
+        list-style: none;
+      }
+
+      .nav-links a {
+        color: var(--white);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.95rem;
+        transition: color 0.3s ease;
+        position: relative;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--yellow);
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      /* Hamburger Menu */
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 6px;
+        cursor: pointer;
+        z-index: 1001;
+      }
+
+      .hamburger span {
+        width: 28px;
+        height: 3px;
+        background: var(--white);
+        transition: all 0.3s ease;
+        border-radius: 3px;
+      }
+
+      .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(8px, 8px);
+      }
+
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(8px, -8px);
+      }
+
+      /* Mobile Menu */
+      .mobile-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: var(--navy);
+        z-index: 999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: right 0.4s ease;
+      }
+
+      .mobile-menu.active {
+        right: 0;
+      }
+
+      .mobile-menu ul {
+        list-style: none;
+        text-align: center;
+      }
+
+      .mobile-menu li {
+        margin: 30px 0;
+      }
+
+      .mobile-menu a {
+        color: var(--white);
+        text-decoration: none;
+        font-size: 1.8rem;
+        font-weight: 700;
+        font-family: "Rajdhani", sans-serif;
+        transition: color 0.3s ease;
+      }
+
+      .mobile-menu a:hover {
+        color: var(--yellow);
+      }
+
+      /* Hero Section */
+      .hero {
+        min-height: 100vh;
+        position: relative;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+      }
+
+      .hero-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background:
+          linear-gradient(
+            135deg,
+            rgba(10, 22, 40, 0.9),
+            rgba(61, 90, 128, 0.7)
+          ),
+          url("https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1920&q=80")
+            center/cover;
+        z-index: 1;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 40px;
+        width: 100%;
+      }
+
+      .hero-label {
+        display: inline-block;
+        background: var(--yellow);
+        color: var(--navy);
+        padding: 8px 20px;
+        font-weight: 700;
+        font-size: 0.85rem;
+        letter-spacing: 2px;
+        margin-bottom: 30px;
+        text-transform: uppercase;
+      }
+
+      .hero h1 {
+        font-size: clamp(3rem, 8vw, 6rem);
+        line-height: 1.1;
+        margin-bottom: 30px;
+        max-width: 900px;
+      }
+
+      .hero h1 .highlight {
+        color: var(--yellow);
+        display: block;
+      }
+
+      .hero-description {
+        font-size: 1.3rem;
+        line-height: 1.8;
+        color: var(--steel);
+        max-width: 650px;
+        margin-bottom: 40px;
+      }
+
+      .hero-stats {
+        display: flex;
+        gap: 60px;
+        margin-top: 60px;
+      }
+
+      .stat {
+        text-align: left;
+      }
+
+      .stat-number {
+        font-size: 3.5rem;
+        font-weight: 700;
+        color: var(--yellow);
+        line-height: 1;
+        margin-bottom: 10px;
+      }
+
+      .stat-label {
+        font-size: 1rem;
+        color: var(--steel);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 500;
+      }
+
+      .cta-buttons {
+        display: flex;
+        gap: 20px;
+        margin-top: 40px;
+      }
+
+      .btn {
+        padding: 18px 40px;
+        font-size: 1rem;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 0;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: inline-block;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .btn-primary {
+        background: var(--yellow);
+        color: var(--navy);
+        border: 2px solid var(--yellow);
+      }
+
+      .btn-primary:hover {
+        background: transparent;
+        color: var(--yellow);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: var(--white);
+        border: 2px solid var(--white);
+      }
+
+      .btn-secondary:hover {
+        background: var(--white);
+        color: var(--navy);
+      }
+
+      /* About Section */
+      .section {
+        padding: 120px 40px;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .section-dark {
+        background: #050d1a;
+      }
+
+      .section-header {
+        margin-bottom: 80px;
+      }
+
+      .section-label {
+        color: var(--yellow);
+        font-size: 0.9rem;
+        font-weight: 700;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        display: block;
+      }
+
+      .section h2 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        margin-bottom: 30px;
+        line-height: 1.2;
+      }
+
+      .section-description {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        color: var(--steel);
+        max-width: 700px;
+      }
+
+      /* Features Grid */
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+        margin-top: 60px;
+      }
+
+      .feature-card {
+        background: linear-gradient(
+          135deg,
+          rgba(61, 90, 128, 0.1),
+          rgba(139, 157, 195, 0.05)
+        );
+        padding: 50px 40px;
+        border-left: 4px solid var(--yellow);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .feature-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 214, 10, 0.1),
+          transparent
+        );
+        transition: left 0.5s ease;
+      }
+
+      .feature-card:hover::before {
+        left: 100%;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-10px);
+        border-left-color: var(--steel);
+      }
+
+      .feature-icon {
+        font-size: 3rem;
+        margin-bottom: 25px;
+        display: block;
+      }
+
+      .feature-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        color: var(--white);
+      }
+
+      .feature-card p {
+        color: var(--steel);
+        line-height: 1.7;
+        font-size: 1rem;
+      }
+
+      /* Products Section */
+      .products-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        margin-top: 60px;
+      }
+
+      .product-card {
+        background: #050d1a;
+        overflow: hidden;
+        position: relative;
+        height: 400px;
+        cursor: pointer;
+      }
+
+      .product-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .product-card:hover .product-image {
+        transform: scale(1.1);
+      }
+
+      .product-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(
+          to top,
+          rgba(10, 22, 40, 0.95),
+          transparent
+        );
+        padding: 40px;
+        transform: translateY(20px);
+        transition: transform 0.3s ease;
+      }
+
+      .product-card:hover .product-overlay {
+        transform: translateY(0);
+      }
+
+      .product-number {
+        font-size: 0.85rem;
+        color: var(--yellow);
+        font-weight: 700;
+        letter-spacing: 2px;
+        margin-bottom: 10px;
+      }
+
+      .product-overlay h3 {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+        color: var(--white);
+      }
+
+      .product-overlay p {
+        color: var(--steel);
+        line-height: 1.6;
+      }
+
+      .product-tags {
+        display: flex;
+        gap: 10px;
+        margin-top: 20px;
+        flex-wrap: wrap;
+      }
+
+      .tag {
+        background: rgba(255, 214, 10, 0.2);
+        color: var(--yellow);
+        padding: 6px 14px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        border: 1px solid var(--yellow);
+      }
+
+      /* Capabilities Section */
+      .capabilities-list {
+        display: grid;
+        gap: 30px;
+        margin-top: 60px;
+      }
+
+      .capability-item {
+        display: flex;
+        gap: 30px;
+        align-items: start;
+        padding: 40px;
+        background: linear-gradient(
+          135deg,
+          rgba(61, 90, 128, 0.1),
+          rgba(139, 157, 195, 0.05)
+        );
+        transition: all 0.3s ease;
+      }
+
+      .capability-item:hover {
+        background: linear-gradient(
+          135deg,
+          rgba(61, 90, 128, 0.2),
+          rgba(139, 157, 195, 0.1)
+        );
+        transform: translateX(10px);
+      }
+
+      .capability-icon {
+        font-size: 3rem;
+        flex-shrink: 0;
+      }
+
+      .capability-content h3 {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+        color: var(--white);
+      }
+
+      .capability-content p {
+        color: var(--steel);
+        line-height: 1.7;
+        font-size: 1.05rem;
+      }
+
+      /* Contact Section */
+      .contact-section {
+        background: linear-gradient(135deg, var(--yellow), #ffc700);
+        padding: 100px 40px;
+        color: var(--navy);
+      }
+
+      .contact-content {
+        max-width: 1400px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .contact-content h2 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        color: var(--navy);
+        margin-bottom: 30px;
+      }
+
+      .contact-content p {
+        font-size: 1.3rem;
+        margin-bottom: 50px;
+        color: rgba(10, 22, 40, 0.8);
+      }
+
+      .contact-info {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+        max-width: 900px;
+        margin: 0 auto 50px;
+      }
+
+      .contact-item {
+        background: rgba(10, 22, 40, 0.1);
+        padding: 30px;
+        border-radius: 0;
+      }
+
+      .contact-item strong {
+        display: block;
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+        color: var(--navy);
+      }
+
+      .contact-item span {
+        color: rgba(10, 22, 40, 0.7);
+        font-size: 1rem;
+      }
+
+      /* Footer */
+      .footer {
+        background: #000;
+        padding: 80px 40px 40px;
+      }
+
+      .footer-content {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 60px;
+        margin-bottom: 60px;
+      }
+
+      .footer-brand h3 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        color: var(--yellow);
+      }
+
+      .footer-brand p {
+        color: var(--steel);
+        line-height: 1.7;
+        margin-bottom: 30px;
+      }
+
+      .footer-section h4 {
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+        color: var(--white);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .footer-links {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 12px;
+      }
+
+      .footer-links a {
+        color: var(--steel);
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .footer-links a:hover {
+        color: var(--yellow);
+      }
+
+      .footer-bottom {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding-top: 40px;
+        border-top: 1px solid rgba(139, 157, 195, 0.2);
+        text-align: center;
+        color: var(--steel);
+        font-size: 0.9rem;
+      }
+
+      /* Responsive */
+      @media (max-width: 1024px) {
+        .features-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .products-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-content {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .nav {
+          padding: 15px 20px;
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        .hamburger {
+          display: flex;
+        }
+
+        .hero-content {
+          padding: 0 20px;
+        }
+
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero-stats {
+          flex-direction: column;
+          gap: 30px;
+        }
+
+        .cta-buttons {
+          flex-direction: column;
+        }
+
+        .btn {
+          width: 100%;
+          text-align: center;
+        }
+
+        .features-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-content {
+          grid-template-columns: 1fr;
+        }
+
+        .section {
+          padding: 80px 20px;
+        }
+
+        .section h2 {
+          font-size: 2rem;
+        }
+
+        .contact-info {
+          grid-template-columns: 1fr;
+        }
+
+        .feature-card,
+        .capability-item {
+          padding: 30px 20px;
+        }
+
+        .product-card {
+          height: 350px;
+        }
+
+        .mobile-menu a {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
+
+    <script>
+      // Scroll Effect for Nav
+      window.addEventListener("scroll", () => {
+        const nav = document.querySelector(".nav");
+        if (window.scrollY > 100) {
+          nav.classList.add("scrolled");
+        } else {
+          nav.classList.remove("scrolled");
+        }
+      });
+
+      // Mobile Menu Toggle
+      document.addEventListener("DOMContentLoaded", () => {
+        const hamburger = document.querySelector(".hamburger");
+        const mobileMenu = document.querySelector(".mobile-menu");
+        const mobileLinks = document.querySelectorAll(".mobile-menu a");
+
+        hamburger.addEventListener("click", () => {
+          hamburger.classList.toggle("active");
+          mobileMenu.classList.toggle("active");
+          document.body.style.overflow = mobileMenu.classList.contains("active")
+            ? "hidden"
+            : "auto";
+        });
+
+        // Close menu when clicking a link
+        mobileLinks.forEach((link) => {
+          link.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            mobileMenu.classList.remove("active");
+            document.body.style.overflow = "auto";
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <!-- Demo Banner -->
+    <div class="demo-banner">
+      🎨 This is a demo website built by NgwaNgwa Digital.
+      <a href="../contact.html">Want one like this? Contact us →</a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+      <a href="#" class="logo"> APEX<span>MFG</span> </a>
+
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#capabilities">Capabilities</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#capabilities">Capabilities</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+        <div class="hero-label">ESTABLISHED 1998</div>
+
+        <h1>
+          Industrial Manufacturing
+          <span class="highlight">Built for Global Markets</span>
+        </h1>
+
+        <p class="hero-description">
+          Leading manufacturer of precision industrial components, valves, and
+          machinery parts. Serving businesses across Nigeria, Africa, and
+          internationally with ISO-certified quality.
+        </p>
+
+        <div class="cta-buttons">
+          <a href="#contact" class="btn btn-primary">Request Quote</a>
+          <a href="#products" class="btn btn-secondary">View Products</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-number">25+</div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">15+</div>
+            <div class="stat-label">Countries Served</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">500+</div>
+            <div class="stat-label">Tons Yearly</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+      <div class="section-header">
+        <span class="section-label">ABOUT APEX MANUFACTURING</span>
+        <h2>Precision Engineering Excellence</h2>
+        <p class="section-description">
+          With over 25 years of manufacturing excellence, we've built our
+          reputation on delivering high-quality industrial components to
+          demanding markets worldwide.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <span class="feature-icon">🏭</span>
+          <h3>Modern Facility</h3>
+          <p>
+            10,000 sqm state-of-the-art manufacturing plant equipped with CNC
+            machines, precision tools, and quality control systems.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <span class="feature-icon">✓</span>
+          <h3>ISO Certified</h3>
+          <p>
+            ISO 9001:2015 certified quality management ensures every product
+            meets international standards and specifications.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <span class="feature-icon">🌍</span>
+          <h3>Global Export</h3>
+          <p>
+            Export-ready operations with all necessary certifications,
+            documentation, and logistics partnerships for seamless international
+            delivery.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="section section-dark">
+      <div class="section-header">
+        <span class="section-label">PRODUCT LINE</span>
+        <h2>What We Manufacture</h2>
+      </div>
+
+      <div class="products-grid">
+        <div class="product-card">
+          <img
+            src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=800&q=80"
+            alt="Industrial Valves"
+            class="product-image"
+          />
+          <div class="product-overlay">
+            <div class="product-number">01</div>
+            <h3>Industrial Valves</h3>
+            <p>
+              High-pressure ball valves, gate valves, and check valves for oil &
+              gas, water treatment, and chemical processing.
+            </p>
+            <div class="product-tags">
+              <span class="tag">Ball Valves</span>
+              <span class="tag">Gate Valves</span>
+              <span class="tag">Check Valves</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img
+            src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=800&q=80"
+            alt="Pump Components"
+            class="product-image"
+          />
+          <div class="product-overlay">
+            <div class="product-number">02</div>
+            <h3>Pump Components</h3>
+            <p>
+              Precision-engineered pump parts including impellers, seals, and
+              casings for various industrial applications.
+            </p>
+            <div class="product-tags">
+              <span class="tag">Impellers</span>
+              <span class="tag">Seals</span>
+              <span class="tag">Casings</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img
+            src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80"
+            alt="Metal Fabrication"
+            class="product-image"
+          />
+          <div class="product-overlay">
+            <div class="product-number">03</div>
+            <h3>Metal Fabrication</h3>
+            <p>
+              Custom metal fabrication services including cutting, welding,
+              forming, and assembly for structural projects.
+            </p>
+            <div class="product-tags">
+              <span class="tag">Steel</span>
+              <span class="tag">Aluminum</span>
+              <span class="tag">Stainless</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img
+            src="https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=800&q=80"
+            alt="Machinery Parts"
+            class="product-image"
+          />
+          <div class="product-overlay">
+            <div class="product-number">04</div>
+            <h3>Machinery Parts</h3>
+            <p>
+              OEM and custom machinery parts manufactured to exact
+              specifications using CNC machining technology.
+            </p>
+            <div class="product-tags">
+              <span class="tag">CNC Machining</span>
+              <span class="tag">Precision Parts</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Capabilities Section -->
+    <section id="capabilities" class="section">
+      <div class="section-header">
+        <span class="section-label">OUR CAPABILITIES</span>
+        <h2>Why Choose Apex Manufacturing</h2>
+      </div>
+
+      <div class="capabilities-list">
+        <div class="capability-item">
+          <div class="capability-icon">✓</div>
+          <div class="capability-content">
+            <h3>Rigorous Quality Control</h3>
+            <p>
+              Every product undergoes multiple quality checks throughout the
+              manufacturing process. From raw material inspection to final
+              testing, we ensure zero defects and complete compliance with
+              international standards.
+            </p>
+          </div>
+        </div>
+
+        <div class="capability-item">
+          <div class="capability-icon">⚡</div>
+          <div class="capability-content">
+            <h3>Fast Turnaround Time</h3>
+            <p>
+              Average lead time of 2-4 weeks depending on order complexity. Rush
+              orders available for urgent requirements. Our efficient production
+              systems ensure timely delivery without compromising quality.
+            </p>
+          </div>
+        </div>
+
+        <div class="capability-item">
+          <div class="capability-icon">💰</div>
+          <div class="capability-content">
+            <h3>Competitive Pricing</h3>
+            <p>
+              Direct manufacturer pricing with no middlemen. We offer the best
+              value for high-quality industrial components, backed by volume
+              discounts for large orders and long-term partnerships.
+            </p>
+          </div>
+        </div>
+
+        <div class="capability-item">
+          <div class="capability-icon">🔧</div>
+          <div class="capability-content">
+            <h3>Technical Support</h3>
+            <p>
+              Our team of experienced engineers provides technical consultation,
+              custom design services, and ongoing support throughout your
+              project lifecycle. We're partners, not just suppliers.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+      <div class="contact-content">
+        <h2>Ready to Place an Order?</h2>
+        <p>
+          Contact our sales team for quotes, technical specifications, or custom
+          manufacturing requests.
+        </p>
+
+        <div class="contact-info">
+          <div class="contact-item">
+            <strong>📧 Email</strong>
+            <span>sales@apexmfg.com.ng</span>
+          </div>
+
+          <div class="contact-item">
+            <strong>📱 Phone</strong>
+            <span>+234 803 XXX XXXX</span>
+          </div>
+
+          <div class="contact-item">
+            <strong>📍 Location</strong>
+            <span>Industrial Estate, Nnewi, Anambra</span>
+          </div>
+        </div>
+
+        <a
+          href="../contact.html"
+          class="btn"
+          style="
+            background: var(--navy);
+            color: var(--yellow);
+            border: 2px solid var(--navy);
+          "
+        >
+          Get a Custom Website Like This
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h3>APEXMFG</h3>
+          <p>
+            Leading manufacturer of precision industrial components for global
+            markets. Quality you can trust, service you can rely on.
+          </p>
+        </div>
+
+        <div class="footer-section">
+          <h4>Products</h4>
+          <ul class="footer-links">
+            <li><a href="#products">Industrial Valves</a></li>
+            <li><a href="#products">Pump Components</a></li>
+            <li><a href="#products">Metal Fabrication</a></li>
+            <li><a href="#products">Machinery Parts</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#capabilities">Capabilities</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#contact">Certifications</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Support</h4>
+          <ul class="footer-links">
+            <li><a href="#contact">Request Quote</a></li>
+            <li><a href="#contact">Technical Support</a></li>
+            <li><a href="#contact">Quality Assurance</a></li>
+            <li><a href="#contact">Shipping Info</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          © 2026 Apex Manufacturing Ltd. All rights reserved. Demo website by
+          NgwaNgwa Digital
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

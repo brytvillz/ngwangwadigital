@@ -1,0 +1,37 @@
+# Netlify Configuration File
+# https://docs.netlify.com/configure-builds/file-based-configuration/
+
+[build]
+  # No build command needed - pure HTML/CSS/JS
+  publish = "."
+  
+[[redirects]]
+  # Redirect www to non-www (or vice versa)
+  from = "https://www.ngwangwadigital.com/*"
+  to = "https://ngwangwadigital.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  # 404 handling - redirect to home page
+  from = "/*"
+  to = "/index.html"
+  status = 404
+
+[[headers]]
+  # Security headers for all pages
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    
+# Form settings
+[forms]
+  # Spam filter enabled
+  spam_filter = true
+
+# Plugin settings (optional - can add later)
+# [[plugins]]
+#   package = "@netlify/plugin-lighthouse"

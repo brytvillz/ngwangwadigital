@@ -1,0 +1,996 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AutoParts Nigeria - Quality Auto Parts & Accessories</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Nunito:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --red: #dc143c;
+        --black: #1a1a1a;
+        --white: #ffffff;
+        --gray: #f5f5f5;
+        --dark-gray: #555555;
+        --gold: #ffd700;
+      }
+
+      body {
+        font-family: "Nunito", sans-serif;
+        background: var(--white);
+        color: var(--black);
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 800;
+      }
+
+      /* Demo Banner */
+      .demo-banner {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: var(--red);
+        color: white;
+        padding: 12px 20px;
+        text-align: center;
+        font-size: 0.9rem;
+        font-weight: 600;
+        z-index: 10000;
+        box-shadow: 0 -4px 20px rgba(220, 20, 60, 0.3);
+      }
+
+      .demo-banner a {
+        color: white;
+        text-decoration: underline;
+        margin-left: 8px;
+        font-weight: 700;
+      }
+
+      /* Top Bar */
+      .top-bar {
+        background: var(--black);
+        color: white;
+        padding: 10px 40px;
+        font-size: 0.85rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .top-bar-left {
+        display: flex;
+        gap: 30px;
+      }
+
+      .top-bar-right {
+        display: flex;
+        gap: 20px;
+      }
+
+      /* Main Navigation */
+      .main-nav {
+        background: white;
+        padding: 20px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 999;
+      }
+
+      .logo {
+        font-family: "Montserrat", sans-serif;
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: var(--red);
+        text-decoration: none;
+        letter-spacing: -1px;
+      }
+
+      .logo span {
+        color: var(--black);
+      }
+
+      .nav-menu {
+        display: flex;
+        gap: 40px;
+        list-style: none;
+        align-items: center;
+      }
+
+      .nav-menu a {
+        color: var(--black);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.95rem;
+        transition: color 0.3s ease;
+      }
+
+      .nav-menu a:hover {
+        color: var(--red);
+      }
+
+      .search-bar {
+        display: flex;
+        align-items: center;
+        background: var(--gray);
+        padding: 12px 20px;
+        border-radius: 50px;
+        width: 350px;
+      }
+
+      .search-bar input {
+        border: none;
+        background: transparent;
+        outline: none;
+        width: 100%;
+        font-size: 0.95rem;
+        font-family: "Nunito", sans-serif;
+      }
+
+      .cart-icon {
+        position: relative;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+
+      .cart-badge {
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        background: var(--red);
+        color: white;
+        font-size: 0.7rem;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+      }
+
+      /* Mobile Menu */
+      .mobile-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+      }
+
+      .mobile-toggle span {
+        width: 28px;
+        height: 3px;
+        background: var(--black);
+        transition: all 0.3s ease;
+        border-radius: 2px;
+      }
+
+      .mobile-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(7px, 7px);
+      }
+
+      .mobile-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .mobile-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+      }
+
+      .mobile-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 350px;
+        height: 100vh;
+        background: white;
+        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.2);
+        z-index: 9999;
+        transition: right 0.4s ease;
+        padding: 80px 30px 30px;
+      }
+
+      .mobile-menu.active {
+        right: 0;
+      }
+
+      .mobile-menu ul {
+        list-style: none;
+      }
+
+      .mobile-menu li {
+        margin: 25px 0;
+      }
+
+      .mobile-menu a {
+        color: var(--black);
+        text-decoration: none;
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+
+      /* Hero Banner */
+      .hero-banner {
+        background:
+          linear-gradient(135deg, var(--black), var(--dark-gray)),
+          url("https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=1920&q=80")
+            center/cover;
+        background-blend-mode: multiply;
+        min-height: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        padding: 80px 40px;
+      }
+
+      .hero-content h1 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        margin-bottom: 20px;
+        line-height: 1.2;
+      }
+
+      .hero-content h1 .highlight {
+        color: var(--red);
+      }
+
+      .hero-content p {
+        font-size: 1.3rem;
+        margin-bottom: 40px;
+        opacity: 0.9;
+      }
+
+      .hero-search {
+        max-width: 600px;
+        margin: 0 auto;
+        display: flex;
+        background: white;
+        border-radius: 50px;
+        overflow: hidden;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      }
+
+      .hero-search input {
+        flex: 1;
+        padding: 18px 25px;
+        border: none;
+        outline: none;
+        font-size: 1rem;
+        font-family: "Nunito", sans-serif;
+      }
+
+      .hero-search button {
+        padding: 18px 40px;
+        background: var(--red);
+        color: white;
+        border: none;
+        font-weight: 700;
+        cursor: pointer;
+        font-family: "Montserrat", sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: background 0.3s ease;
+      }
+
+      .hero-search button:hover {
+        background: #b01030;
+      }
+
+      /* Categories Section */
+      .categories-section {
+        padding: 80px 40px;
+        background: var(--gray);
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+
+      .section-header h2 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        margin-bottom: 15px;
+      }
+
+      .section-header p {
+        font-size: 1.1rem;
+        color: var(--dark-gray);
+      }
+
+      .categories-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 25px;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .category-card {
+        background: white;
+        padding: 40px 20px;
+        text-align: center;
+        border-radius: 15px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .category-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .category-icon {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+        display: block;
+      }
+
+      .category-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+        color: var(--black);
+      }
+
+      .category-card p {
+        font-size: 0.9rem;
+        color: var(--dark-gray);
+      }
+
+      /* Products Section */
+      .products-section {
+        padding: 80px 40px;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .products-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+      }
+
+      .product-card {
+        background: white;
+        border: 1px solid #e0e0e0;
+        border-radius: 12px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .product-card:hover {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        transform: translateY(-5px);
+      }
+
+      .product-image {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        background: var(--gray);
+      }
+
+      .product-info {
+        padding: 25px;
+      }
+
+      .product-badge {
+        display: inline-block;
+        background: var(--red);
+        color: white;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+      }
+
+      .product-card h3 {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+        color: var(--black);
+        font-weight: 700;
+      }
+
+      .product-rating {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 15px;
+        font-size: 0.9rem;
+      }
+
+      .stars {
+        color: var(--gold);
+      }
+
+      .product-price {
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: var(--red);
+        margin-bottom: 15px;
+        font-family: "Montserrat", sans-serif;
+      }
+
+      .product-price small {
+        font-size: 1rem;
+        color: var(--dark-gray);
+        text-decoration: line-through;
+        font-weight: 400;
+        margin-left: 10px;
+      }
+
+      .add-to-cart {
+        width: 100%;
+        padding: 14px;
+        background: var(--black);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-weight: 700;
+        cursor: pointer;
+        font-family: "Montserrat", sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        transition: background 0.3s ease;
+      }
+
+      .add-to-cart:hover {
+        background: var(--red);
+      }
+
+      /* Features Section */
+      .features-section {
+        background: var(--black);
+        color: white;
+        padding: 60px 40px;
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .feature-item {
+        padding: 20px;
+      }
+
+      .feature-icon {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        color: var(--red);
+      }
+
+      .feature-item h3 {
+        font-size: 1.3rem;
+        margin-bottom: 12px;
+      }
+
+      .feature-item p {
+        opacity: 0.8;
+        line-height: 1.6;
+      }
+
+      /* Footer */
+      .footer {
+        background: #0d0d0d;
+        color: white;
+        padding: 60px 40px 30px;
+      }
+
+      .footer-content {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 50px;
+        margin-bottom: 40px;
+      }
+
+      .footer-section h4 {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+        color: var(--red);
+      }
+
+      .footer-links {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 12px;
+      }
+
+      .footer-links a {
+        color: #cccccc;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .footer-links a:hover {
+        color: var(--red);
+      }
+
+      .footer-bottom {
+        text-align: center;
+        padding-top: 30px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: #888;
+      }
+
+      /* Mobile Responsive */
+      @media (max-width: 1024px) {
+        .top-bar {
+          padding: 10px 20px;
+        }
+
+        .top-bar-left,
+        .top-bar-right {
+          font-size: 0.75rem;
+        }
+
+        .main-nav {
+          padding: 15px 20px;
+        }
+
+        .nav-menu {
+          display: none;
+        }
+
+        .search-bar {
+          display: none;
+        }
+
+        .mobile-toggle {
+          display: flex;
+        }
+
+        .hero-banner {
+          padding: 60px 20px;
+        }
+
+        .categories-section,
+        .products-section {
+          padding: 60px 20px;
+        }
+
+        .categories-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .products-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .features-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-content {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-search {
+          flex-direction: column;
+          border-radius: 15px;
+        }
+
+        .hero-search input,
+        .hero-search button {
+          width: 100%;
+          border-radius: 0;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .top-bar {
+          flex-direction: column;
+          gap: 10px;
+          text-align: center;
+        }
+
+        .categories-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const toggle = document.querySelector(".mobile-toggle");
+        const mobileMenu = document.querySelector(".mobile-menu");
+        const mobileLinks = document.querySelectorAll(".mobile-menu a");
+
+        toggle.addEventListener("click", () => {
+          toggle.classList.toggle("active");
+          mobileMenu.classList.toggle("active");
+        });
+
+        mobileLinks.forEach((link) => {
+          link.addEventListener("click", () => {
+            toggle.classList.remove("active");
+            mobileMenu.classList.remove("active");
+          });
+        });
+
+        // Simulate add to cart
+        const addToCartButtons = document.querySelectorAll(".add-to-cart");
+        addToCartButtons.forEach((button) => {
+          button.addEventListener("click", (e) => {
+            e.preventDefault();
+            const badge = document.querySelector(".cart-badge");
+            const currentCount = parseInt(badge.textContent);
+            badge.textContent = currentCount + 1;
+            button.textContent = "✓ Added to Cart";
+            button.style.background = "#28a745";
+            setTimeout(() => {
+              button.textContent = "Add to Cart";
+              button.style.background = "";
+            }, 2000);
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <!-- Demo Banner -->
+    <div class="demo-banner">
+      🎨 This is a demo website built by NgwaNgwa Digital.
+      <a href="../contact.html">Want one like this? Contact us →</a>
+    </div>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+      <div class="top-bar-left">
+        <span>📞 +234 801 XXX XXXX</span>
+        <span>📧 sales@autopartsnigeria.com</span>
+      </div>
+      <div class="top-bar-right">
+        <span>Free Shipping on Orders Above ₦50,000</span>
+      </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+      <a href="#" class="logo">AUTO<span>PARTS</span></a>
+
+      <div class="search-bar">
+        <input
+          type="text"
+          placeholder="Search for parts by name or part number..."
+        />
+        <span>🔍</span>
+      </div>
+
+      <ul class="nav-menu">
+        <li><a href="#categories">Categories</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li class="cart-icon">
+          🛒
+          <span class="cart-badge">0</span>
+        </li>
+      </ul>
+
+      <div class="mobile-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+      <ul>
+        <li><a href="#categories">Categories</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#cart">Cart (0)</a></li>
+      </ul>
+    </div>
+
+    <!-- Hero Banner -->
+    <section class="hero-banner">
+      <div class="hero-content">
+        <h1>
+          Quality Auto Parts<br />
+          <span class="highlight">Delivered Fast</span>
+        </h1>
+        <p>Over 10,000+ genuine parts for all car makes and models</p>
+
+        <div class="hero-search">
+          <input
+            type="text"
+            placeholder="Search by part name, number, or car model..."
+          />
+          <button>Search</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="categories-section">
+      <div class="section-header">
+        <h2>Shop by Category</h2>
+        <p>Browse our wide selection of auto parts and accessories</p>
+      </div>
+
+      <div class="categories-grid">
+        <div class="category-card">
+          <span class="category-icon">🔧</span>
+          <h3>Engine Parts</h3>
+          <p>500+ items</p>
+        </div>
+
+        <div class="category-card">
+          <span class="category-icon">🚗</span>
+          <h3>Body Parts</h3>
+          <p>800+ items</p>
+        </div>
+
+        <div class="category-card">
+          <span class="category-icon">⚙️</span>
+          <h3>Transmission</h3>
+          <p>300+ items</p>
+        </div>
+
+        <div class="category-card">
+          <span class="category-icon">🔩</span>
+          <h3>Suspension</h3>
+          <p>400+ items</p>
+        </div>
+
+        <div class="category-card">
+          <span class="category-icon">🛞</span>
+          <h3>Tires & Wheels</h3>
+          <p>600+ items</p>
+        </div>
+
+        <div class="category-card">
+          <span class="category-icon">💡</span>
+          <h3>Lighting</h3>
+          <p>250+ items</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products-section">
+      <div class="section-header">
+        <h2>Featured Products</h2>
+        <p>Best selling auto parts this month</p>
+      </div>
+
+      <div class="products-grid">
+        <div class="product-card">
+          <img
+            src="https://images.unsplash.com/photo-1625979425575-6f1f558c00a4?w=600&q=80"
+            alt="Brake Pads"
+            class="product-image"
+          />
+          <div class="product-info">
+            <span class="product-badge">Best Seller</span>
+            <h3>Premium Ceramic Brake Pads</h3>
+            <div class="product-rating">
+              <span class="stars">⭐⭐⭐⭐⭐</span>
+              <span>(124 reviews)</span>
+            </div>
+            <div class="product-price">
+              ₦18,500
+              <small>₦25,000</small>
+            </div>
+            <button class="add-to-cart">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img
+            src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=600&q=80"
+            alt="Air Filter"
+            class="product-image"
+          />
+          <div class="product-info">
+            <span class="product-badge">New Arrival</span>
+            <h3>High Performance Air Filter</h3>
+            <div class="product-rating">
+              <span class="stars">⭐⭐⭐⭐⭐</span>
+              <span>(89 reviews)</span>
+            </div>
+            <div class="product-price">₦8,500</div>
+            <button class="add-to-cart">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img
+            src="https://images.unsplash.com/photo-1625047509168-a7026f36de04?w=600&q=80"
+            alt="Spark Plugs"
+            class="product-image"
+          />
+          <div class="product-info">
+            <span class="product-badge">Hot Deal</span>
+            <h3>NGK Iridium Spark Plugs (Set of 4)</h3>
+            <div class="product-rating">
+              <span class="stars">⭐⭐⭐⭐⭐</span>
+              <span>(201 reviews)</span>
+            </div>
+            <div class="product-price">
+              ₦12,000
+              <small>₦16,000</small>
+            </div>
+            <button class="add-to-cart">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img
+            src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=600&q=80"
+            alt="Oil Filter"
+            class="product-image"
+          />
+          <div class="product-info">
+            <h3>Premium Engine Oil Filter</h3>
+            <div class="product-rating">
+              <span class="stars">⭐⭐⭐⭐</span>
+              <span>(156 reviews)</span>
+            </div>
+            <div class="product-price">₦5,500</div>
+            <button class="add-to-cart">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img
+            src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80"
+            alt="Headlight"
+            class="product-image"
+          />
+          <div class="product-info">
+            <span class="product-badge">Limited Stock</span>
+            <h3>LED Headlight Assembly (Pair)</h3>
+            <div class="product-rating">
+              <span class="stars">⭐⭐⭐⭐⭐</span>
+              <span>(78 reviews)</span>
+            </div>
+            <div class="product-price">
+              ₦45,000
+              <small>₦60,000</small>
+            </div>
+            <button class="add-to-cart">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img
+            src="https://images.unsplash.com/photo-1625979425575-6f1f558c00a4?w=600&q=80"
+            alt="Shock Absorber"
+            class="product-image"
+          />
+          <div class="product-info">
+            <h3>Heavy Duty Shock Absorbers (Pair)</h3>
+            <div class="product-rating">
+              <span class="stars">⭐⭐⭐⭐</span>
+              <span>(93 reviews)</span>
+            </div>
+            <div class="product-price">₦28,000</div>
+            <button class="add-to-cart">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-icon">🚚</div>
+          <h3>Fast Delivery</h3>
+          <p>Same-day delivery in Lagos. Nationwide shipping available.</p>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon">✓</div>
+          <h3>Genuine Parts</h3>
+          <p>100% authentic parts from trusted manufacturers.</p>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon">💳</div>
+          <h3>Secure Payment</h3>
+          <p>Multiple payment options including card and bank transfer.</p>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon">↩️</div>
+          <h3>Easy Returns</h3>
+          <p>30-day return policy on all products. No questions asked.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>AUTOPARTS Nigeria</h4>
+          <p style="color: #aaa; line-height: 1.7">
+            Your trusted source for quality auto parts and accessories. Serving
+            car owners and mechanics since 2015.
+          </p>
+        </div>
+
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#categories">All Categories</a></li>
+            <li><a href="#products">Shop Now</a></li>
+            <li><a href="#contact">Track Order</a></li>
+            <li><a href="#contact">Warranty Info</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Customer Service</h4>
+          <ul class="footer-links">
+            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="#contact">Shipping Info</a></li>
+            <li><a href="#contact">Returns</a></li>
+            <li><a href="#contact">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Contact Info</h4>
+          <ul class="footer-links">
+            <li>📱 +234 801 XXX XXXX</li>
+            <li>📧 sales@autopartsnigeria.com</li>
+            <li>📍 Lagos, Nigeria</li>
+            <li>🕒 Mon-Sat, 8AM - 6PM</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          © 2026 AutoParts Nigeria. All rights reserved. Demo website by
+          NgwaNgwa Digital
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

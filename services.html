@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Professional website development, SEO optimization, and digital business systems for Nigerian businesses. Premium quality. Fast delivery. Local expertise."
+    />
+    <meta
+      name="keywords"
+      content="website development Nigeria, SEO services Nigeria, business systems, web design Anambra, digital solutions Nigeria"
+    />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Our Services | NgwaNgwa Digital" />
+    <meta
+      property="og:description"
+      content="Professional digital solutions for businesses that mean business."
+    />
+    <meta
+      property="og:image"
+      content="https://ngwangwadigital.com/og-image.jpg"
+    />
+    <meta
+      property="og:url"
+      content="https://ngwangwadigital.com/services.html"
+    />
+
+    <title>Services | NgwaNgwa Digital — What We Build</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+
+    <style>
+      .service-detail {
+        padding: 80px 0;
+      }
+
+      .service-detail:nth-child(even) {
+        background: var(--off-white);
+      }
+
+      .service-detail:nth-child(odd) {
+        background: white;
+      }
+
+      .service-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .service-visual {
+        background: linear-gradient(
+          135deg,
+          var(--sage-green),
+          var(--dark-olive)
+        );
+        border-radius: 20px;
+        padding: 60px 40px;
+        color: white;
+        text-align: center;
+        min-height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+      }
+
+      .service-content h2 {
+        color: var(--near-black);
+        margin-bottom: 16px;
+      }
+
+      .service-for {
+        background: #f0f9f4;
+        padding: 16px 20px;
+        border-radius: 8px;
+        margin: 24px 0;
+        border-left: 4px solid var(--sage-green);
+      }
+
+      .service-for strong {
+        color: var(--dark-olive);
+      }
+
+      .deliverables {
+        list-style: none;
+        margin: 24px 0;
+      }
+
+      .deliverables li {
+        padding: 12px 0;
+        padding-left: 32px;
+        position: relative;
+        color: var(--dark-olive);
+      }
+
+      .deliverables li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--orange-accent);
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+
+      .price-tag {
+        display: inline-block;
+        background: var(--orange-accent);
+        color: white;
+        padding: 8px 20px;
+        border-radius: 20px;
+        font-weight: 600;
+        margin: 20px 0;
+      }
+
+      @media (max-width: 768px) {
+        .service-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+
+        .service-visual {
+          min-height: 300px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navigation">
+      <div class="nav-container">
+        <a href="index.html" class="logo">
+          <span class="logo-main">NgwaNgwa</span>
+          <span class="logo-sub">Digital</span>
+        </a>
+
+        <button class="menu-toggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <ul class="nav-links">
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="min-height: 60vh">
+      <div class="container hero-container">
+        <div
+          class="hero-content"
+          style="max-width: 800px; margin: 0 auto; text-align: center"
+        >
+          <span class="label hero-label">OUR SERVICES</span>
+
+          <h1 class="hero-headline">
+            What We Build<br />
+            For <span class="highlight">You</span>
+          </h1>
+
+          <p class="hero-subheadline" style="max-width: 100%; margin: 0 auto">
+            Premium digital solutions for businesses that mean business.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Service 1: Business Websites -->
+    <section class="service-detail" id="websites">
+      <div class="container">
+        <div class="service-grid">
+          <div class="service-content animate-on-scroll fade-up">
+            <h2>Business Website Development</h2>
+
+            <p
+              style="
+                font-size: 1.1rem;
+                color: var(--dark-olive);
+                line-height: 1.8;
+              "
+            >
+              Your website is your digital storefront. Make it count. We build
+              professional, fast, mobile-first websites that make your business
+              look credible to clients anywhere in the world.
+            </p>
+
+            <div class="service-for">
+              <strong>Perfect For:</strong> Suppliers, manufacturers, B2B
+              companies, service businesses, import/export companies, commodity
+              traders
+            </div>
+
+            <h3 style="margin-top: 32px; color: var(--near-black)">
+              What You Get:
+            </h3>
+            <ul class="deliverables">
+              <li>Custom designed website tailored to your business</li>
+              <li>Fully mobile responsive (works on all devices)</li>
+              <li>Contact/inquiry form integration</li>
+              <li>Google Maps integration</li>
+              <li>Basic SEO setup included</li>
+              <li>1 month free support after launch</li>
+              <li>Fast loading on Nigerian networks</li>
+            </ul>
+
+            <div class="price-tag">Starting from ₦150,000</div>
+
+            <div style="margin-top: 24px">
+              <a href="contact.html" class="btn btn-primary">Get a Quote</a>
+            </div>
+          </div>
+
+          <div class="service-visual animate-on-scroll slide-right">
+            <div>
+              <div style="font-size: 4rem">🌐</div>
+              <div style="font-size: 1.2rem; margin-top: 20px">
+                Professional Websites
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Service 2: SEO Optimization -->
+    <section class="service-detail" id="seo">
+      <div class="container">
+        <div class="service-grid">
+          <div class="service-visual animate-on-scroll slide-left">
+            <div>
+              <div style="font-size: 4rem">🔍</div>
+              <div style="font-size: 1.2rem; margin-top: 20px">
+                Get Found on Google
+              </div>
+            </div>
+          </div>
+
+          <div class="service-content animate-on-scroll fade-up">
+            <h2>Search Engine Optimization</h2>
+
+            <p
+              style="
+                font-size: 1.1rem;
+                color: var(--dark-olive);
+                line-height: 1.8;
+              "
+            >
+              Your customers are searching for what you offer right now. Are
+              they finding you or your competitors? We optimize your website to
+              rank on Google for the exact terms your ideal clients are
+              searching for.
+            </p>
+
+            <div class="service-for">
+              <strong>Perfect For:</strong> Businesses that want to be found on
+              Google, companies targeting international clients, local
+              businesses wanting more visibility
+            </div>
+
+            <h3 style="margin-top: 32px; color: var(--near-black)">
+              What You Get:
+            </h3>
+            <ul class="deliverables">
+              <li>Keyword research and strategy</li>
+              <li>On-page SEO optimization</li>
+              <li>Technical SEO audit and fixes</li>
+              <li>Google Business Profile setup</li>
+              <li>Local + international SEO targeting</li>
+              <li>Monthly performance reporting</li>
+              <li>Competitor analysis</li>
+            </ul>
+
+            <div class="price-tag">Starting from ₦100,000/month</div>
+
+            <div style="margin-top: 24px">
+              <a href="contact.html" class="btn btn-primary">Get Started</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Service 3: Digital Business Systems -->
+    <section class="service-detail" id="systems">
+      <div class="container">
+        <div class="service-grid">
+          <div class="service-content animate-on-scroll fade-up">
+            <h2>Digital Business Systems</h2>
+
+            <p
+              style="
+                font-size: 1.1rem;
+                color: var(--dark-olive);
+                line-height: 1.8;
+              "
+            >
+              Automate your business operations with custom-built digital tools.
+              From inventory management to client portals, we build systems that
+              make your business run smoother and look more professional.
+            </p>
+
+            <div class="service-for">
+              <strong>Perfect For:</strong> Businesses that want to automate
+              operations, companies managing inventory or orders, businesses
+              needing client dashboards
+            </div>
+
+            <h3 style="margin-top: 32px; color: var(--near-black)">
+              What You Get:
+            </h3>
+            <ul class="deliverables">
+              <li>Custom web portals and dashboards</li>
+              <li>Inventory or order management systems</li>
+              <li>Client/customer dashboards</li>
+              <li>Business process automation</li>
+              <li>Database design and setup</li>
+              <li>User authentication and security</li>
+              <li>Training and documentation</li>
+            </ul>
+
+            <div class="price-tag">Custom Quote Required</div>
+
+            <div style="margin-top: 24px">
+              <a href="contact.html" class="btn btn-primary"
+                >Discuss Your Project</a
+              >
+            </div>
+          </div>
+
+          <div class="service-visual animate-on-scroll slide-right">
+            <div>
+              <div style="font-size: 4rem">⚙️</div>
+              <div style="font-size: 1.2rem; margin-top: 20px">
+                Smart Business Systems
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Service 4: Mobile-First Design -->
+    <section class="service-detail" id="mobile">
+      <div class="container">
+        <div class="service-grid">
+          <div class="service-visual animate-on-scroll slide-left">
+            <div>
+              <div style="font-size: 4rem">📱</div>
+              <div style="font-size: 1.2rem; margin-top: 20px">
+                Mobile Perfection
+              </div>
+            </div>
+          </div>
+
+          <div class="service-content animate-on-scroll fade-up">
+            <h2>Mobile-First Design</h2>
+
+            <p
+              style="
+                font-size: 1.1rem;
+                color: var(--dark-olive);
+                line-height: 1.8;
+              "
+            >
+              Over 80% of Nigerian internet users browse on mobile. Your website
+              must work perfectly on every device, every screen size, every
+              time. We design with mobile in mind from day one.
+            </p>
+
+            <div class="service-for">
+              <strong>Perfect For:</strong> Any business needing a redesign,
+              companies with outdated websites, new businesses starting fresh
+            </div>
+
+            <h3 style="margin-top: 32px; color: var(--near-black)">
+              What You Get:
+            </h3>
+            <ul class="deliverables">
+              <li>Full UI/UX design process</li>
+              <li>Mobile-optimized layouts</li>
+              <li>Fast loading performance</li>
+              <li>Brand-consistent design</li>
+              <li>Touch-friendly navigation</li>
+              <li>Responsive images and media</li>
+              <li>Cross-browser compatibility</li>
+            </ul>
+
+            <div class="price-tag">Included in all projects</div>
+
+            <div style="margin-top: 24px">
+              <a href="contact.html" class="btn btn-primary"
+                >Start Your Project</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="section section-dark">
+      <div class="container">
+        <div class="text-center" style="margin-bottom: 60px">
+          <span
+            class="label animate-on-scroll fade-in"
+            style="color: var(--sage-green)"
+            >HOW WE WORK</span
+          >
+          <h2 class="animate-on-scroll fade-up" style="color: var(--off-white)">
+            Our Process
+          </h2>
+        </div>
+
+        <div class="grid-2x2 stagger-container">
+          <div class="card-dark animate-on-scroll fade-up">
+            <span class="card-number">01</span>
+            <h3>Consultation</h3>
+            <p>
+              We listen. We understand your business, your goals, and what
+              success looks like for you.
+            </p>
+          </div>
+
+          <div class="card-dark animate-on-scroll fade-up">
+            <span class="card-number">02</span>
+            <h3>Strategy & Design</h3>
+            <p>
+              We plan the perfect solution for your needs and design something
+              you'll be proud to show clients.
+            </p>
+          </div>
+
+          <div class="card-dark animate-on-scroll fade-up">
+            <span class="card-number">03</span>
+            <h3>Development</h3>
+            <p>
+              We build fast, we build right, and we keep you updated every step
+              of the way.
+            </p>
+          </div>
+
+          <div class="card-dark animate-on-scroll fade-up">
+            <span class="card-number">04</span>
+            <h3>Launch & Support</h3>
+            <p>
+              We launch your project and stick around to make sure everything
+              runs smoothly.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section section-orange">
+      <div class="container text-center">
+        <h2
+          class="animate-on-scroll fade-up"
+          style="color: var(--off-white); margin-bottom: 16px"
+        >
+          Ready to get started?
+        </h2>
+
+        <p
+          class="animate-on-scroll fade-up"
+          style="
+            color: var(--off-white);
+            font-size: 1.2rem;
+            margin-bottom: 32px;
+          "
+        >
+          Let's discuss your project. Free consultation. No commitment required.
+        </p>
+
+        <div class="btn-group" style="justify-content: center">
+          <a href="contact.html" class="btn btn-dark animate-on-scroll fade-up">
+            Get a Free Consultation
+          </a>
+          <a
+            href="portfolio.html"
+            class="btn"
+            style="
+              border: 1px solid white;
+              color: white;
+              background: transparent;
+            "
+            class="animate-on-scroll fade-up"
+          >
+            See Our Work
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <div class="logo">
+              <span class="logo-main">NgwaNgwa</span>
+              <span class="logo-sub">Digital</span>
+            </div>
+            <p class="footer-tagline">
+              We Build Business Systems<br />
+              That Win Clients.
+            </p>
+          </div>
+
+          <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="portfolio.html">Portfolio</a></li>
+              <li><a href="products.html">Products</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-links">
+            <h4>What We Build</h4>
+            <ul>
+              <li><a href="services.html#websites">Business Websites</a></li>
+              <li><a href="services.html#seo">SEO Optimization</a></li>
+              <li><a href="services.html#systems">Business Systems</a></li>
+              <li><a href="products.html">Virtual Waitress</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-contact">
+            <h4>Get In Touch</h4>
+            <p>📧 ngwangwadigital@gmail.com</p>
+            <p>📱 WhatsApp: +234 707 607 7265</p>
+            <p>📍 Anambra, Nigeria 🌍</p>
+            <p style="margin-top: 12px">
+              <a
+                href="https://instagram.com/ngwangwa.digital"
+                target="_blank"
+                rel="noopener"
+                style="color: var(--orange-accent)"
+              >
+                @ngwangwa.digital
+              </a>
+            </p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2025 NgwaNgwa Digital. Built in Nigeria 🇳🇬</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
