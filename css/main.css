@@ -713,8 +713,13 @@ p {
   }
 
   .nav-links a {
-    color: var(--dark-olive);
+    color: var(--dark-olive) !important;
     font-weight: 600;
+  }
+
+  /* Force dark text in mobile menu even on dark nav */
+  .navigation.dark .nav-links a {
+    color: var(--dark-olive) !important;
   }
 
   .btn-group {
