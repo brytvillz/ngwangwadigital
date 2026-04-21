@@ -150,6 +150,16 @@ p {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
+/* Scrolled navigation - dark text on white background */
+.navigation.scrolled .logo,
+.navigation.scrolled .nav-links a {
+  color: var(--dark-olive);
+}
+
+.navigation.scrolled .menu-toggle span {
+  background: var(--dark-olive);
+}
+
 .nav-container {
   max-width: var(--container-max-width);
   margin: 0 auto;
