@@ -94,13 +94,14 @@ if (contactForm) {
 
     try {
       const formData = new FormData(contactForm);
-      const response = await fetch("/", {
+      const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData).toString(),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(Object.fromEntries(formData)),
       });
 
-      if (!response.ok) throw new Error("Network response was not ok");
+      const data = await response.json();
+      if (!data.success) throw new Error(data.message);
 
       showSuccessMessage();
       contactForm.reset();
