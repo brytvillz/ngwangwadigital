@@ -92,15 +92,16 @@ if (contactForm) {
     submitBtn.textContent = "Sending...";
     submitBtn.disabled = true;
 
-    // Get form data
-    const formData = new FormData(contactForm);
-
     try {
-      // Netlify Forms handling - the form will be submitted naturally
-      // This is just for UX feedback
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const formData = new FormData(contactForm);
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString(),
+      });
 
-      // Show success message
+      if (!response.ok) throw new Error("Network response was not ok");
+
       showSuccessMessage();
       contactForm.reset();
     } catch (error) {
@@ -119,11 +120,20 @@ function showSuccessMessage() {
   const form = document.querySelector(".contact-form");
   const successDiv = document.createElement("div");
   successDiv.className = "success-message success-checkmark";
-  successDiv.innerHTML = `
-    <h3>Message Sent! ✓</h3>
-    <p>We will get back to you within 24 hours.</p>
-    <p style="font-size: 2rem; margin-top: 1rem;">😊</p>
-  `;
+
+  const heading = document.createElement("h3");
+  heading.textContent = "Message Sent! ✓";
+
+  const line1 = document.createElement("p");
+  line1.textContent = "We will get back to you within 24 hours.";
+
+  const line2 = document.createElement("p");
+  line2.textContent = "😊";
+  line2.style.cssText = "font-size: 2rem; margin-top: 1rem;";
+
+  successDiv.appendChild(heading);
+  successDiv.appendChild(line1);
+  successDiv.appendChild(line2);
 
   successDiv.style.cssText = `
     background: #f0f9f4;
@@ -137,7 +147,6 @@ function showSuccessMessage() {
   form.parentElement.insertBefore(successDiv, form.nextSibling);
   form.style.display = "none";
 
-  // Scroll to success message
   successDiv.scrollIntoView({ behavior: "smooth", block: "center" });
 }
 
