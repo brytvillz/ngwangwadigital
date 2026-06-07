@@ -171,10 +171,16 @@ p {
 
 .logo {
   display: flex;
-  align-items: baseline;
-  gap: 4px;
+  align-items: center;
+  gap: 10px;
   font-size: 1.5rem;
   color: var(--dark-olive);
+}
+
+.logo-img {
+  width: 68px;
+  height: 68px;
+  object-fit: contain;
 }
 
 .logo-main {
