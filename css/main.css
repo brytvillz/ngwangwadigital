@@ -1,5 +1,31 @@
 /* NgwaNgwa Digital — Main Stylesheet */
 
+/* ===== DELIVERY NAV — logo hidden until scroll ===== */
+.delivery-nav .logo-img {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.delivery-nav.scrolled .logo-img {
+  opacity: 1;
+}
+
+/* ===== CAROUSEL SWIPE HINT ===== */
+.swipe-hint {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  animation: swipe-pulse 2s ease-in-out infinite;
+}
+
+@keyframes swipe-pulse {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.75; }
+}
+
 /* ===== FOUNDER CARD FLIP ===== */
 .flip-card {
   perspective: 1400px;
@@ -11,7 +37,8 @@
   transition: transform 0.75s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.flip-card:hover .flip-card-inner {
+.flip-card:hover .flip-card-inner,
+.flip-card.flipped .flip-card-inner {
   transform: rotateY(180deg);
 }
 

@@ -226,6 +226,14 @@ function debounce(func, wait) {
   };
 }
 
+// ===== FOUNDER CARD FLIP (click/tap toggle) =====
+const flipCard = document.querySelector('.flip-card');
+if (flipCard) {
+  flipCard.addEventListener('click', () => {
+    flipCard.classList.toggle('flipped');
+  });
+}
+
 // ===== DELIVERY CAROUSEL =====
 (function () {
   const wrapper = document.querySelector(".delivery-carousel-wrapper");
