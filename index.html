@@ -33,41 +33,66 @@
 
     <!-- Structured Data: LocalBusiness schema for Google and AI tools -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "NgwaNgwa Digital",
-      "description": "Web design, SEO, and digital products for businesses worldwide. Founded in Nnewi, Nigeria — we build professional websites and business systems that win clients globally.",
-      "url": "https://ngwangwadigital.com",
-      "telephone": "+2347076077265",
-      "email": "hello@ngwangwadigital.com",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Nnewi",
-        "addressRegion": "Anambra State",
-        "addressCountry": "NG"
-      },
-      "areaServed": "Worldwide",
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Services",
-        "itemListElement": [
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Business Website Design" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SEO Optimization" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Digital Business Systems" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "QR Menu for Restaurants" } }
-        ]
-      },
-      "sameAs": [
-        "https://instagram.com/ngwangwa.digital"
-      ],
-      "founder": {
-        "@type": "Person",
-        "name": "Bright Ezeribe"
-      },
-      "knowsAbout": ["Web Design", "SEO", "Digital Marketing", "SaaS Products", "Nigerian Business"],
-      "slogan": "We Build Business Systems That Win Clients"
-    }
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "NgwaNgwa Digital",
+        "description": "Web design, SEO, and digital products for businesses worldwide. Founded in Nnewi, Nigeria — we build professional websites and business systems that win clients globally.",
+        "url": "https://ngwangwadigital.com",
+        "telephone": "+2347076077265",
+        "email": "hello@ngwangwadigital.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Nnewi",
+          "addressRegion": "Anambra State",
+          "addressCountry": "NG"
+        },
+        "areaServed": "Worldwide",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Business Website Design"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": { "@type": "Service", "name": "SEO Optimization" }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Digital Business Systems"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "QR Menu for Restaurants"
+              }
+            }
+          ]
+        },
+        "sameAs": ["https://instagram.com/ngwangwa.digital"],
+        "founder": {
+          "@type": "Person",
+          "name": "Bright Ezeribe"
+        },
+        "knowsAbout": [
+          "Web Design",
+          "SEO",
+          "Digital Marketing",
+          "SaaS Products",
+          "Nigerian Business"
+        ],
+        "slogan": "We Build Business Systems That Win Clients"
+      }
     </script>
 
     <!-- Favicon -->
@@ -91,7 +116,10 @@
       <div class="nav-container">
         <a href="index.html" class="logo">
           <img src="kola-logo.png" alt="NgwaNgwa Digital" class="logo-img" />
-          
+          <span
+            ><span class="logo-main">NgwaNgwa</span
+            ><span class="logo-sub"> Digital</span></span
+          >
         </a>
 
         <button class="menu-toggle" aria-label="Toggle menu">
@@ -113,7 +141,9 @@
     <section class="hero">
       <div class="container hero-container">
         <div class="hero-content">
-          <span class="label hero-label">NgwaNgwa — Show Up. Keep Building. Stay Stubborn.</span>
+          <span class="label hero-label"
+            >NgwaNgwa — Show Up. Keep Building. Stay Stubborn.</span
+          >
 
           <h1 class="hero-headline">
             Your Business<br />
@@ -156,10 +186,29 @@
               src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://virtual-waitress.vercel.app/?table=1"
               alt="Scan to view Virtual Waitress demo"
               style="width: 100%; height: 100%; border-radius: 8px"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
             />
-            <div style="display:none; width:100%; height:100%; border-radius:8px; background:#f0f4eb; align-items:center; justify-content:center; flex-direction:column; gap:8px; font-size:0.75rem; color:#3d4f2e; text-align:center; padding:8px;">
-              <span style="font-size:1.5rem;">📱</span>
+            <div
+              style="
+                display: none;
+                width: 100%;
+                height: 100%;
+                border-radius: 8px;
+                background: #f0f4eb;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                gap: 8px;
+                font-size: 0.75rem;
+                color: #3d4f2e;
+                text-align: center;
+                padding: 8px;
+              "
+            >
+              <span style="font-size: 1.5rem">📱</span>
               <span>virtual-waitress.vercel.app</span>
             </div>
           </div>
@@ -172,32 +221,136 @@
     </section>
 
     <!-- NgwaNgwa Meaning Strip -->
-    <section style="background: var(--dark-olive); padding: 60px 0;">
+    <section style="background: var(--dark-olive); padding: 60px 0">
       <div class="container">
-        <div style="text-align: center; margin-bottom: 48px;">
-          <p style="color: var(--sage-green); font-size: 0.9rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 12px;">NgwaNgwa — Igbo for "Quick Quick"</p>
-          <h2 style="color: var(--off-white); font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; line-height: 1.3;">
+        <div style="text-align: center; margin-bottom: 48px">
+          <p
+            style="
+              color: var(--sage-green);
+              font-size: 0.9rem;
+              letter-spacing: 0.15em;
+              text-transform: uppercase;
+              margin-bottom: 12px;
+            "
+          >
+            NgwaNgwa — Igbo for "Quick Quick"
+          </p>
+          <h2
+            style="
+              color: var(--off-white);
+              font-size: clamp(1.6rem, 3vw, 2.2rem);
+              font-weight: 700;
+              line-height: 1.3;
+            "
+          >
             It's more than a name.<br />It's how we work.
           </h2>
         </div>
 
-        <div class="ngwangwa-pillars" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; max-width: 900px; margin: 0 auto;">
-          <div style="text-align: center; padding: 32px 24px; border: 1px solid rgba(255,255,255,0.1); border-radius: 16px;">
-            <div style="font-size: 2rem; margin-bottom: 16px;">👊🏾</div>
-            <h3 style="color: var(--orange-accent); font-size: 1.1rem; margin-bottom: 10px; letter-spacing: 0.05em;">SHOW UP</h3>
-            <p style="color: var(--sage-green); font-size: 0.9rem; line-height: 1.7; margin: 0;">When it's hard. When nobody is watching. When the results haven't come yet.</p>
+        <div
+          class="ngwangwa-pillars"
+          style="
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            max-width: 900px;
+            margin: 0 auto;
+          "
+        >
+          <div
+            style="
+              text-align: center;
+              padding: 32px 24px;
+              border: 1px solid rgba(255, 255, 255, 0.1);
+              border-radius: 16px;
+            "
+          >
+            <div style="font-size: 2rem; margin-bottom: 16px">👊🏾</div>
+            <h3
+              style="
+                color: var(--orange-accent);
+                font-size: 1.1rem;
+                margin-bottom: 10px;
+                letter-spacing: 0.05em;
+              "
+            >
+              SHOW UP
+            </h3>
+            <p
+              style="
+                color: var(--sage-green);
+                font-size: 0.9rem;
+                line-height: 1.7;
+                margin: 0;
+              "
+            >
+              When it's hard. When nobody is watching. When the results haven't
+              come yet.
+            </p>
           </div>
 
-          <div style="text-align: center; padding: 32px 24px; border: 1px solid rgba(255,255,255,0.1); border-radius: 16px;">
-            <div style="font-size: 2rem; margin-bottom: 16px;">🔨</div>
-            <h3 style="color: var(--orange-accent); font-size: 1.1rem; margin-bottom: 10px; letter-spacing: 0.05em;">KEEP BUILDING</h3>
-            <p style="color: var(--sage-green); font-size: 0.9rem; line-height: 1.7; margin: 0;">Ship real things. Solve real problems. Build for people, not for applause.</p>
+          <div
+            style="
+              text-align: center;
+              padding: 32px 24px;
+              border: 1px solid rgba(255, 255, 255, 0.1);
+              border-radius: 16px;
+            "
+          >
+            <div style="font-size: 2rem; margin-bottom: 16px">🔨</div>
+            <h3
+              style="
+                color: var(--orange-accent);
+                font-size: 1.1rem;
+                margin-bottom: 10px;
+                letter-spacing: 0.05em;
+              "
+            >
+              KEEP BUILDING
+            </h3>
+            <p
+              style="
+                color: var(--sage-green);
+                font-size: 0.9rem;
+                line-height: 1.7;
+                margin: 0;
+              "
+            >
+              Ship real things. Solve real problems. Build for people, not for
+              applause.
+            </p>
           </div>
 
-          <div style="text-align: center; padding: 32px 24px; border: 1px solid rgba(255,255,255,0.1); border-radius: 16px;">
-            <div style="font-size: 2rem; margin-bottom: 16px;">🌱</div>
-            <h3 style="color: var(--orange-accent); font-size: 1.1rem; margin-bottom: 10px; letter-spacing: 0.05em;">STAY STUBBORN</h3>
-            <p style="color: var(--sage-green); font-size: 0.9rem; line-height: 1.7; margin: 0;">To the plan. To the vision. Even when capital is low and the odds say otherwise.</p>
+          <div
+            style="
+              text-align: center;
+              padding: 32px 24px;
+              border: 1px solid rgba(255, 255, 255, 0.1);
+              border-radius: 16px;
+            "
+          >
+            <div style="font-size: 2rem; margin-bottom: 16px">🌱</div>
+            <h3
+              style="
+                color: var(--orange-accent);
+                font-size: 1.1rem;
+                margin-bottom: 10px;
+                letter-spacing: 0.05em;
+              "
+            >
+              STAY STUBBORN
+            </h3>
+            <p
+              style="
+                color: var(--sage-green);
+                font-size: 0.9rem;
+                line-height: 1.7;
+                margin: 0;
+              "
+            >
+              To the plan. To the vision. Even when capital is low and the odds
+              say otherwise.
+            </p>
           </div>
         </div>
       </div>
@@ -286,6 +439,7 @@
           <h2 class="animate-on-scroll fade-up" style="color: var(--off-white)">
             Everything your business needs to win online.
           </h2>
+          base
         </div>
 
         <div class="grid-2x2 stagger-container">
@@ -448,49 +602,163 @@
     </section>
 
     <!-- Our Story Section -->
-    <section class="section" style="background: var(--off-white);">
+    <section class="section" style="background: var(--off-white)">
       <div class="container">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;" class="story-grid">
+        <div
+          style="
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+          "
+          class="story-grid"
+        >
           <!-- Left: Story -->
           <div>
-            <span class="label animate-on-scroll fade-in" style="color: var(--orange-accent);">OUR STORY</span>
-            <h2 class="animate-on-scroll fade-up" style="color: var(--dark-olive); margin-bottom: 24px;">
+            <span
+              class="label animate-on-scroll fade-in"
+              style="color: var(--orange-accent)"
+              >OUR STORY</span
+            >
+            <h2
+              class="animate-on-scroll fade-up"
+              style="color: var(--dark-olive); margin-bottom: 24px"
+            >
               Built from stubbornness.<br />Rooted in Nnewi.
             </h2>
-            <p class="animate-on-scroll fade-up" style="color: var(--dark-olive); font-size: 1.05rem; line-height: 1.9; margin-bottom: 20px;">
-              NgwaNgwa Digital was born out of refusal — refusal to wait for opportunities that weren't coming, refusal to stop building when the capital ran out, refusal to let great skills go to waste.
+            <p
+              class="animate-on-scroll fade-up"
+              style="
+                color: var(--dark-olive);
+                font-size: 1.05rem;
+                line-height: 1.9;
+                margin-bottom: 20px;
+              "
+            >
+              NgwaNgwa Digital was born out of refusal — refusal to wait for
+              opportunities that weren't coming, refusal to stop building when
+              the capital ran out, refusal to let great skills go to waste.
             </p>
-            <p class="animate-on-scroll fade-up" style="color: var(--dark-olive); font-size: 1.05rem; line-height: 1.9; margin-bottom: 20px;">
-              Our founder started with a cohort program in Enugu, built a logistics MVP in 15 days, had an accident mid-sprint and kept going, then presented on stage at the Enugu Tech Fest. No investor showed up. But the mission became clear.
+            <p
+              class="animate-on-scroll fade-up"
+              style="
+                color: var(--dark-olive);
+                font-size: 1.05rem;
+                line-height: 1.9;
+                margin-bottom: 20px;
+              "
+            >
+              Our founder started with a cohort program in Enugu, built a
+              logistics MVP in 15 days, had an accident mid-sprint and kept
+              going, then presented on stage at the Enugu Tech Fest. No investor
+              showed up. But the mission became clear.
             </p>
-            <p class="animate-on-scroll fade-up" style="color: var(--dark-olive); font-size: 1.05rem; line-height: 1.9; margin-bottom: 32px;">
-              NgwaNgwa Digital exists to build real digital products and systems — and eventually, to create real opportunities for the skilled Nigerian developers who deserve better than an empty job market.
+            <p
+              class="animate-on-scroll fade-up"
+              style="
+                color: var(--dark-olive);
+                font-size: 1.05rem;
+                line-height: 1.9;
+                margin-bottom: 32px;
+              "
+            >
+              NgwaNgwa Digital exists to build real digital products and systems
+              — and eventually, to create real opportunities for the skilled
+              Nigerian developers who deserve better than an empty job market.
             </p>
-            <a href="contact.html" class="btn btn-primary animate-on-scroll fade-up">Work With Us</a>
+            <a
+              href="contact.html"
+              class="btn btn-primary animate-on-scroll fade-up"
+              >Work With Us</a
+            >
           </div>
 
           <!-- Right: Founder card -->
           <div class="animate-on-scroll fade-up flip-card">
             <div class="flip-card-inner">
-
               <!-- Front: Photo -->
-              <div class="flip-card-front" style="position: relative;">
-                <img src="founder-dp.jpg" alt="Bright Ezeribe" style="width: 100%; height: 480px; object-fit: cover; object-position: center 70%; display: block;" />
-                <img src="kola-logo.png" alt="" style="position: absolute; bottom: 14px; right: 14px; width: 60px; height: 60px; object-fit: contain; z-index: 10;" />
-                <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(26,26,26,0.5) 30%, rgba(43,74,28,0.95)); padding: 48px 32px 32px; text-align: center;">
-                  <h3 style="color: var(--off-white); font-size: 1.4rem; margin-bottom: 6px;">Bright Ezeribe</h3>
-                  <p style="color: var(--orange-accent); font-size: 0.85rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px;">Founder & Lead Developer</p>
-                  <p style="color: rgba(255,255,255,0.85); font-size: 0.9rem; line-height: 1.7; margin-bottom: 0;">
-                    Self-taught developer. Genesys Tech Hub alumni. Builder of NgwaNgwa Delivery and Virtual Waitress. Stubborn by design.
+              <div class="flip-card-front" style="position: relative">
+                <img
+                  src="founder-dp.jpg"
+                  alt="Bright Ezeribe"
+                  style="
+                    width: 100%;
+                    height: 480px;
+                    object-fit: cover;
+                    object-position: center 70%;
+                    display: block;
+                  "
+                />
+                <img
+                  src="kola-logo.png"
+                  alt=""
+                  style="
+                    position: absolute;
+                    bottom: 14px;
+                    right: 14px;
+                    width: 60px;
+                    height: 60px;
+                    object-fit: contain;
+                    z-index: 10;
+                  "
+                />
+                <div
+                  style="
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    background: linear-gradient(
+                      transparent,
+                      rgba(26, 26, 26, 0.5) 30%,
+                      rgba(43, 74, 28, 0.95)
+                    );
+                    padding: 48px 32px 32px;
+                    text-align: center;
+                  "
+                >
+                  <h3
+                    style="
+                      color: var(--off-white);
+                      font-size: 1.4rem;
+                      margin-bottom: 6px;
+                    "
+                  >
+                    Bright Ezeribe
+                  </h3>
+                  <p
+                    style="
+                      color: var(--orange-accent);
+                      font-size: 0.85rem;
+                      font-weight: 600;
+                      letter-spacing: 0.1em;
+                      text-transform: uppercase;
+                      margin-bottom: 16px;
+                    "
+                  >
+                    Founder & Lead Developer
+                  </p>
+                  <p
+                    style="
+                      color: rgba(255, 255, 255, 0.85);
+                      font-size: 0.9rem;
+                      line-height: 1.7;
+                      margin-bottom: 0;
+                    "
+                  >
+                    Self-taught developer. Genesys Tech Hub alumni. Builder of
+                    NgwaNgwa Delivery and Virtual Waitress. Stubborn by design.
                   </p>
                 </div>
               </div>
 
               <!-- Back: Certificate -->
               <div class="flip-card-back">
-                <img src="founder-certificate.jpg" alt="Genesys Web Development Certificate — Bright Ezeribe" />
+                <img
+                  src="founder-certificate.jpg"
+                  alt="Genesys Web Development Certificate — Bright Ezeribe"
+                />
               </div>
-
             </div>
           </div>
         </div>
@@ -498,138 +766,394 @@
     </section>
 
     <!-- Team Section -->
-    <section class="section" style="background: white;">
+    <section class="section" style="background: white">
       <div class="container">
-        <div class="text-center" style="margin-bottom: 60px;">
-          <span class="label animate-on-scroll fade-in" style="color: var(--orange-accent);">THE TEAM</span>
-          <h2 class="animate-on-scroll fade-up" style="color: var(--dark-olive);">Small Team. Real People.</h2>
-          <p class="animate-on-scroll fade-up" style="color: var(--dark-olive); max-width: 560px; margin: 16px auto 0; font-size: 1.05rem; line-height: 1.8;">
-            We are not a faceless agency. We are a small, focused team from Anambra, Nigeria — building real things for real businesses.
+        <div class="text-center" style="margin-bottom: 60px">
+          <span
+            class="label animate-on-scroll fade-in"
+            style="color: var(--orange-accent)"
+            >THE TEAM</span
+          >
+          <h2
+            class="animate-on-scroll fade-up"
+            style="color: var(--dark-olive)"
+          >
+            Small Team. Real People.
+          </h2>
+          <p
+            class="animate-on-scroll fade-up"
+            style="
+              color: var(--dark-olive);
+              max-width: 560px;
+              margin: 16px auto 0;
+              font-size: 1.05rem;
+              line-height: 1.8;
+            "
+          >
+            We are not a faceless agency. We are a small, focused team from
+            Anambra, Nigeria — building real things for real businesses.
           </p>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; max-width: 900px; margin: 0 auto;" class="team-grid">
-          <div class="animate-on-scroll fade-up" style="background: var(--off-white); border-radius: 20px; padding: 36px 28px; text-align: center; border: 1px solid var(--border-light);">
-            <div style="width: 80px; height: 80px; border-radius: 50%; background: var(--dark-olive); margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 2rem; border: 3px solid var(--orange-accent);">
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            max-width: 900px;
+            margin: 0 auto;
+          "
+          class="team-grid"
+        >
+          <div
+            class="animate-on-scroll fade-up"
+            style="
+              background: var(--off-white);
+              border-radius: 20px;
+              padding: 36px 28px;
+              text-align: center;
+              border: 1px solid var(--border-light);
+            "
+          >
+            <div
+              style="
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                background: var(--dark-olive);
+                margin: 0 auto 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 2rem;
+                border: 3px solid var(--orange-accent);
+              "
+            >
               👨🏾‍💻
             </div>
-            <h3 style="color: var(--dark-olive); font-size: 1.1rem; margin-bottom: 6px;">Bright Ezeribe</h3>
-            <p style="color: var(--orange-accent); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px;">Founder · Developer</p>
-            <p style="color: var(--light-grey); font-size: 0.88rem; line-height: 1.6; margin: 0;">Web development, product strategy, and keeping the team stubborn to the plan.</p>
+            <h3
+              style="
+                color: var(--dark-olive);
+                font-size: 1.1rem;
+                margin-bottom: 6px;
+              "
+            >
+              Bright Ezeribe
+            </h3>
+            <p
+              style="
+                color: var(--orange-accent);
+                font-size: 0.8rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 0.08em;
+                margin-bottom: 12px;
+              "
+            >
+              Founder · Developer
+            </p>
+            <p
+              style="
+                color: var(--light-grey);
+                font-size: 0.88rem;
+                line-height: 1.6;
+                margin: 0;
+              "
+            >
+              Web development, product strategy, and keeping the team stubborn
+              to the plan.
+            </p>
           </div>
 
-          <div class="animate-on-scroll fade-up" style="background: var(--off-white); border-radius: 20px; padding: 36px 28px; text-align: center; border: 1px solid var(--border-light);">
-            <div style="width: 80px; height: 80px; border-radius: 50%; background: var(--dark-olive); margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 2rem; border: 3px solid var(--orange-accent);">
+          <div
+            class="animate-on-scroll fade-up"
+            style="
+              background: var(--off-white);
+              border-radius: 20px;
+              padding: 36px 28px;
+              text-align: center;
+              border: 1px solid var(--border-light);
+            "
+          >
+            <div
+              style="
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                background: var(--dark-olive);
+                margin: 0 auto 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 2rem;
+                border: 3px solid var(--orange-accent);
+              "
+            >
               🧑🏾‍💼
             </div>
-            <h3 style="color: var(--dark-olive); font-size: 1.1rem; margin-bottom: 6px;">Team Member</h3>
-            <p style="color: var(--orange-accent); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px;">Co-founder · [Role]</p>
-            <p style="color: var(--light-grey); font-size: 0.88rem; line-height: 1.6; margin: 0;">Details coming soon.</p>
+            <h3
+              style="
+                color: var(--dark-olive);
+                font-size: 1.1rem;
+                margin-bottom: 6px;
+              "
+            >
+              Team Member
+            </h3>
+            <p
+              style="
+                color: var(--orange-accent);
+                font-size: 0.8rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 0.08em;
+                margin-bottom: 12px;
+              "
+            >
+              Co-founder · [Role]
+            </p>
+            <p
+              style="
+                color: var(--light-grey);
+                font-size: 0.88rem;
+                line-height: 1.6;
+                margin: 0;
+              "
+            >
+              Details coming soon.
+            </p>
           </div>
 
-          <div class="animate-on-scroll fade-up" style="background: var(--off-white); border-radius: 20px; padding: 36px 28px; text-align: center; border: 1px solid var(--border-light);">
-            <div style="width: 80px; height: 80px; border-radius: 50%; background: var(--dark-olive); margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 2rem; border: 3px solid var(--orange-accent);">
+          <div
+            class="animate-on-scroll fade-up"
+            style="
+              background: var(--off-white);
+              border-radius: 20px;
+              padding: 36px 28px;
+              text-align: center;
+              border: 1px solid var(--border-light);
+            "
+          >
+            <div
+              style="
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                background: var(--dark-olive);
+                margin: 0 auto 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 2rem;
+                border: 3px solid var(--orange-accent);
+              "
+            >
               🧑🏾‍💼
             </div>
-            <h3 style="color: var(--dark-olive); font-size: 1.1rem; margin-bottom: 6px;">Team Member</h3>
-            <p style="color: var(--orange-accent); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px;">Co-founder · [Role]</p>
-            <p style="color: var(--light-grey); font-size: 0.88rem; line-height: 1.6; margin: 0;">Details coming soon.</p>
+            <h3
+              style="
+                color: var(--dark-olive);
+                font-size: 1.1rem;
+                margin-bottom: 6px;
+              "
+            >
+              Team Member
+            </h3>
+            <p
+              style="
+                color: var(--orange-accent);
+                font-size: 0.8rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 0.08em;
+                margin-bottom: 12px;
+              "
+            >
+              Co-founder · [Role]
+            </p>
+            <p
+              style="
+                color: var(--light-grey);
+                font-size: 0.88rem;
+                line-height: 1.6;
+                margin: 0;
+              "
+            >
+              Details coming soon.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- NgwaNgwa Delivery Journey Section -->
-    <section class="section" style="background: var(--near-black); overflow: hidden;">
+    <section
+      class="section"
+      style="background: var(--near-black); overflow: hidden"
+    >
       <div class="container">
-        <div class="text-center" style="margin-bottom: 48px;">
-          <span class="label animate-on-scroll fade-in" style="color: var(--orange-accent);">THE JOURNEY</span>
-          <h2 class="animate-on-scroll fade-up" style="color: var(--off-white);">NgwaNgwa Delivery</h2>
-          <p class="animate-on-scroll fade-up" style="color: var(--sage-green); font-size: 1.05rem; max-width: 560px; margin: 16px auto 0; line-height: 1.8;">
+        <div class="text-center" style="margin-bottom: 48px">
+          <span
+            class="label animate-on-scroll fade-in"
+            style="color: var(--orange-accent)"
+            >THE JOURNEY</span
+          >
+          <h2 class="animate-on-scroll fade-up" style="color: var(--off-white)">
+            NgwaNgwa Delivery
+          </h2>
+          <p
+            class="animate-on-scroll fade-up"
+            style="
+              color: var(--sage-green);
+              font-size: 1.05rem;
+              max-width: 560px;
+              margin: 16px auto 0;
+              line-height: 1.8;
+            "
+          >
             The product that started everything. Six slides. One real story.
           </p>
         </div>
 
-        <!-- Swipe hint -->
-        <p class="swipe-hint">← Swipe to explore →</p>
-
         <!-- Carousel -->
         <div class="delivery-carousel-wrapper">
           <div class="delivery-slides-track" id="deliveryTrack">
-
             <div class="delivery-slide">
               <div class="slide-media-placeholder">
-                <img src="story-3mtt-summit.jpg" alt="Bright at 3MTT Impact Summit Hackathon" class="slide-real-img" />
+                <img
+                  src="story-3mtt-summit.jpg"
+                  alt="Bright at 3MTT Impact Summit Hackathon"
+                  class="slide-real-img"
+                />
               </div>
               <div class="slide-text">
                 <p class="slide-number">01 / 06</p>
                 <h3>3MTT Impact Summit — The Spark</h3>
-                <p>I was a 3MTT Fellow on the AI/ML track — completed all fundamental courses and got certified. At the Impact Summit Hackathon, surrounded by builders and badge lanyards, the question hit me differently: why not build something that solves a real Nigerian problem? That day, NgwaNgwa Delivery was born.</p>
+                <p>
+                  I was a 3MTT Fellow on the AI/ML track — completed all
+                  fundamental courses and got certified. At the Impact Summit
+                  Hackathon, surrounded by builders and badge lanyards, the
+                  question hit me differently: why not build something that
+                  solves a real Nigerian problem? That day, NgwaNgwa Delivery
+                  was born.
+                </p>
               </div>
             </div>
 
             <div class="delivery-slide">
               <div class="slide-media-placeholder">
-                <img src="story-building-injured.jpg" alt="Building NgwaNgwa Delivery with a bandaged hand" class="slide-real-img" />
+                <img
+                  src="story-building-injured.jpg"
+                  alt="Building NgwaNgwa Delivery with a bandaged hand"
+                  class="slide-real-img"
+                />
               </div>
               <div class="slide-text">
                 <p class="slide-number">02 / 06</p>
                 <h3>5 Days In. Accident. Kept Going.</h3>
-                <p>Five days into the build I had an accident. My hand was bandaged. I kept coding. This photo is from that day — the NgwaNgwa Delivery app on screen, my wrapped hand on the keyboard. Nobody was going to build this for me, so I built it myself.</p>
+                <p>
+                  Five days into the build I had an accident. My hand was
+                  bandaged. I kept coding. This photo is from that day — the
+                  NgwaNgwa Delivery app on screen, my wrapped hand on the
+                  keyboard. Nobody was going to build this for me, so I built it
+                  myself.
+                </p>
               </div>
             </div>
 
             <div class="delivery-slide">
               <div class="slide-media-placeholder">
-                <img src="story-enugu-techfest.jpg" alt="Bright presenting NgwaNgwa Delivery on stage at Enugu Tech Fest" class="slide-real-img" />
+                <img
+                  src="story-enugu-techfest.jpg"
+                  alt="Bright presenting NgwaNgwa Delivery on stage at Enugu Tech Fest"
+                  class="slide-real-img"
+                />
               </div>
               <div class="slide-text">
                 <p class="slide-number">03 / 06</p>
                 <h3>On Stage at Enugu Tech Fest</h3>
-                <p>I showed up at the Enugu Tech Fest with what I'd built and asked to present. I got the chance. Standing on that stage, holding a microphone, showing a real product built from scratch — that moment changed my understanding of what I was capable of.</p>
+                <p>
+                  I showed up at the Enugu Tech Fest with what I'd built and
+                  asked to present. I got the chance. Standing on that stage,
+                  holding a microphone, showing a real product built from
+                  scratch — that moment changed my understanding of what I was
+                  capable of.
+                </p>
               </div>
             </div>
 
             <div class="delivery-slide">
               <div class="slide-media-placeholder">
-                <img src="story-vendor-convo.jpg" alt="Bright talking to a vendor about delivery pain points" class="slide-real-img" />
+                <img
+                  src="story-vendor-convo.jpg"
+                  alt="Bright talking to a vendor about delivery pain points"
+                  class="slide-real-img"
+                />
               </div>
               <div class="slide-text">
                 <p class="slide-number">04 / 06</p>
                 <h3>Listening to Real People</h3>
-                <p>I sat with vendors and riders — not to pitch, but to understand. A logistics manager walked me through the chaos. A rider explained why trust breaks down on every delivery. Both sides carry real pain. I recorded it all. The app was built from those conversations, not assumptions.</p>
+                <p>
+                  I sat with vendors and riders — not to pitch, but to
+                  understand. A logistics manager walked me through the chaos. A
+                  rider explained why trust breaks down on every delivery. Both
+                  sides carry real pain. I recorded it all. The app was built
+                  from those conversations, not assumptions.
+                </p>
               </div>
             </div>
 
             <div class="delivery-slide">
-              <div class="slide-media-placeholder" style="background: linear-gradient(135deg, #3D1C2B, #1a1a1a);">
+              <div
+                class="slide-media-placeholder"
+                style="background: linear-gradient(135deg, #3d1c2b, #1a1a1a)"
+              >
                 <span>🚚</span>
                 <span class="slide-media-label">Image coming soon</span>
               </div>
               <div class="slide-text">
                 <p class="slide-number">05 / 06</p>
                 <h3>3 Days. Real Operations.</h3>
-                <p>We ran a live pilot. Riders came on board. Vendors used the platform. The idea worked in the real world. But without capital to sustain operations, we had to pause. Zero sales — not because the product failed, but because the funding wasn't there yet.</p>
+                <p>
+                  We ran a live pilot. Riders came on board. Vendors used the
+                  platform. The idea worked in the real world. But without
+                  capital to sustain operations, we had to pause. Zero sales —
+                  not because the product failed, but because the funding wasn't
+                  there yet.
+                </p>
               </div>
             </div>
 
             <div class="delivery-slide">
-              <div class="slide-media-placeholder" style="background: linear-gradient(135deg, #1C3D2B, #1a1a1a);">
+              <div
+                class="slide-media-placeholder"
+                style="background: linear-gradient(135deg, #1c3d2b, #1a1a1a)"
+              >
                 <span>🌱</span>
                 <span class="slide-media-label">Image coming soon</span>
               </div>
               <div class="slide-text">
                 <p class="slide-number">06 / 06</p>
                 <h3>The Pivot — Not the End</h3>
-                <p>NgwaNgwa Delivery is not dead. We pivoted to NgwaNgwa Digital to generate the capital needed to fund logistics operations properly. Every website we build, every product we ship — it's all moving toward the moment we relaunch this.</p>
+                <p>
+                  NgwaNgwa Delivery is not dead. We pivoted to NgwaNgwa Digital
+                  to generate the capital needed to fund logistics operations
+                  properly. Every website we build, every product we ship — it's
+                  all moving toward the moment we relaunch this.
+                </p>
               </div>
             </div>
-
           </div>
 
           <!-- Controls -->
           <div class="carousel-controls">
-            <button class="carousel-btn" id="carouselPrev" aria-label="Previous slide">&#8592;</button>
+            <button
+              class="carousel-btn"
+              id="carouselPrev"
+              aria-label="Previous slide"
+            >
+              &#8592;
+            </button>
             <div class="carousel-dots" id="carouselDots">
               <button class="carousel-dot active" aria-label="Slide 1"></button>
               <button class="carousel-dot" aria-label="Slide 2"></button>
@@ -638,20 +1162,72 @@
               <button class="carousel-dot" aria-label="Slide 5"></button>
               <button class="carousel-dot" aria-label="Slide 6"></button>
             </div>
-            <button class="carousel-btn" id="carouselNext" aria-label="Next slide">&#8594;</button>
+            <button
+              class="carousel-btn"
+              id="carouselNext"
+              aria-label="Next slide"
+            >
+              &#8594;
+            </button>
           </div>
         </div>
 
         <!-- Partnership CTA -->
         <div class="delivery-partnership-cta animate-on-scroll fade-up">
-          <p style="color: var(--sage-green); font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px;">THE VISION IS ALIVE</p>
-          <h3 style="color: var(--off-white); font-size: 1.5rem; margin-bottom: 16px; line-height: 1.4;">NgwaNgwa Delivery is paused — not abandoned.</h3>
-          <p style="color: var(--sage-green); font-size: 1rem; line-height: 1.8; max-width: 600px; margin: 0 auto 32px;">
-            If you're a logistics company, investor, or partner who sees what this can become, we want that conversation.
+          <p
+            style="
+              color: var(--sage-green);
+              font-size: 0.85rem;
+              letter-spacing: 0.1em;
+              text-transform: uppercase;
+              margin-bottom: 16px;
+            "
+          >
+            THE VISION IS ALIVE
           </p>
-          <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-            <a href="delivery.html" class="btn btn-primary">Read the Full Story</a>
-            <a href="contact.html" class="btn" style="border: 1px solid rgba(255,255,255,0.2); color: var(--off-white); background: transparent;">Become a Partner</a>
+          <h3
+            style="
+              color: var(--off-white);
+              font-size: 1.5rem;
+              margin-bottom: 16px;
+              line-height: 1.4;
+            "
+          >
+            NgwaNgwa Delivery is paused — not abandoned.
+          </h3>
+          <p
+            style="
+              color: var(--sage-green);
+              font-size: 1rem;
+              line-height: 1.8;
+              max-width: 600px;
+              margin: 0 auto 32px;
+            "
+          >
+            If you're a logistics company, investor, or partner who sees what
+            this can become, we want that conversation.
+          </p>
+          <div
+            style="
+              display: flex;
+              gap: 16px;
+              justify-content: center;
+              flex-wrap: wrap;
+            "
+          >
+            <a href="delivery.html" class="btn btn-primary"
+              >Read the Full Story</a
+            >
+            <a
+              href="contact.html"
+              class="btn"
+              style="
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                color: var(--off-white);
+                background: transparent;
+              "
+              >Become a Partner</a
+            >
           </div>
         </div>
       </div>
@@ -691,13 +1267,26 @@
           <!-- Brand Section -->
           <div class="footer-brand">
             <div class="logo">
-              <img src="kola-logo.png" alt="NgwaNgwa Digital" class="logo-img" />
-              
+              <img
+                src="kola-logo.png"
+                alt="NgwaNgwa Digital"
+                class="logo-img"
+              />
+              <span
+                ><span class="logo-main">NgwaNgwa</span
+                ><span class="logo-sub"> Digital</span></span
+              >
             </div>
             <p class="footer-tagline">
               Show Up. Keep Building.<br />Stay Stubborn to the Plan.
             </p>
-            <p style="color: var(--sage-green); font-size: 0.8rem; margin-top: 12px;">
+            <p
+              style="
+                color: var(--sage-green);
+                font-size: 0.8rem;
+                margin-top: 12px;
+              "
+            >
               Founded in Nnewi, Anambra 🇳🇬
             </p>
           </div>
