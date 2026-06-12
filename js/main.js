@@ -226,6 +226,54 @@ function debounce(func, wait) {
   };
 }
 
+// ===== DELIVERY CAROUSEL =====
+(function () {
+  const wrapper = document.querySelector(".delivery-carousel-wrapper");
+  if (!wrapper) return;
+
+  const track = document.getElementById("deliveryTrack");
+  const prevBtn = document.getElementById("carouselPrev");
+  const nextBtn = document.getElementById("carouselNext");
+  const dots = document.querySelectorAll(".carousel-dot");
+  const totalSlides = dots.length;
+  let current = 0;
+  let autoplayTimer = null;
+
+  function goTo(index) {
+    current = (index + totalSlides) % totalSlides;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    dots.forEach((d, i) => d.classList.toggle("active", i === current));
+  }
+
+  function startAutoplay() {
+    autoplayTimer = setInterval(() => goTo(current + 1), 10000);
+  }
+
+  function stopAutoplay() {
+    clearInterval(autoplayTimer);
+  }
+
+  prevBtn.addEventListener("click", () => { stopAutoplay(); goTo(current - 1); startAutoplay(); });
+  nextBtn.addEventListener("click", () => { stopAutoplay(); goTo(current + 1); startAutoplay(); });
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener("click", () => { stopAutoplay(); goTo(i); startAutoplay(); });
+  });
+
+  wrapper.addEventListener("mouseenter", stopAutoplay);
+  wrapper.addEventListener("mouseleave", startAutoplay);
+
+  // Touch/swipe support
+  let touchStartX = 0;
+  track.addEventListener("touchstart", (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener("touchend", (e) => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) { stopAutoplay(); goTo(diff > 0 ? current + 1 : current - 1); startAutoplay(); }
+  }, { passive: true });
+
+  startAutoplay();
+})();
+
 // ===== INITIALIZE =====
 document.addEventListener("DOMContentLoaded", () => {
   // Add page load animation to hero
