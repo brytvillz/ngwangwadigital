@@ -1,7 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-page-theme="dark">
   <head>
     <meta charset="UTF-8" />
+    <!-- Anti-flash: apply dark/light before first paint -->
+    <script>!function(){var r=document.documentElement,p=r.getAttribute('data-page-theme')||'light',u=localStorage.getItem('ngwangwa-theme'),a=null!==u?u:p;'dark'===a&&r.classList.add('dark-mode')}();</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#2B4A1C" />
     <meta
@@ -109,321 +111,154 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/animations.css" />
+    <link rel="stylesheet" href="css/hero.css" />
   </head>
   <body>
-    <!-- Navigation -->
-    <nav class="navigation dark">
-      <div class="nav-container">
-        <a href="index.html" class="logo">
-          <img src="kola-logo.png" alt="NgwaNgwa Digital" class="logo-img" />
-          <span
-            ><span class="logo-main">NgwaNgwa</span
-            ><span class="logo-sub"> Digital</span></span
-          >
-        </a>
-
-        <button class="menu-toggle" aria-label="Toggle menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-
-        <ul class="nav-links">
-          <li><a href="services.html">Services</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="products.html">Products</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
+    <!-- Floating Pill Navbar -->
+    <nav class="hero-nav" id="heroNav">
+      <a href="index.html">
+        <img src="kola-logo.png" class="hero-nav-logo" alt="NgwaNgwa Digital" />
+      </a>
+      <ul class="hero-nav-links">
+        <li><a href="portfolio.html">Work</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="contact.html" class="hero-nav-cta">Start a Project ↗</a>
+      <button id="themeToggle" class="theme-toggle" aria-label="Switch to light mode" title="Switch to light mode">&#9728;</button>
+      <button class="hero-nav-hamburger" id="heroNavHamburger" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="container hero-container">
-        <div class="hero-content">
-          <span class="label hero-label"
-            >NgwaNgwa — Show Up. Keep Building. Stay Stubborn.</span
-          >
+    <div class="hero-nav-mobile-menu" id="heroNavMobileMenu" aria-hidden="true">
+      <ul>
+        <li><a href="portfolio.html">Work</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="contact.html" class="hero-nav-mobile-cta">Start a Project ↗</a>
+    </div>
 
-          <h1 class="hero-headline">
-            Your Business<br />
-            Deserves To Be<br />
-            <span class="highlight">Found.</span>
-          </h1>
+    <!-- Hero — Kola Orbit -->
+    <section class="hero-orbit" id="heroSection">
 
-          <p class="hero-subheadline">
-            We build websites, SEO, and digital products<br />
-            for Nigerian businesses ready to compete globally.
-          </p>
+      <div class="hero-accent-bar"></div>
 
-          <div class="btn-group">
-            <a href="contact.html" class="btn btn-primary btn-animated">
-              Get a Free Consultation
-            </a>
-            <a href="portfolio.html" class="btn btn-secondary">
-              See Our Work
-            </a>
-          </div>
-
-          <p class="hero-social-proof">
-            Built in Nnewi, Anambra. Serving businesses worldwide 🌍
-          </p>
-        </div>
-
-        <div class="hero-floating-card animate-on-scroll slide-right">
-          <div style="margin-bottom: 16px">
-            <span class="live-indicator"></span>
-            <span style="color: var(--off-white); font-weight: 600"
-              >Virtual Waitress — Live Demo</span
-            >
-          </div>
-
-          <h3>Nnewi Buka</h3>
-          <p class="company">Restaurant Experience</p>
-
-          <div class="qr-placeholder">
-            <img
-              src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://virtual-waitress.vercel.app/?table=1"
-              alt="Scan to view Virtual Waitress demo"
-              style="width: 100%; height: 100%; border-radius: 8px"
-              onerror="
-                this.style.display = 'none';
-                this.nextElementSibling.style.display = 'flex';
-              "
-            />
-            <div
-              style="
-                display: none;
-                width: 100%;
-                height: 100%;
-                border-radius: 8px;
-                background: #f0f4eb;
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
-                gap: 8px;
-                font-size: 0.75rem;
-                color: #3d4f2e;
-                text-align: center;
-                padding: 8px;
-              "
-            >
-              <span style="font-size: 1.5rem">📱</span>
-              <span>virtual-waitress.vercel.app</span>
-            </div>
-          </div>
-
-          <p>Scan to see our latest product →</p>
-        </div>
-      </div>
-
-      <div class="scroll-indicator"></div>
-    </section>
-
-    <!-- NgwaNgwa Meaning Strip -->
-    <section style="background: var(--dark-olive); padding: 60px 0">
-      <div class="container">
-        <div style="text-align: center; margin-bottom: 48px">
-          <p
-            style="
-              color: var(--sage-green);
-              font-size: 0.9rem;
-              letter-spacing: 0.15em;
-              text-transform: uppercase;
-              margin-bottom: 12px;
-            "
-          >
-            NgwaNgwa — Igbo for "Quick Quick"
-          </p>
-          <h2
-            style="
-              color: var(--off-white);
-              font-size: clamp(1.6rem, 3vw, 2.2rem);
-              font-weight: 700;
-              line-height: 1.3;
-            "
-          >
-            It's more than a name.<br />It's how we work.
-          </h2>
-        </div>
-
-        <div
-          class="ngwangwa-pillars"
-          style="
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
-            max-width: 900px;
-            margin: 0 auto;
-          "
-        >
-          <div
-            style="
-              text-align: center;
-              padding: 32px 24px;
-              border: 1px solid rgba(255, 255, 255, 0.1);
-              border-radius: 16px;
-            "
-          >
-            <div style="font-size: 2rem; margin-bottom: 16px">👊🏾</div>
-            <h3
-              style="
-                color: var(--orange-accent);
-                font-size: 1.1rem;
-                margin-bottom: 10px;
-                letter-spacing: 0.05em;
-              "
-            >
-              SHOW UP
-            </h3>
-            <p
-              style="
-                color: var(--sage-green);
-                font-size: 0.9rem;
-                line-height: 1.7;
-                margin: 0;
-              "
-            >
-              When it's hard. When nobody is watching. When the results haven't
-              come yet.
-            </p>
-          </div>
-
-          <div
-            style="
-              text-align: center;
-              padding: 32px 24px;
-              border: 1px solid rgba(255, 255, 255, 0.1);
-              border-radius: 16px;
-            "
-          >
-            <div style="font-size: 2rem; margin-bottom: 16px">🔨</div>
-            <h3
-              style="
-                color: var(--orange-accent);
-                font-size: 1.1rem;
-                margin-bottom: 10px;
-                letter-spacing: 0.05em;
-              "
-            >
-              KEEP BUILDING
-            </h3>
-            <p
-              style="
-                color: var(--sage-green);
-                font-size: 0.9rem;
-                line-height: 1.7;
-                margin: 0;
-              "
-            >
-              Ship real things. Solve real problems. Build for people, not for
-              applause.
-            </p>
-          </div>
-
-          <div
-            style="
-              text-align: center;
-              padding: 32px 24px;
-              border: 1px solid rgba(255, 255, 255, 0.1);
-              border-radius: 16px;
-            "
-          >
-            <div style="font-size: 2rem; margin-bottom: 16px">🌱</div>
-            <h3
-              style="
-                color: var(--orange-accent);
-                font-size: 1.1rem;
-                margin-bottom: 10px;
-                letter-spacing: 0.05em;
-              "
-            >
-              STAY STUBBORN
-            </h3>
-            <p
-              style="
-                color: var(--sage-green);
-                font-size: 0.9rem;
-                line-height: 1.7;
-                margin: 0;
-              "
-            >
-              To the plan. To the vision. Even when capital is low and the odds
-              say otherwise.
-            </p>
+      <!-- Orbit background (aria-hidden — purely decorative) -->
+      <div class="orbit-bg" aria-hidden="true">
+        <div class="orbit-perspective">
+          <div class="orbit-scene" id="orbitScene">
+            <div class="orbit-ring orbit-ring-2"></div>
+            <div class="orbit-ring orbit-ring-1"></div>
+            <div class="orbit-ring orbit-ring-3"></div>
+            <div class="orbit-kola"><img src="kola-logo.png" alt="" /></div>
+            <div class="orbit-dot orbit-dot-1"></div>
+            <div class="orbit-dot orbit-dot-2"></div>
           </div>
         </div>
       </div>
+
+      <!-- Editorial text -->
+      <div class="hero-editorial" id="heroEditorial">
+
+        <div class="hero-ed-meta">
+          <img src="kola-logo.png" class="hero-ed-logo" alt="" />
+          <span class="hero-ed-brand">NgwaNgwa Digital</span>
+          <span class="hero-ed-sep"></span>
+          <span class="hero-ed-loc">Nnewi, Anambra State</span>
+        </div>
+
+        <h1 class="hero-ed-heading">
+          We Build <em>Digital</em><br />Products for Africa.
+        </h1>
+
+        <div class="hero-ed-bottom">
+          <p class="hero-ed-sub">
+            A digital agency from Nnewi, Nigeria — building fast, beautiful
+            websites and SaaS products for growing African businesses.
+          </p>
+          <div class="hero-ed-ctas">
+            <a href="contact.html" class="hero-btn-fill">Start a Project ↗</a>
+            <a href="portfolio.html" class="hero-btn-link">View Our Work →</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Scroll hint -->
+      <div class="hero-scroll-hint" aria-hidden="true">
+        <div class="hero-hint-line"></div>
+        Scroll
+      </div>
+
     </section>
 
     <!-- Problem Statement Section -->
-    <section class="section section-light">
-      <div class="container">
-        <div class="content-wrapper text-center">
-          <span
-            class="label animate-on-scroll fade-in"
-            style="color: var(--orange-accent)"
-            >THE PROBLEM</span
-          >
+    <section class="section section-light problem-section">
+      <div class="container problem-container">
 
-          <h2 class="animate-on-scroll fade-up">
+        <!-- Left: copy + numbered problem list -->
+        <div class="problem-content animate-on-scroll fade-up">
+          <span class="label" style="color: var(--orange-accent)">THE PROBLEM</span>
+
+          <h2 class="problem-heading">
             Your foreign clients Google you before they call you.
           </h2>
 
-          <p
-            class="animate-on-scroll fade-up"
-            style="
-              font-size: 1.1rem;
-              color: var(--dark-olive);
-              max-width: 600px;
-              margin: 0 auto 48px;
-            "
-          >
+          <p class="problem-intro">
             In 2025, a Nigerian supplier or manufacturer without a professional
             digital presence loses international deals before the conversation
-            even starts.<br /><br />
-            Your competitors in China, India and Turkey have professional
-            websites, SEO rankings, and digital credibility.<br /><br />
-            <strong>You deserve the same.</strong>
+            even starts. Your competitors in China, India and Turkey have
+            websites, SEO rankings, and digital credibility.
+          </p>
+
+          <div class="problem-items stagger-container">
+            <div class="problem-item animate-on-scroll fade-up">
+              <span class="problem-num">01</span>
+              <div class="problem-item-body">
+                <strong>No Online Presence</strong>
+                <p>Foreign clients cannot verify your business exists</p>
+              </div>
+            </div>
+
+            <div class="problem-item animate-on-scroll fade-up">
+              <span class="problem-num">02</span>
+              <div class="problem-item-body">
+                <strong>Not Found on Google</strong>
+                <p>You are invisible to buyers actively searching for suppliers</p>
+              </div>
+            </div>
+
+            <div class="problem-item animate-on-scroll fade-up">
+              <span class="problem-num">03</span>
+              <div class="problem-item-body">
+                <strong>Low Digital Credibility</strong>
+                <p>Outdated or no website signals risk to international partners</p>
+              </div>
+            </div>
+          </div>
+
+          <p class="problem-cta-line">
+            <strong>You deserve the same. We build it.</strong>
           </p>
         </div>
 
-        <div class="grid-3 stagger-container" style="margin-top: 60px">
-          <div class="card animate-on-scroll fade-up hover-lift">
-            <div class="card-icon">
-              <svg viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="2" y1="12" x2="22" y2="12"></line>
-                <path
-                  d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
-                ></path>
-              </svg>
-            </div>
-            <h3>No Online Presence</h3>
-            <p>Foreign clients cannot verify your business exists</p>
-          </div>
-
-          <div class="card animate-on-scroll fade-up hover-lift">
-            <div class="card-icon">
-              <svg viewBox="0 0 24 24">
-                <circle cx="11" cy="11" r="8"></circle>
-                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-              </svg>
-            </div>
-            <h3>Not Found on Google</h3>
-            <p>You are invisible to buyers actively searching for suppliers</p>
-          </div>
-
-          <div class="card animate-on-scroll fade-up hover-lift">
-            <div class="card-icon">
-              <svg viewBox="0 0 24 24">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-              </svg>
-            </div>
-            <h3>Low Digital Credibility</h3>
-            <p>Outdated or no website signals risk to international partners</p>
+        <!-- Right: editorial figure -->
+        <div class="problem-image-wrap animate-on-scroll fade-up">
+          <img
+            src="problem-figure.png"
+            alt="Nigerian business owner checking his phone — the kind of deal lost without a digital presence"
+            class="problem-image"
+          />
+          <div class="problem-image-overlay"></div>
+          <div class="problem-image-badge">
+            <span>You deserve the same.</span>
           </div>
         </div>
+
       </div>
     </section>
 
@@ -491,6 +326,157 @@
           >
             View All Services
           </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Work Showcase -->
+    <section class="work-showcase" id="workSection">
+
+      <!-- Dot-grid spotlight — follows mouse via hero.js -->
+      <div class="work-spotlight" id="workSpotlight" aria-hidden="true"></div>
+
+      <div class="container work-inner">
+
+        <div class="work-header">
+          <span class="label work-label animate-on-scroll fade-in">OUR WORK</span>
+          <h2 class="work-heading animate-on-scroll fade-up">
+            Brands we've built.<br />Businesses we've moved.
+          </h2>
+        </div>
+
+        <div class="work-cards stagger-container">
+
+          <a href="portfolio.html" class="work-card animate-on-scroll fade-up">
+            <div class="work-card-inner">
+              <span class="work-card-cat">SaaS Product</span>
+              <h3 class="work-card-title">Virtual Waitress</h3>
+              <p class="work-card-desc">QR menu + WhatsApp waiter-call for Nigerian restaurants. Piloted at Nnewi Buka.</p>
+              <div class="work-card-footer">
+                <span class="work-card-link">View Project →</span>
+              </div>
+            </div>
+            <div class="work-card-glow"></div>
+          </a>
+
+          <a href="portfolio.html" class="work-card animate-on-scroll fade-up">
+            <div class="work-card-inner">
+              <span class="work-card-cat">Web Design</span>
+              <h3 class="work-card-title">Industrial Manufacturing</h3>
+              <p class="work-card-desc">Professional digital presence for a Nigerian industrial supplier targeting international buyers.</p>
+              <div class="work-card-footer">
+                <span class="work-card-link">View Project →</span>
+              </div>
+            </div>
+            <div class="work-card-glow"></div>
+          </a>
+
+          <a href="portfolio.html" class="work-card animate-on-scroll fade-up">
+            <div class="work-card-inner">
+              <span class="work-card-cat">Web Design + SEO</span>
+              <h3 class="work-card-title">Agricultural Export</h3>
+              <p class="work-card-desc">International-facing website and SEO strategy for a Nigerian agro export business.</p>
+              <div class="work-card-footer">
+                <span class="work-card-link">View Project →</span>
+              </div>
+            </div>
+            <div class="work-card-glow"></div>
+          </a>
+
+        </div>
+
+        <div class="work-cta animate-on-scroll fade-up">
+          <a href="portfolio.html" class="work-cta-btn">
+            View All Work
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 10h12M10 4l6 6-6 6"/>
+            </svg>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- NgwaNgwa Meaning Strip -->
+    <section class="meaning-strip">
+
+      <!-- Kola background effect -->
+      <div class="meaning-kola-bg" aria-hidden="true">
+        <div class="meaning-glow-orange"></div>
+        <div class="meaning-glow-sage"></div>
+        <div class="meaning-kola-wrap">
+          <div class="meaning-kola-ring"></div>
+          <div class="meaning-kola-ring-2"></div>
+          <img src="kola-logo.png" alt="" class="meaning-kola-img" />
+        </div>
+        <div class="meaning-kola-echo-wrap">
+          <img src="kola-logo.png" alt="" class="meaning-kola-echo-img" />
+        </div>
+      </div>
+
+      <div class="container">
+
+        <div class="meaning-header">
+          <p class="meaning-label">NgwaNgwa — Igbo for "Quick Quick"</p>
+          <h2 class="meaning-heading">
+            It's more than<br /><em>a name.</em>
+          </h2>
+          <p class="meaning-subhead">It's how we work.</p>
+        </div>
+
+        <div class="meaning-cards">
+
+          <!-- Show Up -->
+          <div class="meaning-card">
+            <img
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=700&h=700&fit=crop&auto=format&q=80"
+              alt="A person showing up with purpose"
+              class="meaning-card-img"
+            />
+            <div class="meaning-card-overlay"></div>
+            <span class="meaning-card-num">01</span>
+            <div class="meaning-card-content">
+              <h3 class="meaning-card-title">Show Up</h3>
+              <p class="meaning-card-desc">
+                When it's hard. When nobody is watching. When the results haven't come yet.
+              </p>
+            </div>
+          </div>
+
+          <!-- Keep Building -->
+          <div class="meaning-card">
+            <img
+              src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=700&h=700&fit=crop&auto=format&q=80"
+              alt="Building and coding — hands at work"
+              class="meaning-card-img"
+            />
+            <div class="meaning-card-overlay"></div>
+            <span class="meaning-card-num">02</span>
+            <div class="meaning-card-content">
+              <h3 class="meaning-card-title">Keep Building</h3>
+              <p class="meaning-card-desc">
+                Ship real things. Solve real problems. Build for people, not for applause.
+              </p>
+            </div>
+          </div>
+
+          <!-- Stay Stubborn -->
+          <div class="meaning-card">
+            <img
+              src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=700&h=700&fit=crop&auto=format&q=80"
+              alt="Staying focused and stubborn to the plan"
+              class="meaning-card-img"
+            />
+            <div class="meaning-card-overlay"></div>
+            <span class="meaning-card-num">03</span>
+            <div class="meaning-card-content">
+              <h3 class="meaning-card-title">Stay Stubborn</h3>
+              <p class="meaning-card-desc">
+                To the plan. To the vision. Even when capital is low and the odds say otherwise.
+              </p>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -1342,5 +1328,8 @@
     <!-- Scripts -->
     <script src="js/animations.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/hero.js"></script>
+    <script src="js/theme.js"></script>
+
   </body>
 </html>

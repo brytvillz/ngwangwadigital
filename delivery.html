@@ -1,7 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-page-theme="dark">
   <head>
     <meta charset="UTF-8" />
+    <!-- Anti-flash: apply dark/light before first paint -->
+    <script>!function(){var r=document.documentElement,p=r.getAttribute('data-page-theme')||'light',u=localStorage.getItem('ngwangwa-theme'),a=null!==u?u:p;'dark'===a&&r.classList.add('dark-mode')}();</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#2B4A1C" />
     <meta
@@ -1138,5 +1140,9 @@
 
     <script src="js/animations.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/theme.js"></script>
+
+    <!-- Theme toggle -->
+    <button id="themeToggle" class="theme-toggle" aria-label="Switch to light mode" title="Switch to light mode">&#9728;</button>
   </body>
 </html>
