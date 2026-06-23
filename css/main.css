@@ -459,6 +459,7 @@ html.dark-mode .hero-nav .theme-toggle:hover {
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  overflow-x: hidden;
 }
 
 body {
@@ -468,6 +469,7 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
   margin: 0;
 }
 

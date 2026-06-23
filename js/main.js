@@ -7,10 +7,12 @@ let lastScroll = 0;
 window.addEventListener("scroll", () => {
   const currentScroll = window.pageYOffset;
 
-  if (currentScroll > 50) {
-    navigation.classList.add("scrolled");
-  } else {
-    navigation.classList.remove("scrolled");
+  if (navigation) {
+    if (currentScroll > 50) {
+      navigation.classList.add("scrolled");
+    } else {
+      navigation.classList.remove("scrolled");
+    }
   }
 
   lastScroll = currentScroll;
