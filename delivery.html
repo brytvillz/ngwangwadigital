@@ -23,6 +23,7 @@
     />
 
     <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/hero.css" />
     <link rel="stylesheet" href="css/animations.css" />
 
     <style>
@@ -612,26 +613,45 @@
 
   <body>
     <!-- Navigation -->
-    <nav class="navigation delivery-nav">
-      <div class="nav-container">
-        <a href="index.html" class="logo">
-          <img src="kola-logo.png" alt="NgwaNgwa Digital" class="logo-img" />
-        </a>
-
-        <button class="menu-toggle" aria-label="Toggle menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-
-        <ul class="nav-links">
-          <li><a href="services.html">Services</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="products.html">Products</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
+    <!-- Floating Pill Navbar -->
+    <nav class="hero-nav" id="heroNav">
+      <a href="index.html">
+        <img src="kola-logo.png" class="hero-nav-logo" alt="NgwaNgwa Digital" />
+      </a>
+      <ul class="hero-nav-links">
+        <li><a href="portfolio.html">Work</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="https://wa.me/2347076077265?text=Hi%20NgwaNgwa%20Digital%2C%20I%27d%20like%20to%20start%20a%20project" class="hero-nav-cta" target="_blank" rel="noopener">Start a Project ↗</a>
+      <button
+        id="themeToggle"
+        class="theme-toggle"
+        aria-label="Switch to light mode"
+        title="Switch to light mode"
+      >
+        &#9728;
+      </button>
+      <button
+        class="hero-nav-hamburger"
+        id="heroNavHamburger"
+        aria-label="Open navigation"
+        aria-expanded="false"
+      >
+        <span></span><span></span><span></span>
+      </button>
     </nav>
+
+    <div class="hero-nav-mobile-menu" id="heroNavMobileMenu" aria-hidden="true">
+      <ul>
+        <li><a href="portfolio.html">Work</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="https://wa.me/2347076077265?text=Hi%20NgwaNgwa%20Digital%2C%20I%27d%20like%20to%20start%20a%20project" class="hero-nav-mobile-cta" target="_blank" rel="noopener">Start a Project ↗</a>
+    </div>
 
     <!-- Status Banner -->
     <div class="status-banner">
@@ -642,7 +662,7 @@
           href="https://wa.me/2347076077265?text=Hi%20NgwaNgwa%20Digital%2C%20I%27d%20like%20to%20be%20part%20of%20the%20NgwaNgwa%20Delivery%20comeback"
           style="color: white; text-decoration: underline"
           target="_blank" rel="noopener"
-          >Want to be part of the comeback?</
+          >Want to be part of the comeback?</a
         >
       </p>
     </div>
