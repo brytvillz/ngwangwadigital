@@ -1,0 +1,728 @@
+<!doctype html>
+<html lang="en" data-page-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <script>!function(){var r=document.documentElement,p=r.getAttribute('data-page-theme')||'light',u=localStorage.getItem('ngwangwa-theme'),a=null!==u?u:p;'dark'===a&&r.classList.add('dark-mode')}();</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#2B4A1C" />
+    <meta
+      name="description"
+      content="The story behind NgwaNgwa Digital — built from stubbornness in Nnewi, Anambra. Meet Bright Ezeribe, the founder, and learn why this agency exists."
+    />
+    <title>About Us — NgwaNgwa Digital</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/hero.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+  </head>
+  <body>
+
+    <!-- Floating Pill Navbar -->
+    <nav class="hero-nav" id="heroNav">
+      <a href="index.html">
+        <img src="kola-logo.png" class="hero-nav-logo" alt="NgwaNgwa Digital" />
+      </a>
+      <ul class="hero-nav-links">
+        <li><a href="portfolio.html">Work</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="https://wa.me/2347076077265?text=Hi%20NgwaNgwa%20Digital%2C%20I%27d%20like%20to%20start%20a%20project" class="hero-nav-cta" target="_blank" rel="noopener">Start a Project ↗</a>
+      <button
+        id="themeToggle"
+        class="theme-toggle"
+        aria-label="Switch to light mode"
+        title="Switch to light mode"
+      >
+        &#9728;
+      </button>
+      <button
+        class="hero-nav-hamburger"
+        id="heroNavHamburger"
+        aria-label="Open navigation"
+        aria-expanded="false"
+      >
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <div class="hero-nav-mobile-menu" id="heroNavMobileMenu" aria-hidden="true">
+      <ul>
+        <li><a href="portfolio.html">Work</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="https://wa.me/2347076077265?text=Hi%20NgwaNgwa%20Digital%2C%20I%27d%20like%20to%20start%20a%20project" class="hero-nav-mobile-cta" target="_blank" rel="noopener">Start a Project ↗</a>
+    </div>
+
+    <!-- Page Hero -->
+    <section
+      class="section"
+      style="
+        background: var(--near-black);
+        padding-top: 160px;
+        padding-bottom: 80px;
+      "
+    >
+      <div class="container">
+        <span
+          class="label animate-on-scroll fade-in"
+          style="color: var(--orange-accent)"
+          >ABOUT US</span
+        >
+        <h1
+          class="animate-on-scroll fade-up"
+          style="
+            color: var(--off-white);
+            font-size: clamp(2.4rem, 5vw, 4rem);
+            line-height: 1.15;
+            max-width: 700px;
+            margin: 20px 0 24px;
+          "
+        >
+          Built from stubbornness.<br />Rooted in Nnewi.
+        </h1>
+        <p
+          class="animate-on-scroll fade-up"
+          style="
+            color: var(--sage-green);
+            font-size: 1.15rem;
+            line-height: 1.8;
+            max-width: 560px;
+          "
+        >
+          We are not a faceless agency. We are one builder from Anambra,
+          Nigeria — making things that work for businesses that mean business.
+        </p>
+      </div>
+    </section>
+
+    <!-- Founder Section -->
+    <section class="section" style="background: var(--off-white)">
+      <div class="container">
+        <div
+          style="
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+          "
+          class="story-grid"
+        >
+          <!-- Left: Full Story -->
+          <div>
+            <span
+              class="label animate-on-scroll fade-in"
+              style="color: var(--orange-accent)"
+              >THE FOUNDER</span
+            >
+            <h2
+              class="animate-on-scroll fade-up"
+              style="color: var(--dark-olive); margin-bottom: 24px"
+            >
+              Bright Ezeribe
+            </h2>
+            <p
+              class="animate-on-scroll fade-up"
+              style="
+                color: var(--dark-olive);
+                font-size: 1.05rem;
+                line-height: 1.9;
+                margin-bottom: 20px;
+              "
+            >
+              I am a self-taught developer from Nnewi, Anambra State. I did not
+              go to university for this. I learned by building things, breaking
+              them, and rebuilding. The Genesys Tech Hub program gave me
+              structure — but the stubbornness was already there.
+            </p>
+            <p
+              class="animate-on-scroll fade-up"
+              style="
+                color: var(--dark-olive);
+                font-size: 1.05rem;
+                line-height: 1.9;
+                margin-bottom: 20px;
+              "
+            >
+              In 2024, I joined the 3MTT fellowship on the AI/ML track,
+              completed every module, and got certified. At the Impact Summit
+              Hackathon, the question hit me: why not build something that
+              solves a real Nigerian problem? That question became NgwaNgwa
+              Delivery — built in 15 days, with a bandaged hand, presented on
+              stage at Enugu Tech Fest.
+            </p>
+            <p
+              class="animate-on-scroll fade-up"
+              style="
+                color: var(--dark-olive);
+                font-size: 1.05rem;
+                line-height: 1.9;
+                margin-bottom: 20px;
+              "
+            >
+              The logistics product ran a live pilot. It worked. Then the
+              capital ran out. So I pivoted — not away from the dream, but
+              toward the engine that funds it. NgwaNgwa Digital is that engine.
+              Every website we build, every system we ship, every client we
+              serve moves us closer to relaunching NgwaNgwa Delivery properly.
+            </p>
+            <p
+              class="animate-on-scroll fade-up"
+              style="
+                color: var(--dark-olive);
+                font-size: 1.05rem;
+                line-height: 1.9;
+                margin-bottom: 32px;
+              "
+            >
+              NgwaNgwa means "Quick Quick" in Igbo. That is how we work — fast,
+              focused, and without excuses. The goal is bigger than websites:
+              it is to build real opportunities for skilled Nigerian developers
+              who deserve better than an empty job market.
+            </p>
+            <div style="display: flex; gap: 16px; flex-wrap: wrap">
+              <a
+                href="https://wa.me/2347076077265?text=Hi%20NgwaNgwa%20Digital%2C%20I%27d%20like%20to%20work%20with%20you"
+                class="btn btn-primary animate-on-scroll fade-up"
+                target="_blank"
+                rel="noopener"
+                >Work With Us</a
+              >
+              <a
+                href="contact.html"
+                class="btn animate-on-scroll fade-up"
+                style="
+                  border: 1px solid var(--dark-olive);
+                  color: var(--dark-olive);
+                  background: transparent;
+                "
+                >Get in Touch</a
+              >
+            </div>
+          </div>
+
+          <!-- Right: Founder Card -->
+          <div class="animate-on-scroll fade-up flip-card">
+            <div class="flip-card-inner">
+              <!-- Front: Photo -->
+              <div class="flip-card-front" style="position: relative">
+                <img
+                  src="founder-dp.jpg"
+                  alt="Bright Ezeribe"
+                  style="
+                    width: 100%;
+                    height: 480px;
+                    object-fit: cover;
+                    object-position: center 70%;
+                    display: block;
+                  "
+                />
+                <img
+                  src="kola-logo.png"
+                  alt=""
+                  style="
+                    position: absolute;
+                    bottom: 14px;
+                    right: 14px;
+                    width: 60px;
+                    height: 60px;
+                    object-fit: contain;
+                    z-index: 10;
+                  "
+                />
+                <div
+                  style="
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    background: linear-gradient(
+                      transparent,
+                      rgba(26, 26, 26, 0.5) 30%,
+                      rgba(43, 74, 28, 0.95)
+                    );
+                    padding: 48px 32px 32px;
+                    text-align: center;
+                  "
+                >
+                  <h3
+                    style="
+                      color: var(--off-white);
+                      font-size: 1.4rem;
+                      margin-bottom: 6px;
+                    "
+                  >
+                    Bright Ezeribe
+                  </h3>
+                  <p
+                    style="
+                      color: var(--orange-accent);
+                      font-size: 0.85rem;
+                      font-weight: 600;
+                      letter-spacing: 0.1em;
+                      text-transform: uppercase;
+                      margin-bottom: 16px;
+                    "
+                  >
+                    Founder & Lead Developer
+                  </p>
+                  <p
+                    style="
+                      color: rgba(255, 255, 255, 0.85);
+                      font-size: 0.9rem;
+                      line-height: 1.7;
+                      margin-bottom: 0;
+                    "
+                  >
+                    Self-taught developer. Genesys Tech Hub alumni. Builder of
+                    NgwaNgwa Delivery and Virtual Waitress. Stubborn by design.
+                  </p>
+                </div>
+              </div>
+              <!-- Back: Certificate -->
+              <div class="flip-card-back">
+                <img
+                  src="founder-certificate.jpg"
+                  alt="Genesys Web Development Certificate — Bright Ezeribe"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What We Stand For -->
+    <section class="section" style="background: white">
+      <div class="container">
+        <div class="text-center" style="margin-bottom: 56px">
+          <span
+            class="label animate-on-scroll fade-in"
+            style="color: var(--orange-accent)"
+            >WHAT DRIVES US</span
+          >
+          <h2
+            class="animate-on-scroll fade-up"
+            style="color: var(--dark-olive)"
+          >
+            Three things we live by.
+          </h2>
+        </div>
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            max-width: 900px;
+            margin: 0 auto;
+          "
+          class="team-grid"
+        >
+          <div
+            class="animate-on-scroll fade-up"
+            style="
+              background: var(--off-white);
+              border-radius: 20px;
+              padding: 40px 32px;
+              border: 1px solid var(--border-light);
+            "
+          >
+            <p
+              style="
+                font-size: 2rem;
+                margin-bottom: 20px;
+              "
+            >
+              👣
+            </p>
+            <h3
+              style="
+                color: var(--dark-olive);
+                font-size: 1.1rem;
+                margin-bottom: 12px;
+              "
+            >
+              Show Up
+            </h3>
+            <p style="color: var(--light-grey); font-size: 0.9rem; line-height: 1.7; margin: 0">
+              Even when it is not convenient. Even when you are the only one
+              in the room who believes it.
+            </p>
+          </div>
+          <div
+            class="animate-on-scroll fade-up"
+            style="
+              background: var(--off-white);
+              border-radius: 20px;
+              padding: 40px 32px;
+              border: 1px solid var(--border-light);
+            "
+          >
+            <p style="font-size: 2rem; margin-bottom: 20px">🔨</p>
+            <h3
+              style="
+                color: var(--dark-olive);
+                font-size: 1.1rem;
+                margin-bottom: 12px;
+              "
+            >
+              Keep Building
+            </h3>
+            <p style="color: var(--light-grey); font-size: 0.9rem; line-height: 1.7; margin: 0">
+              Ship things. Real things. Not decks, not plans — working products
+              that solve actual problems.
+            </p>
+          </div>
+          <div
+            class="animate-on-scroll fade-up"
+            style="
+              background: var(--off-white);
+              border-radius: 20px;
+              padding: 40px 32px;
+              border: 1px solid var(--border-light);
+            "
+          >
+            <p style="font-size: 2rem; margin-bottom: 20px">🪨</p>
+            <h3
+              style="
+                color: var(--dark-olive);
+                font-size: 1.1rem;
+                margin-bottom: 12px;
+              "
+            >
+              Stay Stubborn
+            </h3>
+            <p style="color: var(--light-grey); font-size: 0.9rem; line-height: 1.7; margin: 0">
+              Pivots are fine. Quitting is not. The mission does not change —
+              only the route does.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NgwaNgwa Delivery Journey Section -->
+    <section
+      class="section"
+      style="background: var(--near-black); overflow: hidden"
+    >
+      <div class="container">
+        <div class="text-center" style="margin-bottom: 48px">
+          <span
+            class="label animate-on-scroll fade-in"
+            style="color: var(--orange-accent)"
+            >THE JOURNEY</span
+          >
+          <h2 class="animate-on-scroll fade-up" style="color: var(--off-white)">
+            NgwaNgwa Delivery
+          </h2>
+          <p
+            class="animate-on-scroll fade-up"
+            style="
+              color: var(--sage-green);
+              font-size: 1.05rem;
+              max-width: 560px;
+              margin: 16px auto 0;
+              line-height: 1.8;
+            "
+          >
+            The product that started everything. Six slides. One real story.
+          </p>
+        </div>
+
+        <!-- Carousel -->
+        <div class="delivery-carousel-wrapper">
+          <div class="delivery-slides-track" id="deliveryTrack">
+            <div class="delivery-slide">
+              <div class="slide-media-placeholder">
+                <img
+                  src="story-3mtt-summit.jpg"
+                  alt="Bright at 3MTT Impact Summit Hackathon"
+                  class="slide-real-img"
+                />
+              </div>
+              <div class="slide-text">
+                <p class="slide-number">01 / 06</p>
+                <h3>3MTT Impact Summit — The Spark</h3>
+                <p>
+                  I was a 3MTT Fellow on the AI/ML track — completed all
+                  fundamental courses and got certified. At the Impact Summit
+                  Hackathon, surrounded by builders and badge lanyards, the
+                  question hit me differently: why not build something that
+                  solves a real Nigerian problem? That day, NgwaNgwa Delivery
+                  was born.
+                </p>
+              </div>
+            </div>
+
+            <div class="delivery-slide">
+              <div class="slide-media-placeholder">
+                <img
+                  src="story-building-injured.jpg"
+                  alt="Building NgwaNgwa Delivery with a bandaged hand"
+                  class="slide-real-img"
+                />
+              </div>
+              <div class="slide-text">
+                <p class="slide-number">02 / 06</p>
+                <h3>5 Days In. Accident. Kept Going.</h3>
+                <p>
+                  Five days into the build I had an accident. My hand was
+                  bandaged. I kept coding. This photo is from that day — the
+                  NgwaNgwa Delivery app on screen, my wrapped hand on the
+                  keyboard. Nobody was going to build this for me, so I built it
+                  myself.
+                </p>
+              </div>
+            </div>
+
+            <div class="delivery-slide">
+              <div class="slide-media-placeholder">
+                <img
+                  src="story-enugu-techfest.jpg"
+                  alt="Bright presenting NgwaNgwa Delivery on stage at Enugu Tech Fest"
+                  class="slide-real-img"
+                />
+              </div>
+              <div class="slide-text">
+                <p class="slide-number">03 / 06</p>
+                <h3>On Stage at Enugu Tech Fest</h3>
+                <p>
+                  I showed up at the Enugu Tech Fest with what I'd built and
+                  asked to present. I got the chance. Standing on that stage,
+                  holding a microphone, showing a real product built from
+                  scratch — that moment changed my understanding of what I was
+                  capable of.
+                </p>
+              </div>
+            </div>
+
+            <div class="delivery-slide">
+              <div class="slide-media-placeholder">
+                <img
+                  src="story-vendor-convo.jpg"
+                  alt="Bright talking to a vendor about delivery pain points"
+                  class="slide-real-img"
+                />
+              </div>
+              <div class="slide-text">
+                <p class="slide-number">04 / 06</p>
+                <h3>Listening to Real People</h3>
+                <p>
+                  I sat with vendors and riders — not to pitch, but to
+                  understand. A logistics manager walked me through the chaos. A
+                  rider explained why trust breaks down on every delivery. Both
+                  sides carry real pain. I recorded it all. The app was built
+                  from those conversations, not assumptions.
+                </p>
+              </div>
+            </div>
+
+            <div class="delivery-slide">
+              <div
+                class="slide-media-placeholder"
+                style="background: linear-gradient(135deg, #3d1c2b, #1a1a1a)"
+              >
+                <span>🚚</span>
+                <span class="slide-media-label">Image coming soon</span>
+              </div>
+              <div class="slide-text">
+                <p class="slide-number">05 / 06</p>
+                <h3>3 Days. Real Operations.</h3>
+                <p>
+                  We ran a live pilot. Riders came on board. Vendors used the
+                  platform. The idea worked in the real world. But without
+                  capital to sustain operations, we had to pause. Zero sales —
+                  not because the product failed, but because the funding wasn't
+                  there yet.
+                </p>
+              </div>
+            </div>
+
+            <div class="delivery-slide">
+              <div
+                class="slide-media-placeholder"
+                style="background: linear-gradient(135deg, #1c3d2b, #1a1a1a)"
+              >
+                <span>🌱</span>
+                <span class="slide-media-label">Image coming soon</span>
+              </div>
+              <div class="slide-text">
+                <p class="slide-number">06 / 06</p>
+                <h3>The Pivot — Not the End</h3>
+                <p>
+                  NgwaNgwa Delivery is not dead. We pivoted to NgwaNgwa Digital
+                  to generate the capital needed to fund logistics operations
+                  properly. Every website we build, every product we ship — it's
+                  all moving toward the moment we relaunch this.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Controls -->
+          <div class="carousel-controls">
+            <button class="carousel-btn" id="carouselPrev" aria-label="Previous slide">&#8592;</button>
+            <div class="carousel-dots" id="carouselDots">
+              <button class="carousel-dot active" aria-label="Slide 1"></button>
+              <button class="carousel-dot" aria-label="Slide 2"></button>
+              <button class="carousel-dot" aria-label="Slide 3"></button>
+              <button class="carousel-dot" aria-label="Slide 4"></button>
+              <button class="carousel-dot" aria-label="Slide 5"></button>
+              <button class="carousel-dot" aria-label="Slide 6"></button>
+            </div>
+            <button class="carousel-btn" id="carouselNext" aria-label="Next slide">&#8594;</button>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="delivery-partnership-cta animate-on-scroll fade-up">
+          <p
+            style="
+              color: var(--sage-green);
+              font-size: 0.85rem;
+              letter-spacing: 0.1em;
+              text-transform: uppercase;
+              margin-bottom: 16px;
+            "
+          >
+            THE VISION IS ALIVE
+          </p>
+          <h3
+            style="
+              color: var(--off-white);
+              font-size: 1.5rem;
+              margin-bottom: 16px;
+              line-height: 1.4;
+            "
+          >
+            NgwaNgwa Delivery is paused — not abandoned.
+          </h3>
+          <p
+            style="
+              color: var(--sage-green);
+              font-size: 1rem;
+              line-height: 1.8;
+              max-width: 600px;
+              margin: 0 auto 32px;
+            "
+          >
+            If you're a logistics company, investor, or partner who sees what
+            this can become, we want that conversation.
+          </p>
+          <div
+            style="
+              display: flex;
+              gap: 16px;
+              justify-content: center;
+              flex-wrap: wrap;
+            "
+          >
+            <a href="delivery.html" class="btn btn-primary">Read the Full Story</a>
+            <a
+              href="contact.html"
+              class="btn"
+              style="
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                color: var(--off-white);
+                background: transparent;
+              "
+              >Become a Partner</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="section section-orange">
+      <div class="container text-center">
+        <h2
+          class="animate-on-scroll fade-up"
+          style="color: var(--off-white); margin-bottom: 16px"
+        >
+          Ready to win more clients online?
+        </h2>
+        <p
+          class="animate-on-scroll fade-up"
+          style="color: var(--off-white); font-size: 1.2rem; margin-bottom: 32px"
+        >
+          Let us build you something that works.
+        </p>
+        <a
+          href="https://wa.me/2347076077265?text=Hi%20NgwaNgwa%20Digital%2C%20I%27d%20like%20to%20start%20a%20project"
+          class="btn btn-dark animate-on-scroll fade-up"
+          target="_blank"
+          rel="noopener"
+          >Start a Project</a
+        >
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <div class="logo">
+              <img src="kola-logo.png" alt="NgwaNgwa Digital" class="logo-img" />
+              <span><span class="logo-main">NgwaNgwa</span><span class="logo-sub"> Digital</span></span>
+            </div>
+            <p class="footer-tagline">
+              Show Up. Keep Building.<br />Stay Stubborn to the Plan.
+            </p>
+            <p style="color: var(--sage-green); font-size: 0.8rem; margin-top: 12px">
+              Founded in Nnewi, Anambra 🇳🇬
+            </p>
+          </div>
+          <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="portfolio.html">Portfolio</a></li>
+              <li><a href="products.html">Products</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h4>What We Build</h4>
+            <ul>
+              <li><a href="services.html#websites">Business Websites</a></li>
+              <li><a href="services.html#seo">SEO Optimization</a></li>
+              <li><a href="services.html#systems">Business Systems</a></li>
+              <li><a href="products.html">Virtual Waitress</a></li>
+            </ul>
+          </div>
+          <div class="footer-contact">
+            <h4>Get In Touch</h4>
+            <p>📧 <a href="mailto:hello@ngwangwadigital.com" style="color:inherit;text-decoration:underline;">hello@ngwangwadigital.com</a></p>
+            <p>📱 WhatsApp: +234 707 607 7265</p>
+            <p>📍 Anambra, Nigeria 🌍</p>
+            <p style="margin-top: 12px">
+              <a href="https://instagram.com/ngwangwa.digital" target="_blank" rel="noopener" style="color: var(--orange-accent)">
+                @ngwangwa.digital
+              </a>
+            </p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 NgwaNgwa Digital. Built in Nigeria 🇳🇬</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/hero.js"></script>
+    <script src="js/theme.js"></script>
+  </body>
+</html>
