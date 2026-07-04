@@ -195,6 +195,24 @@
       align-items: center;
       gap: 40px;
     }
+    .bento-2 {
+      grid-column: span 2;
+      flex-direction: row;
+      align-items: center;
+      gap: 32px;
+    }
+    .bento-responsive {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .resp-bar {
+      height: 16px;
+      background: rgba(196,98,42,0.18);
+      border-radius: 4px;
+      border-left: 3px solid var(--orange-accent);
+    }
     .bento-card h3 {
       font-size: 1.15rem;
       font-weight: 700;
@@ -350,12 +368,12 @@
     @media (max-width: 1024px) {
       .bento-grid { grid-template-columns: repeat(2, 1fr); }
       .bento-large { grid-column: span 2; }
-      .bento-wide { grid-column: span 2; flex-direction: column; }
+      .bento-wide, .bento-2 { grid-column: span 2; flex-direction: column; }
     }
     @media (max-width: 640px) {
       .bento-grid { grid-template-columns: 1fr; }
-      .bento-large, .bento-wide { grid-column: span 1; }
-      .bento-wide { flex-direction: column; }
+      .bento-large, .bento-wide, .bento-2 { grid-column: span 1; }
+      .bento-wide, .bento-2 { flex-direction: column; }
       .bento-flow { flex-wrap: wrap; }
     }
   </style>
@@ -562,13 +580,15 @@
     <section class="section section-dark">
       <div class="container">
         <div style="margin-bottom: 48px">
-          <p class="animate-on-scroll fade-in" style="font-family: monospace; font-size: 0.85rem; color: var(--sage-green); margin-bottom: 16px">&gt; what_we_build</p>
-          <h2 class="animate-on-scroll fade-up" style="color: var(--off-white)">
-            Digital Services for<br />Nigerian Businesses
+          <span class="label animate-on-scroll fade-in" style="color: var(--sage-green)">WHAT WE BUILD</span>
+          <h2 class="animate-on-scroll fade-up" style="color: var(--off-white); margin-top: 12px">
+            Everything your business needs to compete.
           </h2>
         </div>
 
         <div class="bento-grid">
+
+          <!-- Row 1: Website Design (large) + Mobile App Dev -->
 
           <!-- Business Websites — large card -->
           <div class="bento-card bento-large animate-on-scroll fade-up">
@@ -595,7 +615,7 @@
             </div>
           </div>
 
-          <!-- Mobile-First Design — medium card -->
+          <!-- Mobile App Development -->
           <div class="bento-card animate-on-scroll fade-up">
             <div class="bento-phone">
               <div class="bento-phone-screen">
@@ -608,12 +628,26 @@
                 <div class="bento-phone-btn"></div>
               </div>
             </div>
+            <h3>Mobile App Dev</h3>
+            <p>Android & iOS apps for your business.</p>
+            <a href="services.html" class="bento-link">Learn More →</a>
+          </div>
+
+          <!-- Row 2: Mobile-First Design + SEO + Google Business -->
+
+          <!-- Mobile-First Design -->
+          <div class="bento-card animate-on-scroll fade-up">
+            <div class="bento-responsive">
+              <div class="resp-bar" style="width:100%"></div>
+              <div class="resp-bar" style="width:65%"></div>
+              <div class="resp-bar" style="width:38%"></div>
+            </div>
             <h3>Mobile-First Design</h3>
-            <p>Built to work perfectly on every screen, every device — because your clients are on their phones first.</p>
+            <p>Every build works perfectly on every device. Because your clients check their phones first.</p>
             <a href="services.html#mobile" class="bento-link">Learn More →</a>
           </div>
 
-          <!-- SEO — medium card -->
+          <!-- SEO -->
           <div class="bento-card animate-on-scroll fade-up">
             <div class="bento-chart">
               <div class="bento-bar" style="height:38%"></div>
@@ -628,7 +662,7 @@
             <a href="services.html#seo" class="bento-link">Learn More →</a>
           </div>
 
-          <!-- Google Business — small card -->
+          <!-- Google Business -->
           <div class="bento-card animate-on-scroll fade-up">
             <div style="font-size: 2rem; line-height:1">📍</div>
             <h3>Google Business Setup</h3>
@@ -636,7 +670,9 @@
             <a href="services.html#seo" class="bento-link">Learn More →</a>
           </div>
 
-          <!-- WhatsApp Integration — small card -->
+          <!-- Row 3: WhatsApp (1col) + Business Automation (2col) -->
+
+          <!-- WhatsApp Integration -->
           <div class="bento-card animate-on-scroll fade-up">
             <div style="font-size: 2rem; line-height:1">💬</div>
             <h3>WhatsApp Integration</h3>
@@ -644,8 +680,8 @@
             <a href="services.html#systems" class="bento-link">Learn More →</a>
           </div>
 
-          <!-- Business Systems — wide card -->
-          <div class="bento-card bento-wide animate-on-scroll fade-up">
+          <!-- Business Automation — 2-col wide -->
+          <div class="bento-card bento-2 animate-on-scroll fade-up">
             <div class="bento-flow">
               <div class="bento-fbox">Customer Visits</div>
               <div class="bento-arrow">→</div>
