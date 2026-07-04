@@ -164,6 +164,200 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* ── BENTO GRID — What We Build ─────────────────────────── */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .bento-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 10px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.35s, box-shadow 0.35s, transform 0.3s;
+    }
+    .bento-card:hover {
+      border-color: rgba(196,98,42,0.45);
+      box-shadow: 0 0 28px rgba(196,98,42,0.14);
+      transform: translateY(-4px);
+    }
+    .bento-large { grid-column: span 2; }
+    .bento-wide {
+      grid-column: span 3;
+      flex-direction: row;
+      align-items: center;
+      gap: 40px;
+    }
+    .bento-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--off-white);
+      margin: 0;
+    }
+    .bento-card p {
+      font-size: 0.88rem;
+      color: rgba(250,246,238,0.6);
+      line-height: 1.7;
+      flex: 1;
+      margin: 0;
+    }
+    .bento-link {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--orange-accent);
+      letter-spacing: 0.06em;
+      margin-top: auto;
+      transition: letter-spacing 0.25s;
+      text-decoration: none;
+    }
+    .bento-link:hover { letter-spacing: 0.14em; }
+    .bento-text {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex: 1;
+    }
+
+    /* Browser mockup */
+    .bento-browser {
+      background: #0e1610;
+      border-radius: 6px;
+      overflow: hidden;
+      margin-bottom: 6px;
+    }
+    .bento-browser-bar {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 12px;
+      background: #141f16;
+      border-bottom: 1px solid rgba(196,98,42,0.1);
+    }
+    .bento-dot {
+      width: 9px; height: 9px; border-radius: 50%;
+    }
+    .bento-dot.r { background: #ff5f57; }
+    .bento-dot.y { background: #febc2e; }
+    .bento-dot.g { background: #28c840; }
+    .bento-url {
+      font-size: 0.64rem;
+      color: rgba(250,246,238,0.35);
+      flex: 1;
+      text-align: center;
+      font-family: monospace;
+    }
+    .bento-browser-body { padding: 14px; }
+    .bento-hero-bar {
+      height: 44px;
+      background: rgba(196,98,42,0.1);
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+    .bento-lines { display: flex; flex-direction: column; gap: 7px; }
+    .bento-line {
+      height: 9px;
+      background: rgba(250,246,238,0.07);
+      border-radius: 2px;
+    }
+    .bento-line.w80 { width: 80%; }
+    .bento-line.w60 { width: 60%; }
+    .bento-line.accent {
+      width: 40%;
+      background: rgba(196,98,42,0.4);
+    }
+
+    /* Phone mockup */
+    .bento-phone {
+      width: 76px;
+      height: 130px;
+      border: 2px solid rgba(196,98,42,0.35);
+      border-radius: 14px;
+      overflow: hidden;
+      background: #0e1610;
+      flex-shrink: 0;
+    }
+    .bento-phone-screen {
+      padding: 8px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .bento-phone-bar {
+      height: 5px;
+      background: rgba(196,98,42,0.3);
+      border-radius: 2px;
+    }
+    .bento-phone-lines {
+      display: flex; flex-direction: column; gap: 5px; flex: 1;
+    }
+    .bento-phone-btn {
+      height: 16px;
+      background: rgba(196,98,42,0.4);
+      border-radius: 3px;
+      margin-top: auto;
+    }
+
+    /* Chart mockup */
+    .bento-chart {
+      display: flex;
+      align-items: flex-end;
+      gap: 5px;
+      height: 64px;
+      margin-bottom: 6px;
+    }
+    .bento-bar {
+      flex: 1;
+      background: rgba(196,98,42,0.2);
+      border-radius: 2px 2px 0 0;
+    }
+    .bento-bar.hi { background: var(--orange-accent); }
+
+    /* Flow mockup */
+    .bento-flow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+      flex-wrap: wrap;
+    }
+    .bento-fbox {
+      padding: 9px 14px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 5px;
+      font-size: 0.68rem;
+      font-family: monospace;
+      color: rgba(250,246,238,0.55);
+      white-space: nowrap;
+    }
+    .bento-fbox.accent {
+      border-color: var(--orange-accent);
+      color: var(--orange-accent);
+      background: rgba(196,98,42,0.08);
+    }
+    .bento-arrow {
+      color: var(--orange-accent);
+      font-size: 1.1rem;
+    }
+
+    @media (max-width: 1024px) {
+      .bento-grid { grid-template-columns: repeat(2, 1fr); }
+      .bento-large { grid-column: span 2; }
+      .bento-wide { grid-column: span 2; flex-direction: column; }
+    }
+    @media (max-width: 640px) {
+      .bento-grid { grid-template-columns: 1fr; }
+      .bento-large, .bento-wide { grid-column: span 1; }
+      .bento-wide { flex-direction: column; }
+      .bento-flow { flex-wrap: wrap; }
+    }
   </style>
   </head>
   <body>
@@ -367,58 +561,97 @@
     <!-- Services Section -->
     <section class="section section-dark">
       <div class="container">
-        <div class="text-center" style="margin-bottom: 60px">
+        <div class="text-center" style="margin-bottom: 48px">
           <span
             class="label animate-on-scroll fade-in"
             style="color: var(--sage-green)"
             >WHAT WE BUILD</span
           >
           <h2 class="animate-on-scroll fade-up" style="color: var(--off-white)">
-            Everything your business needs to win online.
+            Everything your business needs to compete.
           </h2>
-          base
         </div>
 
-        <div class="grid-2x2 stagger-container">
-          <div class="card-dark animate-on-scroll fade-up">
-            <span class="card-number">01</span>
-            <h3>Business Websites</h3>
-            <p>
-              Professional, fast, mobile-first websites that make your business
-              look credible to any client anywhere.
-            </p>
-            <div class="card-tag">HTML • CSS • JS • Supabase</div>
+        <div class="bento-grid">
+
+          <!-- Business Websites — large card -->
+          <div class="bento-card bento-large animate-on-scroll fade-up">
+            <div class="bento-browser">
+              <div class="bento-browser-bar">
+                <span class="bento-dot r"></span>
+                <span class="bento-dot y"></span>
+                <span class="bento-dot g"></span>
+                <span class="bento-url">https://yourbusiness.com.ng</span>
+              </div>
+              <div class="bento-browser-body">
+                <div class="bento-hero-bar"></div>
+                <div class="bento-lines">
+                  <div class="bento-line w80"></div>
+                  <div class="bento-line w60"></div>
+                  <div class="bento-line accent"></div>
+                </div>
+              </div>
+            </div>
+            <div class="bento-text">
+              <h3>Business Websites</h3>
+              <p>
+                Your website is your first impression — and most of your competitors have a bad one. We build fast, clean, mobile-ready sites that make clients take you seriously from the first scroll.
+              </p>
+              <a href="services.html#websites" class="bento-link">See what we build →</a>
+            </div>
           </div>
 
-          <div class="card-dark animate-on-scroll fade-up">
-            <span class="card-number">02</span>
-            <h3>Search Engine Optimization</h3>
-            <p>
-              Get found on Google by clients actively searching for what you
-              offer. Local and international SEO strategy.
-            </p>
-            <div class="card-tag">On-page • Technical • Local SEO</div>
-          </div>
-
-          <div class="card-dark animate-on-scroll fade-up">
-            <span class="card-number">03</span>
-            <h3>Digital Business Systems</h3>
-            <p>
-              Custom digital tools that automate and professionalize how your
-              business operates.
-            </p>
-            <div class="card-tag">Portals • Dashboards • Automation</div>
-          </div>
-
-          <div class="card-dark animate-on-scroll fade-up">
-            <span class="card-number">04</span>
+          <!-- Mobile-First Design — medium card -->
+          <div class="bento-card animate-on-scroll fade-up">
+            <div class="bento-phone">
+              <div class="bento-phone-screen">
+                <div class="bento-phone-bar"></div>
+                <div class="bento-phone-lines">
+                  <div class="bento-line w80"></div>
+                  <div class="bento-line w60"></div>
+                  <div class="bento-line w80"></div>
+                </div>
+                <div class="bento-phone-btn"></div>
+              </div>
+            </div>
             <h3>Mobile-First Design</h3>
-            <p>
-              Every build works perfectly on every device. Because your clients
-              check their phones first.
-            </p>
-            <div class="card-tag">Responsive • Fast • Accessible</div>
+            <p>Over 60% of your clients browse on their phones. Every pixel we build works perfectly on every screen — no excuses.</p>
+            <a href="services.html#mobile" class="bento-link">Learn more →</a>
           </div>
+
+          <!-- SEO — medium card -->
+          <div class="bento-card animate-on-scroll fade-up">
+            <div class="bento-chart">
+              <div class="bento-bar" style="height:38%"></div>
+              <div class="bento-bar" style="height:55%"></div>
+              <div class="bento-bar hi" style="height:72%"></div>
+              <div class="bento-bar" style="height:60%"></div>
+              <div class="bento-bar hi" style="height:88%"></div>
+              <div class="bento-bar hi" style="height:100%"></div>
+            </div>
+            <h3>SEO Optimization</h3>
+            <p>Your customers are searching right now. We make sure they find you — not your competitor.</p>
+            <a href="services.html#seo" class="bento-link">Learn more →</a>
+          </div>
+
+          <!-- Business Systems — wide card -->
+          <div class="bento-card bento-wide animate-on-scroll fade-up">
+            <div class="bento-flow">
+              <div class="bento-fbox">Customer Visits</div>
+              <div class="bento-arrow">→</div>
+              <div class="bento-fbox accent">Fills Your Form</div>
+              <div class="bento-arrow">→</div>
+              <div class="bento-fbox">You Get WhatsApp Alert</div>
+            </div>
+            <div class="bento-text">
+              <h3>Digital Business Systems</h3>
+              <p>
+                Stop running your business manually. We build booking tools, order systems, customer portals, and automation flows that do the grunt work — so you focus on delivery.
+              </p>
+              <a href="services.html#systems" class="bento-link">See how it works →</a>
+            </div>
+          </div>
+
         </div>
 
         <div class="text-center" style="margin-top: 48px">
