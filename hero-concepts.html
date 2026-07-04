@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hero Background Concepts — NgwaNgwa Digital</title>
+<style>
+
+/* ===== RESET ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --off-white: #FAF4E8;
+  --sage:   #5B7A43;
+  --olive:  #2B4A1C;
+  --black:  #0c0c0c;
+  --orange: #C4622A;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  background: var(--off-white);
+}
+
+/* ===== SWITCHER BAR ===== */
+.switcher {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  background: rgba(8,8,8,0.92);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 60px;
+  padding: 10px 20px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  box-shadow: 0 12px 48px rgba(0,0,0,0.5);
+  max-width: calc(100vw - 24px);
+}
+
+.sw-group { display: flex; align-items: center; gap: 6px; }
+
+.sw-label {
+  color: rgba(255,255,255,0.3);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  white-space: nowrap;
+}
+
+.sw-btn {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.5);
+  padding: 5px 13px;
+  border-radius: 60px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+  font-family: inherit;
+}
+.sw-btn:hover { border-color: rgba(255,255,255,0.35); color: #fff; }
+.sw-btn.active { background: var(--orange); border-color: var(--orange); color: #fff; }
+
+.sw-divider { width: 1px; height: 20px; background: rgba(255,255,255,0.08); flex-shrink: 0; }
+
+/* ===== NAVBAR — FLOATING PILL ===== */
+.nav-pill {
+  position: fixed;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background: rgba(12,12,12,0.72);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 60px;
+  padding: 9px 18px 9px 12px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.2);
+}
+
+.nav-logo { width: 36px; height: 36px; object-fit: contain; display: block; }
+.nav-pill .nav-logo { width: 34px; height: 34px; }
+
+.nav-links { display: flex; gap: 24px; list-style: none; }
+.nav-links a {
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: #fff; }
+
+.nav-cta {
+  background: var(--orange);
+  color: #fff;
+  padding: 9px 20px;
+  border-radius: 60px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background 0.2s, transform 0.2s;
+  white-space: nowrap;
+}
+.nav-cta:hover { background: #a8501f; transform: translateY(-1px); }
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 620px;
+  overflow: hidden;
+  background: var(--off-white);
+  display: flex;
+  align-items: center;
+  padding: 0 9vw;
+}
+
+/* All background concepts — absolute fill */
+.concept {
+  position: absolute;
+  inset: 0;
+  display: none;
+  pointer-events: none;
+}
+.concept.active { display: block; }
+
+/* ===== SHARED EDITORIAL TEXT ===== */
+.hero-text {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1100px;
+  will-change: opacity;
+}
+
+/* Accent top bar */
+.hero-accent-bar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--sage), var(--orange));
+  z-index: 3;
+}
+
+.ed-meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 48px;
+}
+.ed-logo { width: 34px; height: 34px; object-fit: contain; opacity: 0.65; }
+.ed-brand {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--olive);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.ed-sep { width: 1px; height: 14px; background: rgba(43,74,28,0.18); }
+.ed-loc { font-size: 12px; color: rgba(43,74,28,0.45); }
+
+.ed-heading {
+  font-weight: 900;
+  line-height: 0.88;
+  letter-spacing: -3px;
+  color: #111;
+  margin-bottom: 48px;
+}
+.ed-heading em { font-style: normal; color: var(--sage); }
+
+body.hl-bold   .ed-heading { font-size: clamp(56px, 8vw, 120px); }
+body.hl-agency .ed-heading { font-size: clamp(42px, 6vw, 88px); }
+
+.hl-bold-text   { display: block; }
+.hl-agency-text { display: none; }
+body.hl-agency .hl-bold-text   { display: none; }
+body.hl-agency .hl-agency-text { display: block; }
+
+.ed-bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+}
+.ed-sub {
+  font-size: clamp(14px, 1.45vw, 17px);
+  color: rgba(17,17,17,0.48);
+  max-width: 380px;
+  line-height: 1.74;
+}
+.ed-ctas { display: flex; flex-direction: column; gap: 12px; align-items: flex-end; }
+
+.btn-ed-fill {
+  background: var(--olive);
+  color: var(--off-white);
+  padding: 14px 26px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.2s, transform 0.2s;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.btn-ed-fill:hover { background: #1a3012; transform: translateY(-2px); }
+
+.btn-ed-link {
+  color: var(--orange);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  border-bottom: 1px solid var(--orange);
+  padding-bottom: 2px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: gap 0.2s;
+  white-space: nowrap;
+}
+.btn-ed-link:hover { gap: 9px; }
+
+/* ===== SCROLL HINT ===== */
+.scroll-hint {
+  position: absolute;
+  bottom: 28px;
+  left: 9vw;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(17,17,17,0.22);
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  z-index: 10;
+  pointer-events: none;
+}
+.hint-line {
+  width: 36px; height: 1px;
+  position: relative;
+  overflow: hidden;
+  background: rgba(17,17,17,0.1);
+}
+.hint-line::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: var(--orange);
+  animation: hint-slide 2.2s ease-in-out infinite;
+}
+@keyframes hint-slide {
+  0%   { left: -100%; }
+  50%  { left: 0; }
+  100% { left: 100%; }
+}
+
+/* ═══════════════════════════════════════════
+   CONCEPT 1 — KOLA ORBIT
+   Kola spins slowly. Two rings orbit at
+   different speeds + tilts. Mouse tilts the
+   whole 3D scene.
+═══════════════════════════════════════════ */
+.orbit-perspective {
+  position: absolute;
+  right: 6vw;
+  top: 50%;
+  width: 480px;
+  height: 480px;
+  margin-top: -240px;
+  perspective: 900px;
+}
+
+.orbit-scene {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.08s linear;
+}
+
+.orbit-kola {
+  position: absolute;
+  width: 240px; height: 240px;
+  top: calc(50% - 120px);
+  left: calc(50% - 120px);
+  animation: kola-spin 30s linear infinite;
+}
+.orbit-kola img { width: 100%; height: 100%; object-fit: contain; }
+
+@keyframes kola-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.orbit-ring {
+  position: absolute;
+  border-radius: 50%;
+  top: 50%; left: 50%;
+}
+
+.orbit-ring-1 {
+  width: 320px; height: 320px;
+  margin-top: -160px; margin-left: -160px;
+  border: 1.5px solid rgba(91,122,67,0.22);
+  animation: ring-cw 14s linear infinite;
+}
+.orbit-ring-2 {
+  width: 450px; height: 450px;
+  margin-top: -225px; margin-left: -225px;
+  border: 1px solid rgba(196,98,42,0.15);
+  animation: ring-ccw 22s linear infinite;
+}
+.orbit-ring-3 {
+  width: 200px; height: 200px;
+  margin-top: -100px; margin-left: -100px;
+  border: 1px solid rgba(43,74,28,0.1);
+  animation: ring-cw 9s linear infinite;
+}
+
+@keyframes ring-cw {
+  from { transform: rotateX(66deg) rotateZ(0deg); }
+  to   { transform: rotateX(66deg) rotateZ(360deg); }
+}
+@keyframes ring-ccw {
+  from { transform: rotateX(50deg) rotateZ(0deg); }
+  to   { transform: rotateX(50deg) rotateZ(-360deg); }
+}
+
+.orbit-dot {
+  position: absolute;
+  border-radius: 50%;
+  top: 50%; left: 50%;
+}
+.orbit-dot-1 {
+  width: 7px; height: 7px;
+  background: var(--orange);
+  margin-top: -160px; margin-left: 156px;
+  animation: ring-cw 14s linear infinite;
+  opacity: 0.8;
+}
+.orbit-dot-2 {
+  width: 5px; height: 5px;
+  background: var(--sage);
+  margin-top: 218px; margin-left: -5px;
+  animation: ring-ccw 22s linear infinite;
+  opacity: 0.7;
+}
+
+/* ═══════════════════════════════════════════
+   CONCEPT 2 — LAYERED DEPTH
+   3 kola nuts at different sizes, opacities,
+   and parallax depths — pure 3D illusion.
+═══════════════════════════════════════════ */
+.layer-kola {
+  position: absolute;
+  will-change: transform;
+}
+.layer-kola img {
+  width: 100%; height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.layer-far {
+  width: 90px; height: 90px;
+  top: calc(50% - 45px);
+  right: 20vw;
+  opacity: 0.18;
+}
+.layer-mid {
+  width: 170px; height: 170px;
+  top: calc(50% - 85px);
+  right: 13vw;
+  opacity: 0.48;
+}
+.layer-near {
+  width: 280px; height: 280px;
+  top: calc(50% - 140px);
+  right: 4vw;
+  opacity: 0.88;
+}
+
+/* ═══════════════════════════════════════════
+   CONCEPT 3 — PERSPECTIVE GRID
+   A dot grid on the right tilts in 3D with
+   mouse movement. Kola floats above with a
+   shadow that shifts as "light" moves.
+═══════════════════════════════════════════ */
+.grid-wrapper {
+  position: absolute;
+  right: 0;
+  top: 0; bottom: 0;
+  width: 58%;
+  overflow: hidden;
+}
+
+.grid-perspective {
+  position: absolute;
+  inset: 0;
+  perspective: 520px;
+}
+
+.grid-surface {
+  position: absolute;
+  inset: -50%;
+  background-image: radial-gradient(circle, rgba(43,74,28,0.14) 1.5px, transparent 1.5px);
+  background-size: 38px 38px;
+  transform: rotateX(42deg);
+  transform-origin: 50% 30%;
+  transition: transform 0.08s linear;
+}
+
+.grid-kola {
+  position: absolute;
+  width: 210px; height: 210px;
+  top: calc(50% - 105px);
+  right: 10vw;
+  will-change: transform;
+  filter: drop-shadow(0 24px 40px rgba(43,74,28,0.14));
+}
+.grid-kola img { width: 100%; height: 100%; object-fit: contain; }
+
+/* ═══════════════════════════════════════════
+   CONCEPT 4 — INK BLOOM
+   Organic warm blobs pulse outward from the
+   kola like ink in water. Slow, meditative.
+═══════════════════════════════════════════ */
+.bloom-container {
+  position: absolute;
+  right: 8vw;
+  top: 50%;
+  width: 500px; height: 500px;
+  margin-top: -250px;
+}
+
+.bloom-blob {
+  position: absolute;
+  border-radius: 50%;
+  inset: 0;
+}
+
+.bloom-blob-1 {
+  background: radial-gradient(circle, rgba(196,98,42,0.09) 0%, transparent 62%);
+  animation: bloom-pulse 4.5s ease-in-out infinite;
+}
+.bloom-blob-2 {
+  background: radial-gradient(circle, rgba(91,122,67,0.08) 0%, transparent 52%);
+  animation: bloom-pulse 6s ease-in-out infinite;
+  animation-delay: -2s;
+}
+.bloom-blob-3 {
+  background: radial-gradient(circle, rgba(196,98,42,0.05) 0%, transparent 75%);
+  animation: bloom-pulse 8s ease-in-out infinite;
+  animation-delay: -4s;
+}
+.bloom-blob-4 {
+  background: radial-gradient(circle, rgba(43,74,28,0.04) 0%, transparent 88%);
+  animation: bloom-pulse 10s ease-in-out infinite;
+  animation-delay: -1s;
+}
+
+@keyframes bloom-pulse {
+  0%, 100% { transform: scale(0.88); opacity: 0.6; }
+  50%       { transform: scale(1.12); opacity: 1; }
+}
+
+.bloom-kola {
+  position: absolute;
+  width: 230px; height: 230px;
+  top: calc(50% - 115px);
+  left: calc(50% - 115px);
+  will-change: transform;
+}
+.bloom-kola img { width: 100%; height: 100%; object-fit: contain; }
+
+/* Optional bloom ring outline */
+.bloom-ring-outline {
+  position: absolute;
+  inset: 15%;
+  border-radius: 50%;
+  border: 1px solid rgba(196,98,42,0.1);
+  animation: bloom-pulse 4.5s ease-in-out infinite;
+}
+
+/* ===== FAKE NEXT SECTION ===== */
+.next-section {
+  min-height: 100vh;
+  background: #EDE8DF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid rgba(17,17,17,0.06);
+}
+.next-label { text-align: center; }
+.next-label h2 { font-size: 48px; font-weight: 800; color: rgba(17,17,17,0.06); letter-spacing: -2px; margin-bottom: 12px; }
+.next-label p  { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: rgba(17,17,17,0.18); }
+
+/* ===== DARK MODE ===== */
+body.dark-mode { background: #0c0c0c; }
+
+body.dark-mode .hero { background: #0c0c0c; }
+body.dark-mode .hero-accent-bar { opacity: 0.55; }
+
+/* Text */
+body.dark-mode .ed-logo   { opacity: 0.8; }
+body.dark-mode .ed-brand  { color: rgba(250,246,238,0.75); }
+body.dark-mode .ed-sep    { background: rgba(250,246,238,0.12); }
+body.dark-mode .ed-loc    { color: rgba(250,246,238,0.35); }
+body.dark-mode .ed-heading { color: var(--off-white); }
+body.dark-mode .ed-heading em { color: var(--sage); }
+body.dark-mode .ed-sub    { color: rgba(250,246,238,0.4); }
+
+/* Buttons */
+body.dark-mode .btn-ed-fill { background: var(--orange); }
+body.dark-mode .btn-ed-fill:hover { background: #a8501f; }
+body.dark-mode .btn-ed-link { color: rgba(250,246,238,0.75); border-color: rgba(250,246,238,0.3); }
+body.dark-mode .btn-ed-link:hover { color: var(--off-white); border-color: rgba(250,246,238,0.6); }
+
+/* Scroll hint */
+body.dark-mode .scroll-hint { color: rgba(250,246,238,0.2); }
+body.dark-mode .hint-line   { background: rgba(250,246,238,0.08); }
+
+/* Next section */
+body.dark-mode .next-section { background: #0f0f0f; border-top-color: rgba(255,255,255,0.04); }
+body.dark-mode .next-label h2 { color: rgba(250,246,238,0.04); }
+body.dark-mode .next-label p  { color: rgba(250,246,238,0.1); }
+
+/* Concept 1 — Orbit (dark) */
+body.dark-mode .orbit-ring-1 { border-color: rgba(91,122,67,0.38); }
+body.dark-mode .orbit-ring-2 { border-color: rgba(196,98,42,0.28); }
+body.dark-mode .orbit-ring-3 { border-color: rgba(250,246,238,0.1); }
+body.dark-mode .orbit-dot-1  { opacity: 1; }
+body.dark-mode .orbit-dot-2  { opacity: 1; }
+
+/* Concept 2 — Layered (dark) — kola glows slightly */
+body.dark-mode .layer-far  { opacity: 0.22; }
+body.dark-mode .layer-mid  { opacity: 0.52; }
+body.dark-mode .layer-near { opacity: 1; filter: drop-shadow(0 0 40px rgba(196,98,42,0.18)); }
+
+/* Concept 3 — Grid (dark) */
+body.dark-mode .grid-surface {
+  background-image: radial-gradient(circle, rgba(250,246,238,0.13) 1.5px, transparent 1.5px);
+}
+body.dark-mode .grid-kola {
+  filter: drop-shadow(0 24px 48px rgba(196,98,42,0.25));
+}
+
+/* Concept 4 — Bloom (dark) — blobs more vivid */
+body.dark-mode .bloom-blob-1 {
+  background: radial-gradient(circle, rgba(196,98,42,0.18) 0%, transparent 62%);
+}
+body.dark-mode .bloom-blob-2 {
+  background: radial-gradient(circle, rgba(91,122,67,0.14) 0%, transparent 52%);
+}
+body.dark-mode .bloom-blob-3 {
+  background: radial-gradient(circle, rgba(196,98,42,0.1) 0%, transparent 75%);
+}
+body.dark-mode .bloom-blob-4 {
+  background: radial-gradient(circle, rgba(43,74,28,0.1) 0%, transparent 88%);
+}
+body.dark-mode .bloom-ring-outline { border-color: rgba(196,98,42,0.2); }
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+  .nav-pill { gap: 14px; top: 14px; padding: 8px 14px 8px 10px; }
+  .nav-pill .nav-logo { width: 28px; height: 28px; }
+  .nav-links { gap: 14px; }
+  .nav-links a { font-size: 12px; }
+  .nav-cta { padding: 7px 14px; font-size: 11px; }
+
+  .hero { padding: 0 6vw; }
+
+  .ed-bottom { flex-direction: column; align-items: flex-start; gap: 24px; }
+  .ed-ctas   { flex-direction: row; flex-wrap: wrap; gap: 12px; align-items: center; }
+
+  /* Orbit — shrink on mobile */
+  .orbit-perspective { width: 300px; height: 300px; margin-top: -150px; right: 0; }
+  .orbit-kola { width: 150px; height: 150px; top: calc(50% - 75px); left: calc(50% - 75px); }
+  .orbit-ring-1 { width: 200px; height: 200px; margin-top: -100px; margin-left: -100px; }
+  .orbit-ring-2 { width: 280px; height: 280px; margin-top: -140px; margin-left: -140px; }
+  .orbit-ring-3 { width: 120px; height: 120px; margin-top: -60px; margin-left: -60px; }
+
+  /* Layered — reposition */
+  .layer-far  { right: 5vw; width: 60px; height: 60px; top: calc(50% - 30px); }
+  .layer-mid  { right: 0vw; width: 110px; height: 110px; top: calc(50% - 55px); }
+  .layer-near { right: -4vw; width: 180px; height: 180px; top: calc(50% - 90px); }
+
+  /* Grid — smaller on mobile */
+  .grid-kola { width: 140px; height: 140px; top: calc(50% - 70px); right: 3vw; }
+
+  /* Bloom — shrink */
+  .bloom-container { width: 320px; height: 320px; margin-top: -160px; right: 3vw; }
+  .bloom-kola { width: 150px; height: 150px; top: calc(50% - 75px); left: calc(50% - 75px); }
+
+  /* Switcher */
+  .switcher { gap: 8px; padding: 10px 14px; bottom: 12px; }
+  .sw-divider { display: none; }
+  .sw-btn { padding: 5px 10px; font-size: 11px; }
+  .sw-label { display: none; }
+}
+
+</style>
+</head>
+<body class="hl-bold">
+
+<!-- ===== SWITCHER ===== -->
+<div class="switcher">
+  <div class="sw-group">
+    <span class="sw-label">Background</span>
+    <button class="sw-btn active" id="btn-orbit"   onclick="setConcept('orbit')">Kola Orbit</button>
+    <button class="sw-btn"        id="btn-layered" onclick="setConcept('layered')">Layered Depth</button>
+    <button class="sw-btn"        id="btn-grid"    onclick="setConcept('grid')">Perspective Grid</button>
+    <button class="sw-btn"        id="btn-bloom"   onclick="setConcept('bloom')">Ink Bloom</button>
+  </div>
+  <div class="sw-divider"></div>
+  <div class="sw-group">
+    <span class="sw-label">Mode</span>
+    <button class="sw-btn active" id="btn-light" onclick="setMode('light')">Light</button>
+    <button class="sw-btn"        id="btn-dark"  onclick="setMode('dark')">Dark</button>
+  </div>
+  <div class="sw-divider"></div>
+  <div class="sw-group">
+    <span class="sw-label">Headline</span>
+    <button class="sw-btn"        id="btn-hl-bold"   onclick="setHeadline('bold')">Digital. Done Right.</button>
+    <button class="sw-btn active" id="btn-hl-agency" onclick="setHeadline('agency')">Agency Identity</button>
+  </div>
+</div>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="nav-pill">
+  <img src="kola-logo.png" class="nav-logo" alt="NgwaNgwa Digital" />
+  <div class="nav-links">
+    <a href="#">Work</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </div>
+  <a href="#" class="nav-cta">Start a Project ↗</a>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+
+  <div class="hero-accent-bar"></div>
+
+  <!-- ───────────────────────────────────────
+       BACKGROUND 1 — KOLA ORBIT
+  ─────────────────────────────────────── -->
+  <div class="concept c-orbit active">
+    <div class="orbit-perspective">
+      <div class="orbit-scene" id="orbitScene">
+        <div class="orbit-ring orbit-ring-2"></div>
+        <div class="orbit-ring orbit-ring-1"></div>
+        <div class="orbit-ring orbit-ring-3"></div>
+        <div class="orbit-kola"><img src="kola-logo.png" alt="" /></div>
+        <div class="orbit-dot orbit-dot-1"></div>
+        <div class="orbit-dot orbit-dot-2"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ───────────────────────────────────────
+       BACKGROUND 2 — LAYERED DEPTH
+  ─────────────────────────────────────── -->
+  <div class="concept c-layered">
+    <div class="layer-kola layer-far"  data-depth="6"><img src="kola-logo.png" alt="" /></div>
+    <div class="layer-kola layer-mid"  data-depth="20"><img src="kola-logo.png" alt="" /></div>
+    <div class="layer-kola layer-near" data-depth="40"><img src="kola-logo.png" alt="" /></div>
+  </div>
+
+  <!-- ───────────────────────────────────────
+       BACKGROUND 3 — PERSPECTIVE GRID
+  ─────────────────────────────────────── -->
+  <div class="concept c-grid">
+    <div class="grid-wrapper">
+      <div class="grid-perspective">
+        <div class="grid-surface" id="gridSurface"></div>
+      </div>
+    </div>
+    <div class="grid-kola" data-depth="18"><img src="kola-logo.png" alt="" /></div>
+  </div>
+
+  <!-- ───────────────────────────────────────
+       BACKGROUND 4 — INK BLOOM
+  ─────────────────────────────────────── -->
+  <div class="concept c-bloom">
+    <div class="bloom-container">
+      <div class="bloom-blob bloom-blob-4"></div>
+      <div class="bloom-blob bloom-blob-3"></div>
+      <div class="bloom-blob bloom-blob-2"></div>
+      <div class="bloom-blob bloom-blob-1"></div>
+      <div class="bloom-ring-outline"></div>
+      <div class="bloom-kola" data-depth="10"><img src="kola-logo.png" alt="" /></div>
+    </div>
+  </div>
+
+  <!-- ───────────────────────────────────────
+       SHARED EDITORIAL TEXT (always on top)
+  ─────────────────────────────────────── -->
+  <div class="hero-text" id="heroText">
+
+    <div class="ed-meta">
+      <img src="kola-logo.png" class="ed-logo" alt="" />
+      <span class="ed-brand">NgwaNgwa Digital</span>
+      <span class="ed-sep"></span>
+      <span class="ed-loc">Nnewi, Anambra State</span>
+    </div>
+
+    <div class="ed-heading">
+      <span class="hl-bold-text">Digital. <em>Done</em><br>Right.</span>
+      <span class="hl-agency-text">We Build <em>Digital</em><br>Products for Africa.</span>
+    </div>
+
+    <div class="ed-bottom">
+      <p class="ed-sub">
+        A digital agency from Nnewi, Nigeria — building fast, beautiful
+        websites and SaaS products for growing African businesses.
+      </p>
+      <div class="ed-ctas">
+        <a href="#" class="btn-ed-fill">Start a Project ↗</a>
+        <a href="#" class="btn-ed-link">View Our Work →</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Scroll hint -->
+  <div class="scroll-hint">
+    <div class="hint-line"></div>
+    Scroll
+  </div>
+
+</section>
+
+<!-- ===== NEXT SECTION ===== -->
+<section class="next-section">
+  <div class="next-label">
+    <h2>Our Work</h2>
+    <p>— scroll here to test the hero exit —</p>
+  </div>
+</section>
+
+<script>
+(function () {
+
+  var active = 'orbit';
+  var activeHL = 'agency';
+
+  /* ── MOUSE ── */
+  var mx = 0, my = 0, px = 0, py = 0;
+
+  document.addEventListener('mousemove', function (e) {
+    mx = e.clientX / window.innerWidth  - 0.5;
+    my = e.clientY / window.innerHeight - 0.5;
+  });
+
+  var scrollY = 0;
+
+  /* ── RAF LOOP ── */
+  function tick () {
+    px += (mx - px) * 0.07;
+    py += (my - py) * 0.07;
+
+    /* Standard parallax for elements with data-depth */
+    var els = document.querySelectorAll('.concept.active [data-depth]');
+    for (var i = 0; i < els.length; i++) {
+      var el    = els[i];
+      var depth = parseFloat(el.dataset.depth);
+      var tx    = px * depth;
+      var ty    = py * depth - (scrollY * depth * 0.01);
+      el.style.transform = 'translate(' + tx + 'px,' + ty + 'px)';
+    }
+
+    /* Orbit — tilt entire 3D scene with mouse */
+    if (active === 'orbit') {
+      var scene = document.getElementById('orbitScene');
+      if (scene) {
+        scene.style.transform =
+          'rotateX(' + (-py * 22) + 'deg) rotateY(' + (px * 22) + 'deg)';
+      }
+    }
+
+    /* Perspective grid — rotate surface with mouse */
+    if (active === 'grid') {
+      var surface = document.getElementById('gridSurface');
+      if (surface) {
+        surface.style.transform =
+          'rotateX(' + (42 + py * 16) + 'deg) rotateY(' + (px * 10) + 'deg)';
+      }
+    }
+
+    requestAnimationFrame(tick);
+  }
+
+  requestAnimationFrame(tick);
+
+  /* ── SCROLL ── */
+  var hero     = document.getElementById('hero');
+  var heroText = document.getElementById('heroText');
+
+  window.addEventListener('scroll', function () {
+    scrollY = window.pageYOffset;
+    var progress = Math.min(scrollY / hero.offsetHeight, 1);
+    heroText.style.opacity = Math.max(0, 1 - progress * 2.5);
+  }, { passive: true });
+
+  /* ── SWITCHER: CONCEPT ── */
+  window.setConcept = function (c) {
+    active = c;
+
+    document.querySelectorAll('.concept').forEach(function (el) {
+      el.classList.remove('active');
+    });
+    document.querySelector('.c-' + c).classList.add('active');
+
+    ['btn-orbit','btn-layered','btn-grid','btn-bloom'].forEach(function (id) {
+      document.getElementById(id).classList.remove('active');
+    });
+    document.getElementById('btn-' + c).classList.add('active');
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    heroText.style.opacity = 1;
+  };
+
+  /* ── SWITCHER: MODE ── */
+  window.setMode = function (m) {
+    document.body.classList.toggle('dark-mode', m === 'dark');
+    document.getElementById('btn-light').classList.toggle('active', m === 'light');
+    document.getElementById('btn-dark').classList.toggle('active',  m === 'dark');
+  };
+
+  /* ── SWITCHER: HEADLINE ── */
+  window.setHeadline = function (h) {
+    activeHL = h;
+    document.body.classList.toggle('hl-bold',   h === 'bold');
+    document.body.classList.toggle('hl-agency', h === 'agency');
+    document.getElementById('btn-hl-bold').classList.toggle('active',   h === 'bold');
+    document.getElementById('btn-hl-agency').classList.toggle('active', h === 'agency');
+  };
+
+  /* Init */
+  document.body.className = 'hl-agency';
+
+})();
+</script>
+</body>
+</html>

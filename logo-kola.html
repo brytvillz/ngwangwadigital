@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NgwaNgwa Digital — Kola Nut Logo</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #f5f2ee;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      padding: 48px 24px;
+      min-height: 100vh;
+    }
+    h1 { text-align: center; color: #1a1a1a; font-size: 1.5rem; font-weight: 800; margin-bottom: 6px; }
+    .subtitle { text-align: center; color: #777; margin-bottom: 48px; font-size: 0.9rem; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 28px;
+      max-width: 860px;
+      margin: 0 auto 60px;
+    }
+    .card {
+      border-radius: 20px;
+      padding: 40px 24px 28px;
+      text-align: center;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    }
+    .card.white  { background: #ffffff; }
+    .card.dark   { background: #1a1a1a; }
+    .card.olive  { background: #2d3d20; }
+
+    .logo-display { width: 150px; height: 150px; margin: 0 auto 24px; display: flex; align-items: center; justify-content: center; }
+    .card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+    .card.white h3 { color: #1a1a1a; }
+    .card.dark h3, .card.olive h3 { color: #f7f7f2; }
+    .card p { font-size: 0.82rem; line-height: 1.6; }
+    .card.white p { color: #666; }
+    .card.dark p, .card.olive p { color: #999; }
+    .dl-btn {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .dl-btn:hover { opacity: 0.8; }
+    .card.white  .dl-btn { background: #1a1a1a; color: white; }
+    .card.dark   .dl-btn { background: #e8612c; color: white; }
+    .card.olive  .dl-btn { background: #f0ede8; color: #2d3d20; }
+
+    /* Big preview at bottom */
+    .big-preview {
+      max-width: 860px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .big-preview h2 { color: #1a1a1a; font-size: 1.1rem; margin-bottom: 24px; }
+    .sizes {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+    }
+    .size-label { font-size: 0.75rem; color: #aaa; margin-top: 8px; text-align: center; }
+  </style>
+</head>
+<body>
+
+  <h1>NgwaNgwa Digital — Kola Nut Logo</h1>
+  <p class="subtitle">3 colour options. Pick the one that feels right.</p>
+
+  <div class="grid">
+
+    <!-- Natural Terracotta -->
+    <div class="card white">
+      <div class="logo-display">
+        <svg id="svg-natural" width="140" height="160" viewBox="0 0 100 115" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M50,10 C64,10 84,27 84,54 C84,79 69,100 50,100 C31,100 16,79 16,54 C16,27 36,10 50,10Z" fill="#C4756B"/>
+          <path d="M50,10 C36,10 16,27 16,54 C16,70 23,84 34,93 Q28,68 32,50 Q37,30 50,10Z" fill="#D08578" opacity="0.55"/>
+          <path d="M50,16 Q36,57 26,96" stroke="#8B4840" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <path d="M50,16 Q64,57 74,96" stroke="#8B4840" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <path d="M50,16 Q29,36 16,56" stroke="#8B4840" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <path d="M50,16 Q71,36 84,56" stroke="#8B4840" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <circle cx="50" cy="16" r="3" fill="#6B3530"/>
+        </svg>
+      </div>
+      <h3>Natural — Terracotta</h3>
+      <p>Closest to the real nut. Warm, earthy, organic. Good on white backgrounds.</p>
+      <button class="dl-btn" onclick="downloadSVG('svg-natural', 'logo-natural.svg')">Download SVG</button>
+    </div>
+
+    <!-- Brand Olive Green -->
+    <div class="card dark">
+      <div class="logo-display">
+        <svg id="svg-green" width="140" height="160" viewBox="0 0 100 115" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M50,10 C64,10 84,27 84,54 C84,79 69,100 50,100 C31,100 16,79 16,54 C16,27 36,10 50,10Z" fill="#3d4f2e"/>
+          <path d="M50,10 C36,10 16,27 16,54 C16,70 23,84 34,93 Q28,68 32,50 Q37,30 50,10Z" fill="#4a6038" opacity="0.55"/>
+          <path d="M50,16 Q36,57 26,96" stroke="#2d3d20" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <path d="M50,16 Q64,57 74,96" stroke="#2d3d20" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <path d="M50,16 Q29,36 16,56" stroke="#2d3d20" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <path d="M50,16 Q71,36 84,56" stroke="#2d3d20" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <circle cx="50" cy="16" r="3" fill="#1e2c14"/>
+        </svg>
+      </div>
+      <h3>Brand — Olive Green</h3>
+      <p>Matches NgwaNgwa's primary colour. Looks sharp on dark backgrounds.</p>
+      <button class="dl-btn" onclick="downloadSVG('svg-green', 'logo-green.svg')">Download SVG</button>
+    </div>
+
+    <!-- Bold Black + Orange -->
+    <div class="card olive">
+      <div class="logo-display">
+        <svg id="svg-orange" width="140" height="160" viewBox="0 0 100 115" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M50,10 C64,10 84,27 84,54 C84,79 69,100 50,100 C31,100 16,79 16,54 C16,27 36,10 50,10Z" fill="#f0ede8"/>
+          <path d="M50,10 C36,10 16,27 16,54 C16,70 23,84 34,93 Q28,68 32,50 Q37,30 50,10Z" fill="#ffffff" opacity="0.4"/>
+          <path d="M50,16 Q36,57 26,96" stroke="#e8612c" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+          <path d="M50,16 Q64,57 74,96" stroke="#e8612c" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+          <path d="M50,16 Q29,36 16,56" stroke="#e8612c" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+          <path d="M50,16 Q71,36 84,56" stroke="#e8612c" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+          <circle cx="50" cy="16" r="3.5" fill="#e8612c"/>
+        </svg>
+      </div>
+      <h3>Cream + Orange</h3>
+      <p>Inverted — cream body, orange seam lines. Stands out on dark and coloured backgrounds.</p>
+      <button class="dl-btn" onclick="downloadSVG('svg-orange', 'logo-orange.svg')">Download SVG</button>
+    </div>
+
+  </div>
+
+  <!-- Size preview -->
+  <div class="big-preview">
+    <h2>How it looks at different sizes</h2>
+    <div class="sizes">
+      <div>
+        <svg width="200" height="230" viewBox="0 0 100 115" fill="none"><path d="M50,10 C64,10 84,27 84,54 C84,79 69,100 50,100 C31,100 16,79 16,54 C16,27 36,10 50,10Z" fill="#C4756B"/><path d="M50,10 C36,10 16,27 16,54 C16,70 23,84 34,93 Q28,68 32,50 Q37,30 50,10Z" fill="#D08578" opacity="0.55"/><path d="M50,16 Q36,57 26,96" stroke="#8B4840" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M50,16 Q64,57 74,96" stroke="#8B4840" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M50,16 Q29,36 16,56" stroke="#8B4840" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M50,16 Q71,36 84,56" stroke="#8B4840" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="50" cy="16" r="3" fill="#6B3530"/></svg>
+        <p class="size-label">200px</p>
+      </div>
+      <div>
+        <svg width="80" height="92" viewBox="0 0 100 115" fill="none"><path d="M50,10 C64,10 84,27 84,54 C84,79 69,100 50,100 C31,100 16,79 16,54 C16,27 36,10 50,10Z" fill="#C4756B"/><path d="M50,10 C36,10 16,27 16,54 C16,70 23,84 34,93 Q28,68 32,50 Q37,30 50,10Z" fill="#D08578" opacity="0.55"/><path d="M50,16 Q36,57 26,96" stroke="#8B4840" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M50,16 Q64,57 74,96" stroke="#8B4840" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M50,16 Q29,36 16,56" stroke="#8B4840" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M50,16 Q71,36 84,56" stroke="#8B4840" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="50" cy="16" r="3" fill="#6B3530"/></svg>
+        <p class="size-label">80px</p>
+      </div>
+      <div>
+        <svg width="32" height="37" viewBox="0 0 100 115" fill="none"><path d="M50,10 C64,10 84,27 84,54 C84,79 69,100 50,100 C31,100 16,79 16,54 C16,27 36,10 50,10Z" fill="#C4756B"/><path d="M50,10 C36,10 16,27 16,54 C16,70 23,84 34,93 Q28,68 32,50 Q37,30 50,10Z" fill="#D08578" opacity="0.55"/><path d="M50,16 Q36,57 26,96" stroke="#8B4840" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M50,16 Q64,57 74,96" stroke="#8B4840" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M50,16 Q29,36 16,56" stroke="#8B4840" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M50,16 Q71,36 84,56" stroke="#8B4840" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="50" cy="16" r="3" fill="#6B3530"/></svg>
+        <p class="size-label">32px (favicon)</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function downloadSVG(id, filename) {
+      const svg = document.getElementById(id);
+      const serializer = new XMLSerializer();
+      const svgStr = serializer.serializeToString(svg);
+      const blob = new Blob([svgStr], { type: 'image/svg+xml' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+  </script>
+
+</body>
+</html>
