@@ -145,6 +145,134 @@
           min-height: 300px;
         }
       }
+
+      /* ── Service mockups ── */
+      .svc-browser {
+        background: rgba(0,0,0,0.3);
+        border-radius: 8px;
+        overflow: hidden;
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto 16px;
+      }
+      .svc-browser-bar {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 10px 14px;
+        background: rgba(0,0,0,0.25);
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+      }
+      .svc-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+      }
+      .svc-dot.r { background: #ff5f57; }
+      .svc-dot.y { background: #febc2e; }
+      .svc-dot.g { background: #28c840; }
+      .svc-url {
+        font-size: 0.65rem;
+        color: rgba(255,255,255,0.4);
+        flex: 1;
+        text-align: center;
+        font-family: monospace;
+      }
+      .svc-browser-body { padding: 14px; }
+      .svc-hero-bar {
+        height: 40px;
+        background: rgba(255,255,255,0.07);
+        border-radius: 4px;
+        margin-bottom: 10px;
+      }
+      .svc-lines { display: flex; flex-direction: column; gap: 7px; }
+      .svc-line {
+        height: 9px;
+        background: rgba(255,255,255,0.1);
+        border-radius: 2px;
+      }
+      .svc-line.w80 { width: 80%; }
+      .svc-line.w60 { width: 60%; }
+      .svc-line.accent { width: 40%; background: rgba(196,98,42,0.55); }
+
+      /* Phone */
+      .svc-phone {
+        width: 72px;
+        height: 130px;
+        border: 2px solid rgba(255,255,255,0.25);
+        border-radius: 14px;
+        overflow: hidden;
+        background: rgba(0,0,0,0.3);
+        margin: 0 auto 16px;
+      }
+      .svc-phone-inner {
+        padding: 8px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .svc-phone-bar {
+        height: 5px;
+        background: rgba(255,255,255,0.2);
+        border-radius: 2px;
+      }
+      .svc-phone-lines { display: flex; flex-direction: column; gap: 6px; flex: 1; }
+      .svc-phone-btn {
+        height: 16px;
+        background: rgba(196,98,42,0.5);
+        border-radius: 3px;
+        margin-top: auto;
+      }
+
+      /* Chart */
+      .svc-chart {
+        display: flex;
+        align-items: flex-end;
+        gap: 6px;
+        height: 70px;
+        margin: 0 auto 16px;
+        max-width: 200px;
+      }
+      .svc-bar {
+        flex: 1;
+        background: rgba(255,255,255,0.15);
+        border-radius: 2px 2px 0 0;
+        transition: height 1s ease;
+      }
+      .svc-bar.hi { background: var(--orange-accent); }
+
+      /* Flow diagram */
+      .svc-flow {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 0 auto 16px;
+      }
+      .svc-fbox {
+        padding: 8px 12px;
+        border: 1px solid rgba(255,255,255,0.2);
+        border-radius: 5px;
+        font-size: 0.65rem;
+        color: rgba(255,255,255,0.6);
+        font-family: monospace;
+        background: rgba(255,255,255,0.04);
+        white-space: nowrap;
+      }
+      .svc-fbox.accent {
+        border-color: var(--orange-accent);
+        color: var(--orange-accent);
+        background: rgba(196,98,42,0.1);
+      }
+      .svc-arrow { color: rgba(255,255,255,0.4); font-size: 1rem; }
+      .svc-label {
+        font-size: 0.85rem;
+        color: rgba(255,255,255,0.7);
+        margin-top: 4px;
+        letter-spacing: 0.04em;
+      }
     </style>
   </head>
   <body>
@@ -271,11 +399,24 @@
           </div>
 
           <div class="service-visual animate-on-scroll slide-right">
-            <div>
-              <div style="font-size: 4rem">🌐</div>
-              <div style="font-size: 1.2rem; margin-top: 20px">
-                Professional Websites
+            <div style="width:100%">
+              <div class="svc-browser">
+                <div class="svc-browser-bar">
+                  <span class="svc-dot r"></span>
+                  <span class="svc-dot y"></span>
+                  <span class="svc-dot g"></span>
+                  <span class="svc-url">https://yourbusiness.com.ng</span>
+                </div>
+                <div class="svc-browser-body">
+                  <div class="svc-hero-bar"></div>
+                  <div class="svc-lines">
+                    <div class="svc-line w80"></div>
+                    <div class="svc-line w60"></div>
+                    <div class="svc-line accent"></div>
+                  </div>
+                </div>
               </div>
+              <p class="svc-label">Professional Websites</p>
             </div>
           </div>
         </div>
@@ -287,11 +428,16 @@
       <div class="container">
         <div class="service-grid">
           <div class="service-visual animate-on-scroll slide-left">
-            <div>
-              <div style="font-size: 4rem">🔍</div>
-              <div style="font-size: 1.2rem; margin-top: 20px">
-                Get Found on Google
+            <div style="width:100%">
+              <div class="svc-chart">
+                <div class="svc-bar" style="height:40%"></div>
+                <div class="svc-bar" style="height:60%"></div>
+                <div class="svc-bar hi" style="height:75%"></div>
+                <div class="svc-bar" style="height:55%"></div>
+                <div class="svc-bar hi" style="height:90%"></div>
+                <div class="svc-bar hi" style="height:100%"></div>
               </div>
+              <p class="svc-label">Get Found on Google</p>
             </div>
           </div>
 
@@ -388,11 +534,15 @@
           </div>
 
           <div class="service-visual animate-on-scroll slide-right">
-            <div>
-              <div style="font-size: 4rem">⚙️</div>
-              <div style="font-size: 1.2rem; margin-top: 20px">
-                Smart Business Systems
+            <div style="width:100%">
+              <div class="svc-flow">
+                <div class="svc-fbox">Customer</div>
+                <div class="svc-arrow">→</div>
+                <div class="svc-fbox accent">Form / CRM</div>
+                <div class="svc-arrow">→</div>
+                <div class="svc-fbox">WhatsApp</div>
               </div>
+              <p class="svc-label">Smart Business Systems</p>
             </div>
           </div>
         </div>
@@ -404,11 +554,21 @@
       <div class="container">
         <div class="service-grid">
           <div class="service-visual animate-on-scroll slide-left">
-            <div>
-              <div style="font-size: 4rem">📱</div>
-              <div style="font-size: 1.2rem; margin-top: 20px">
-                Mobile Perfection
+            <div style="width:100%">
+              <div class="svc-phone">
+                <div class="svc-phone-inner">
+                  <div class="svc-phone-bar"></div>
+                  <div class="svc-phone-lines">
+                    <div class="svc-line w80"></div>
+                    <div class="svc-line w60"></div>
+                    <div class="svc-line accent"></div>
+                    <div class="svc-line w80"></div>
+                    <div class="svc-line w60"></div>
+                  </div>
+                  <div class="svc-phone-btn"></div>
+                </div>
               </div>
+              <p class="svc-label">Mobile Perfection</p>
             </div>
           </div>
 
