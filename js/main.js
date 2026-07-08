@@ -68,7 +68,7 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     const target = document.querySelector(this.getAttribute("href"));
 
     if (target) {
-      const navHeight = navigation.offsetHeight;
+      const navHeight = navigation ? navigation.offsetHeight : 80;
       const targetPosition = target.offsetTop - navHeight - 20;
 
       window.scrollTo({

@@ -137,7 +137,18 @@ document.addEventListener("DOMContentLoaded", () => {
     initScrollAnimations();
     initStaggerAnimations();
     initCounters();
-    // initParallax(); // Uncomment if needed
+
+    // Fallback: also trigger via scroll in case IntersectionObserver misfires
+    function triggerInViewport() {
+      document.querySelectorAll(".animate-on-scroll:not(.animated)").forEach(function (el) {
+        var rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          el.classList.add("animated");
+        }
+      });
+    }
+    triggerInViewport(); // trigger anything already in view on load
+    window.addEventListener("scroll", triggerInViewport, { passive: true });
   }, 100);
 });
 
