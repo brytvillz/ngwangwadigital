@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en" data-page-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <script>!function(){var r=document.documentElement,p=r.getAttribute('data-page-theme')||'light',u=localStorage.getItem('ngwangwa-theme'),a=null!==u?u:p;'dark'===a&&r.classList.add('dark-mode')}();</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#2B4A1C" />
+    <meta name="description" content="Technology for restaurants and hospitality businesses in Nigeria. QR menus, ordering systems, booking flows, and digital guest experiences by NgwaNgwa Digital." />
+    <meta property="og:title" content="Restaurants & Hospitality | NgwaNgwa Digital" />
+    <meta property="og:description" content="We built the technology. We know what restaurants need. QR menus, ordering systems, and digital guest experiences." />
+    <meta property="og:url" content="https://ngwangwadigital.com/industries/restaurants" />
+    <title>Restaurants & Hospitality | NgwaNgwa Digital</title>
+    <link rel="icon" type="image/png" href="../kola-logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/animations.css" />
+    <link rel="stylesheet" href="../css/hero.css" />
+    <style>
+      .pain-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        margin-top: 40px;
+      }
+      .pain-card {
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.09);
+        border-left: 3px solid var(--orange-accent);
+        border-radius: 0 10px 10px 0;
+        padding: 24px 24px 24px 20px;
+      }
+      .pain-card h4 {
+        color: var(--off-white);
+        font-size: 0.95rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+      .pain-card p {
+        color: rgba(250,246,238,0.5);
+        font-size: 0.85rem;
+        line-height: 1.7;
+        margin: 0;
+      }
+      .solution-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 48px;
+        align-items: start;
+        padding: 48px 0;
+        border-bottom: 1px solid rgba(0,0,0,0.07);
+      }
+      .solution-row:last-child { border-bottom: none; }
+      .solution-label {
+        font-size: 0.68rem;
+        font-weight: 800;
+        letter-spacing: 0.2em;
+        color: var(--orange-accent);
+        text-transform: uppercase;
+        margin-bottom: 12px;
+      }
+      .solution-row h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--near-black);
+        margin-bottom: 12px;
+        line-height: 1.35;
+      }
+      .solution-row p {
+        color: var(--dark-olive);
+        font-size: 0.95rem;
+        line-height: 1.8;
+      }
+      .solution-outcome {
+        background: var(--off-white);
+        border-radius: 10px;
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        align-self: center;
+      }
+      .solution-outcome-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 0.88rem;
+        color: var(--dark-olive);
+        line-height: 1.6;
+      }
+      .solution-outcome-item::before {
+        content: "✓";
+        color: var(--sage-green);
+        font-weight: 700;
+        flex-shrink: 0;
+        margin-top: 1px;
+      }
+      .product-spotlight {
+        background: #0a0a0a;
+        border-radius: 12px;
+        padding: 40px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: center;
+        margin-top: 52px;
+      }
+      .product-spotlight h3 {
+        color: var(--off-white);
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-bottom: 12px;
+      }
+      .product-spotlight p {
+        color: rgba(250,246,238,0.6);
+        font-size: 0.92rem;
+        line-height: 1.8;
+        margin-bottom: 24px;
+      }
+      .product-spotlight-visual {
+        background: #141414;
+        border-radius: 8px;
+        padding: 20px;
+        border: 1px solid rgba(255,255,255,0.06);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 160px;
+        font-size: 4rem;
+        text-align: center;
+      }
+      @media (max-width: 768px) {
+        .pain-grid { grid-template-columns: 1fr; }
+        .solution-row { grid-template-columns: 1fr; gap: 20px; }
+        .product-spotlight { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- Floating Pill Navbar -->
+    <nav class="hero-nav" id="heroNav">
+      <a href="../index.html">
+        <img src="../kola-logo.png" class="hero-nav-logo" alt="NgwaNgwa Digital" />
+      </a>
+      <ul class="hero-nav-links">
+        <li><a href="../services.html">Solutions</a></li>
+        <li><a href="../products.html">Products</a></li>
+        <li><a href="/#industries" class="active">Industries</a></li>
+        <li><a href="../portfolio.html">Case Studies</a></li>
+        <li><a href="../about.html">Company</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+      <a href="https://wa.me/2347076077265?text=Hi%20NgwaNgwa%20Digital%2C%20I%27d%20like%20to%20start%20a%20project" class="hero-nav-cta" target="_blank" rel="noopener">Get Started ↗</a>
+      <button id="themeToggle" class="theme-toggle" aria-label="Switch to light mode" title="Switch to light mode">&#9728;</button>
+      <button class="hero-nav-hamburger" id="heroNavHamburger" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <div class="hero-nav-mobile-menu" id="heroNavMobileMenu" aria-hidden="true">
+      <ul>
+        <li><a href="../services.html">Solutions</a></li>
+        <li><a href="../products.html">Products</a></li>
+        <li><a href="/#industries">Industries</a></li>
+        <li><a href="../portfolio.html">Case Studies</a></li>
+        <li><a href="../about.html">Company</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+      <a href="https://wa.me/2347076077265?text=Hi%20NgwaNgwa%20Digital%2C%20I%27d%20like%20to%20start%20a%20project" class="hero-nav-mobile-cta" target="_blank" rel="noopener">Get Started ↗</a>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero-page hero-layered" id="heroSection">
+      <div class="hero-accent-bar"></div>
+      <div class="layered-bg" aria-hidden="true">
+        <div class="layer-kola layer-far"  data-depth="6"><img src="../kola-logo.png" alt="" /></div>
+        <div class="layer-kola layer-mid"  data-depth="20"><img src="../kola-logo.png" alt="" /></div>
+        <div class="layer-kola layer-near" data-depth="40"><img src="../kola-logo.png" alt="" /></div>
+      </div>
+      <div class="hero-editorial" id="heroEditorial">
+        <div class="hero-ed-meta">
+          <img src="../kola-logo.png" class="hero-ed-logo" alt="" />
+          <span class="hero-ed-brand">NgwaNgwa Digital</span>
+          <span class="hero-ed-sep"></span>
+          <span class="hero-ed-loc">Restaurants & Hospitality</span>
+        </div>
+        <h1 class="hero-ed-heading">
+          We built the technology.<br /><em>We know what restaurants need.</em>
+        </h1>
+        <div class="hero-ed-bottom">
+          <p class="hero-ed-sub">
+            From QR menus to booking systems — we build the digital infrastructure that helps restaurants serve more customers, reduce errors, and stop losing business to competitors who are already online.
+          </p>
+          <div class="hero-ed-ctas">
+            <a href="https://wa.me/2347076077265?text=Hi%20NgwaNgwa%20Digital%2C%20I%27d%20like%20to%20learn%20about%20technology%20for%20my%20restaurant" class="hero-btn-fill" target="_blank" rel="noopener">Talk to Us About Your Restaurant ↗</a>
+            <a href="#solutions" class="hero-btn-link">See How We Help ↓</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-scroll-hint" aria-hidden="true">
+        <div class="hero-hint-line"></div>
+        Scroll
+      </div>
+    </section>
+
+    <!-- Pain Points -->
+    <section class="section section-dark">
+      <div class="container">
+        <div style="max-width: 640px; margin-bottom: 0">
+          <span class="label animate-on-scroll fade-in" style="color: var(--orange-accent)">THE REAL PROBLEMS</span>
+          <h2 class="animate-on-scroll fade-up" style="color: var(--off-white); margin-top: 12px">You already know what's not working.</h2>
+          <p class="animate-on-scroll fade-up" style="color: rgba(250,246,238,0.55); font-size: 1rem; line-height: 1.8; margin-top: 12px">
+            Most restaurant technology problems aren't solved by buying an expensive POS system. They're solved by making your existing process smarter.
+          </p>
+        </div>
+        <div class="pain-grid">
+          <div class="pain-card animate-on-scroll fade-up">
+            <h4>Orders get lost or wrong</h4>
+            <p>Staff mishear. They miswrite. Customers wait. Tables get annoyed. The same order errors happen every service, every week.</p>
+          </div>
+          <div class="pain-card animate-on-scroll fade-up">
+            <h4>Customers wait too long just to order</h4>
+            <p>They sit down, look around, wave their hand. Your staff is busy with another table. The experience starts badly before the food even arrives.</p>
+          </div>
+          <div class="pain-card animate-on-scroll fade-up">
+            <h4>Your menu isn't online</h4>
+            <p>People search for restaurants on Google before they leave the house. If your menu isn't there, they pick the competitor whose menu they can already see.</p>
+          </div>
+          <div class="pain-card animate-on-scroll fade-up">
+            <h4>No way to reach customers again</h4>
+            <p>A guest has a great meal and leaves. You have no way to reach them for the next visit. Every table is a stranger you never see twice.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Solutions -->
+    <section class="section" style="background: var(--off-white)" id="solutions">
+      <div class="container">
+        <div style="margin-bottom: 52px">
+          <span class="label animate-on-scroll fade-in" style="color: var(--orange-accent)">HOW TECHNOLOGY FIXES IT</span>
+          <h2 class="animate-on-scroll fade-up" style="color: var(--near-black); margin-top: 12px">From problem to system.<br />Here's what we build.</h2>
+        </div>
+
+        <div class="solution-row animate-on-scroll fade-up">
+          <div>
+            <div class="solution-label">For order errors</div>
+            <h3>QR Menu + Digital Ordering</h3>
+            <p>Customers scan a QR code on their table, browse your menu on their phone, and place their order digitally. No misheard items. No handwriting errors. The order goes straight to your kitchen display or WhatsApp.</p>
+          </div>
+          <div class="solution-outcome">
+            <div class="solution-outcome-item">Fewer errors per service</div>
+            <div class="solution-outcome-item">Staff free to focus on real hospitality</div>
+            <div class="solution-outcome-item">Works on any phone — no app required</div>
+          </div>
+        </div>
+
+        <div class="solution-row animate-on-scroll fade-up">
+          <div>
+            <div class="solution-label">For long wait times</div>
+            <h3>Digital Waiter Call System</h3>
+            <p>A button on your QR menu lets customers call the waiter digitally — a notification goes straight to staff. No waving, no shouting, no ignored customers. Your team sees the request and responds.</p>
+          </div>
+          <div class="solution-outcome">
+            <div class="solution-outcome-item">Faster table service without more staff</div>
+            <div class="solution-outcome-item">Customers feel attended to, even at peak hours</div>
+            <div class="solution-outcome-item">More tables turned per service</div>
+          </div>
+        </div>
+
+        <div class="solution-row animate-on-scroll fade-up">
+          <div>
+            <div class="solution-label">For online visibility</div>
+            <h3>Menu Website + Google Business</h3>
+            <p>We build a clean, mobile-first menu page for your restaurant and set up your Google Business profile so you appear when people search "restaurants near me" or your restaurant's name. Sharable link, indexed by Google.</p>
+          </div>
+          <div class="solution-outcome">
+            <div class="solution-outcome-item">Shows up on Google Maps and search</div>
+            <div class="solution-outcome-item">Customers see your menu before they arrive</div>
+            <div class="solution-outcome-item">Shareable link for Instagram and WhatsApp</div>
+          </div>
+        </div>
+
+        <div class="solution-row animate-on-scroll fade-up">
+          <div>
+            <div class="solution-label">For repeat customers</div>
+            <h3>WhatsApp Follow-Up Flow</h3>
+            <p>After a customer visits, a simple WhatsApp flow lets you collect feedback, send a promotion, or just say thank you. Build the database of customers you can actually reach again.</p>
+          </div>
+          <div class="solution-outcome">
+            <div class="solution-outcome-item">Build a direct line to your loyal customers</div>
+            <div class="solution-outcome-item">Promote specials, new menus, and events</div>
+            <div class="solution-outcome-item">Turn one-time visitors into regulars</div>
+          </div>
+        </div>
+
+        <!-- Virtual Waitress Spotlight -->
+        <div class="product-spotlight animate-on-scroll fade-up">
+          <div>
+            <div class="vw-badge" style="margin-bottom: 20px">
+              <span class="vw-badge-dot"></span>
+              PRODUCT BY NGWANGWA DIGITAL
+            </div>
+            <h3>Virtual Waitress — already live in Nnewi.</h3>
+            <p>We didn't just read about restaurant technology — we built it. Virtual Waitress is a QR menu and waiter-call system that's already been piloted in a real restaurant in Nnewi. We know what works because we've shipped it.</p>
+            <div style="display: flex; gap: 12px; flex-wrap: wrap">
+              <a href="https://virtualwaitress.com" class="btn btn-primary" target="_blank" rel="noopener" style="font-size: 0.88rem">Visit VirtualWaitress.com →</a>
+              <a href="https://wa.me/2347076077265?text=Hi%2C%20I%27d%20like%20a%20Virtual%20Waitress%20demo%20for%20my%20restaurant" class="btn btn-secondary" target="_blank" rel="noopener" style="font-size: 0.88rem">Request a Demo</a>
+            </div>
+          </div>
+          <div class="product-spotlight-visual">
+            🍽️
+            <br />
+            <span style="font-size: 1.1rem; color: rgba(250,246,238,0.5); display: block; margin-top: 12px; font-family: var(--font-body)">Scan. Browse. Order.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section section-orange">
+      <div class="container text-center">
+        <h2 class="animate-on-scroll fade-up" style="color: var(--off-white); margin-bottom: 16px">
+          Ready to upgrade your restaurant's technology?
+        </h2>
+        <p class="animate-on-scroll fade-up" style="color: var(--off-white); font-size: 1.1rem; margin-bottom: 32px; opacity: 0.85">
+          Tell us about your restaurant. We'll recommend exactly what to build first.
+        </p>
+        <a href="https://wa.me/2347076077265?text=Hi%20NgwaNgwa%20Digital%2C%20I%27d%20like%20to%20learn%20about%20technology%20for%20my%20restaurant" class="btn btn-dark animate-on-scroll fade-up" target="_blank" rel="noopener">
+          Talk to Us About Your Restaurant ↗
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <div class="logo">
+              <img src="../kola-logo.png" alt="NgwaNgwa Digital" class="logo-img" />
+              <span><span class="logo-main">NgwaNgwa</span><span class="logo-sub"> Digital</span></span>
+            </div>
+            <p class="footer-tagline">Show Up. Keep Building.<br />Stay Stubborn to the Plan.</p>
+            <p style="color: var(--sage-green); font-size: 0.8rem; margin-top: 12px">Founded in Nnewi, Anambra 🇳🇬</p>
+          </div>
+          <div class="footer-links">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="../services.html">Solutions</a></li>
+              <li><a href="../products.html">Products</a></li>
+              <li><a href="../portfolio.html">Case Studies</a></li>
+              <li><a href="../about.html">Company</a></li>
+              <li><a href="../contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h4>Industries</h4>
+            <ul>
+              <li><a href="restaurants.html">Restaurants</a></li>
+              <li><a href="hotels.html">Hotels</a></li>
+              <li><a href="suppliers.html">Suppliers</a></li>
+              <li><a href="auto-parts.html">Auto Parts</a></li>
+              <li><a href="professional-services.html">Professional Services</a></li>
+            </ul>
+          </div>
+          <div class="footer-contact">
+            <h4>Get In Touch</h4>
+            <p>📧 <a href="mailto:hello@ngwangwadigital.com" style="color:inherit;text-decoration:underline">hello@ngwangwadigital.com</a></p>
+            <p>📱 WhatsApp: +234 707 607 7265</p>
+            <p>📍 Anambra, Nigeria 🌍</p>
+            <p style="margin-top: 12px"><a href="https://instagram.com/ngwangwa.digital" target="_blank" rel="noopener" style="color: var(--orange-accent)">@ngwangwa.digital</a></p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 NgwaNgwa Digital. Built in Nigeria 🇳🇬</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../js/animations.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/hero.js"></script>
+    <script src="../js/theme.js"></script>
+  </body>
+</html>
