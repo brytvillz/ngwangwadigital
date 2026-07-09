@@ -1652,3 +1652,200 @@ p {
 @media (max-width: 560px) {
   .why-grid { grid-template-columns: 1fr; }
 }
+
+/* ── TRUST STRIP ──────────────────────────────────────────── */
+.trust-strip {
+  background: var(--near-black);
+  border-top: 1px solid rgba(250, 246, 238, 0.06);
+  border-bottom: 1px solid rgba(250, 246, 238, 0.06);
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: rgba(250, 246, 238, 0.38);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.trust-sep {
+  color: rgba(250, 246, 238, 0.15);
+}
+
+/* ── CAPABILITY PILLARS ───────────────────────────────────── */
+.pillar-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+.pillar-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 12px;
+  padding: 36px 32px;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease;
+  display: flex;
+  flex-direction: column;
+}
+.pillar-card:hover {
+  border-color: rgba(196, 98, 42, 0.4);
+  box-shadow: 0 0 32px rgba(196, 98, 42, 0.1);
+}
+.pillar-label {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  color: var(--orange-accent);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.pillar-headline {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--off-white);
+  line-height: 1.4;
+  margin-bottom: 14px;
+}
+.pillar-body {
+  font-size: 0.88rem;
+  color: rgba(250, 246, 238, 0.5);
+  line-height: 1.8;
+  margin-bottom: 20px;
+  flex: 1;
+}
+.pillar-services {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+.pillar-tag {
+  font-size: 0.7rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 100px;
+  padding: 4px 11px;
+  color: rgba(250, 246, 238, 0.45);
+}
+.pillar-link {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--orange-accent);
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  transition: letter-spacing 0.25s;
+  margin-top: auto;
+}
+.pillar-link:hover { letter-spacing: 0.12em; }
+@media (max-width: 768px) {
+  .pillar-grid { grid-template-columns: 1fr; }
+  .pillar-card { padding: 28px 24px; }
+}
+
+/* ── INDUSTRIES STRIP ─────────────────────────────────────── */
+.industries-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+.industry-tag {
+  display: inline-flex;
+  align-items: center;
+  background: var(--near-black);
+  color: rgba(250, 246, 238, 0.7);
+  border: 1px solid rgba(250, 246, 238, 0.14);
+  border-radius: 100px;
+  padding: 10px 22px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: border-color 0.25s, background 0.25s, color 0.25s;
+  white-space: nowrap;
+}
+.industry-tag:hover {
+  border-color: var(--orange-accent);
+  background: rgba(196, 98, 42, 0.08);
+  color: var(--orange-accent);
+}
+html.dark-mode .industry-tag {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(250, 246, 238, 0.1);
+}
+
+/* ── WORK CARD STAT ───────────────────────────────────────── */
+.work-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.work-card-stat {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--sage-green);
+  letter-spacing: 0.04em;
+  opacity: 0.8;
+}
+
+/* ── VW MORE PRODUCTS LINK ────────────────────────────────── */
+.vw-more-products {
+  margin-top: 20px;
+  font-size: 0.82rem;
+}
+.vw-more-products a {
+  color: rgba(250, 246, 238, 0.35);
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  transition: color 0.2s;
+}
+.vw-more-products a:hover { color: rgba(250, 246, 238, 0.75); }
+
+/* ── FOUNDER NOTE (condensed) ─────────────────────────────── */
+.founder-note {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 16px 0;
+}
+.founder-note-photo {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 70%;
+  flex-shrink: 0;
+  border: 3px solid var(--orange-accent);
+}
+.founder-note-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.founder-note-text p {
+  color: var(--dark-olive);
+  font-size: 0.95rem;
+  line-height: 1.75;
+  margin: 0;
+}
+.founder-note-link {
+  color: var(--orange-accent);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  margin-top: 4px;
+}
+.founder-note-link:hover { text-decoration: underline; }
+@media (max-width: 600px) {
+  .founder-note {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 20px;
+  }
+}
