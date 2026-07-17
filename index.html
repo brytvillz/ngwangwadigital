@@ -376,6 +376,36 @@
       .bento-wide, .bento-2 { flex-direction: column; }
       .bento-flow { flex-wrap: wrap; }
     }
+    /* ── Industries strip — force visible regardless of animation state ── */
+    #industries .industries-strip {
+      opacity: 1 !important;
+      transform: none !important;
+      visibility: visible !important;
+    }
+    #industries .industry-tag {
+      display: inline-flex !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      color: #1a1a1a !important;
+      border: 1.5px solid rgba(26,26,26,0.22) !important;
+      border-radius: 100px !important;
+      padding: 10px 22px !important;
+      font-size: 0.88rem !important;
+      font-weight: 500 !important;
+      text-decoration: none !important;
+      background: transparent !important;
+      white-space: nowrap !important;
+      transition: border-color 0.25s, background 0.25s, color 0.25s !important;
+    }
+    #industries .industry-tag:hover {
+      color: #C4622A !important;
+      border-color: #C4622A !important;
+      background: rgba(196,98,42,0.06) !important;
+    }
+    html.dark-mode #industries .industry-tag {
+      color: rgba(250,246,238,0.8) !important;
+      border-color: rgba(250,246,238,0.22) !important;
+    }
   </style>
   </head>
   <body>
