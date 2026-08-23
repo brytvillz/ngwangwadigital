@@ -1,4 +1,4 @@
-// NgwaNgwa Digital — Theme Engine
+// Ngwangwa Digital Systems — Theme Engine
 // Handles dark/light mode per page with user override via localStorage.
 //
 // Usage:

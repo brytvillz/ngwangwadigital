@@ -1,4 +1,4 @@
-// NgwaNgwa Digital — Main JavaScript
+// Ngwangwa Digital Systems — Main JavaScript
 
 // ===== NAVIGATION SCROLL EFFECT =====
 const navigation = document.querySelector(".navigation");
@@ -191,9 +191,9 @@ if (waitlistForm) {
 
 // ===== WHATSAPP LINK HANDLER =====
 function openWhatsApp(message = "") {
-  const phoneNumber = "2347076077265";
+  const phoneNumber = "2347018814381";
   const encodedMessage = encodeURIComponent(
-    message || "Hi NgwaNgwa Digital, I need help with...",
+    message || "Hi Ngwangwa Digital Systems, I need help with...",
   );
   const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
   window.open(whatsappURL, "_blank");

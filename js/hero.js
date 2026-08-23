@@ -1,4 +1,4 @@
-// NgwaNgwa Digital — Homepage Orbit Hero
+// Ngwangwa Digital Systems — Homepage Orbit Hero
 // Mouse parallax + orbit 3D tilt + scroll fade for the hero-orbit section.
 (function () {
   'use strict';

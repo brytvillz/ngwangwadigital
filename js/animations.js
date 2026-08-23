@@ -1,4 +1,4 @@
-// NgwaNgwa Digital — Scroll Animation Controller
+// Ngwangwa Digital Systems — Scroll Animation Controller
 
 // ===== INTERSECTION OBSERVER FOR SCROLL ANIMATIONS =====
 const observerOptions = {

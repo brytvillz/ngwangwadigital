@@ -1,4 +1,12 @@
 User-agent: *
 Allow: /
 
+# Internal and dev pages — not for indexing
+Disallow: /hero-concepts
+Disallow: /logo-concepts
+Disallow: /logo-kola
+
+# Demo sites — shareable by link but not indexed
+Disallow: /demos/
+
 Sitemap: https://ngwangwadigital.com/sitemap.xml
