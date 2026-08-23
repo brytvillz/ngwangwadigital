@@ -79,18 +79,31 @@
 
 /* ===== CSS CUSTOM PROPERTIES ===== */
 :root {
-  /* Brand Colors (fixed — never change with theme) */
-  --off-white:    #FAF6EE;
-  --sage-green:   #5B7A43;
-  --dark-olive:   #2B4A1C;
-  --near-black:   #1a1a1a;
-  --orange-accent:#C4622A;
+  /* ── CANONICAL PALETTE (Phase 3) — light mode ── */
+  --bg:            #FAFAF7;   /* page ground */
+  --surface:       #F1F1E9;   /* cards, quiet panels */
+  --surface-2:     #EAEAE0;   /* pressed / nested surfaces */
+  --ink:           #14170F;   /* primary text */
+  --muted:         #5E6353;   /* secondary text */
+  --faint:         #868B78;   /* captions, metadata */
+  --brand:         #4A5D23;   /* moss green — the only accent */
+  --brand-deep:    #3C4C1B;   /* hover states, text on brand-tint */
+  --brand-tint:    #ECEFE2;   /* callout backgrounds */
+  --line:          #DEDDD1;   /* hairlines */
+  --line-strong:   #C3C3B2;   /* input borders, strong dividers */
+
+  /* Legacy tokens — kept for backward compat (removed in Step 3) */
+  --off-white:     #FAF6EE;
+  --sage-green:    #5B7A43;
+  --dark-olive:    #2B4A1C;
+  --near-black:    #1a1a1a;
+  --orange-accent: var(--brand);  /* orange → moss green */
 
   /* Neutral Colors */
   --dark-grey:    #2a2a2a;
   --medium-grey:  #444;
   --light-grey:   #666;
-  --border-light: #e8e8e0;
+  --border-light: var(--line);
 
   /* Typography */
   --font-heading: "Poppins", sans-serif;
@@ -117,8 +130,19 @@
   --theme-surface-border: rgba(17, 17, 17, 0.1);
 }
 
-/* Dark mode — flip theme tokens only */
+/* Dark mode — canonical + theme tokens */
 html.dark-mode {
+  --bg:            #111309;
+  --surface:       #1A1D13;
+  --surface-2:     #22261A;
+  --ink:           #ECEBE0;
+  --muted:         #A0A491;
+  --faint:         #7E836F;
+  --brand:         #8FB047;   /* lifted moss — readable on dark */
+  --brand-deep:    #A8C563;
+  --brand-tint:    #1E2413;
+  --line:          #2B2F21;
+  --line-strong:   #3D4230;
   --theme-bg:          #0c0c0c;
   --theme-bg-surface:  #161616;
   --theme-text:        #FAF4E8;
@@ -463,8 +487,8 @@ html {
 
 body {
   font-family: var(--font-body);
-  color: var(--near-black);
-  background: var(--near-black);
+  color: var(--ink);
+  background: var(--bg);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
