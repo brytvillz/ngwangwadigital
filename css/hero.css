@@ -60,7 +60,7 @@
 }
 
 .hero-nav-cta:hover {
-  background: #a8501f;
+  background: var(--brand-deep);
   transform: translateY(-1px);
 }
 
@@ -70,7 +70,7 @@
   height: 100vh;
   min-height: 620px;
   overflow: hidden;
-  background: var(--theme-bg);
+  background: var(--bg);
   display: flex;
   align-items: center;
   padding: 0 9vw;
@@ -84,7 +84,7 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--sage-green), var(--orange-accent));
+  background: linear-gradient(90deg, var(--brand), var(--brand-deep));
   z-index: 3;
 }
 
@@ -199,7 +199,7 @@ html.dark-mode .hero-accent-bar { opacity: 0.55; }
 .orbit-dot-2 {
   width: 5px;
   height: 5px;
-  background: var(--sage-green);
+  background: var(--brand);
   margin-top: 218px;
   margin-left: -5px;
   animation: orbit-ring-ccw 22s linear infinite;
@@ -240,7 +240,7 @@ html.dark-mode .orbit-dot-2  { opacity: 1; }
 .hero-ed-brand {
   font-size: 12px;
   font-weight: 700;
-  color: var(--dark-olive);
+  color: var(--brand-deep);
   letter-spacing: 2px;
   text-transform: uppercase;
   font-family: var(--font-body);
@@ -274,14 +274,14 @@ html.dark-mode .hero-ed-loc    { color: rgba(250, 244, 232, 0.35); }
   font-size: clamp(42px, 6vw, 88px);
   line-height: 0.88;
   letter-spacing: -3px;
-  color: var(--theme-text);
+  color: var(--ink);
   margin-bottom: 48px;
   transition: color 0.3s;
 }
 
 .hero-ed-heading em {
   font-style: normal;
-  color: var(--sage-green);
+  color: var(--muted);
 }
 
 /* Bottom row */
@@ -294,7 +294,7 @@ html.dark-mode .hero-ed-loc    { color: rgba(250, 244, 232, 0.35); }
 
 .hero-ed-sub {
   font-size: clamp(14px, 1.45vw, 17px);
-  color: var(--theme-text-muted);
+  color: var(--muted);
   max-width: 380px;
   line-height: 1.74;
   font-family: var(--font-body);
@@ -311,7 +311,7 @@ html.dark-mode .hero-ed-loc    { color: rgba(250, 244, 232, 0.35); }
 
 /* Primary button */
 .hero-btn-fill {
-  background: var(--dark-olive);
+  background: var(--brand-deep);
   color: var(--off-white);
   padding: 14px 26px;
   border-radius: 4px;
@@ -327,12 +327,12 @@ html.dark-mode .hero-ed-loc    { color: rgba(250, 244, 232, 0.35); }
 }
 
 .hero-btn-fill:hover {
-  background: #1a3012;
+  background: var(--brand-deep);
   transform: translateY(-2px);
 }
 
 html.dark-mode .hero-btn-fill { background: var(--orange-accent); }
-html.dark-mode .hero-btn-fill:hover { background: #a8501f; }
+html.dark-mode .hero-btn-fill:hover { background: var(--brand-deep); }
 
 /* Secondary link */
 .hero-btn-link {
@@ -415,7 +415,7 @@ html.dark-mode .hero-hint-line { background: rgba(250, 244, 232, 0.08); }
   position: relative;
   min-height: 72vh;
   overflow: hidden;
-  background: var(--theme-bg);
+  background: var(--bg);
   display: flex;
   align-items: center;
   padding: 110px 9vw 80px;
@@ -689,7 +689,7 @@ html.dark-mode .layer-near { opacity: 1; filter: drop-shadow(0 0 40px rgba(196, 
 }
 
 .hero-nav-mobile-cta:hover {
-  background: #a8501f;
+  background: var(--brand-deep);
 }
 
 /* ===== RESPONSIVE ===== */
@@ -741,7 +741,7 @@ html.dark-mode .layer-near { opacity: 1; filter: drop-shadow(0 0 40px rgba(196, 
    WORK SHOWCASE — dot-grid + mouse spotlight
    =================================================== */
 .work-showcase {
-  background: #080c05;
+  background: #111309;
   background-image: radial-gradient(circle, rgba(91,122,67,0.22) 1px, transparent 1px);
   background-size: 26px 26px;
   position: relative;
@@ -773,7 +773,7 @@ html.dark-mode .layer-near { opacity: 1; filter: drop-shadow(0 0 40px rgba(196, 
   z-index: 1;
 }
 
-.work-label { color: var(--sage-green); }
+.work-label { color: var(--muted); }
 
 .work-heading {
   font-family: var(--font-heading);
@@ -848,7 +848,7 @@ html.dark-mode .layer-near { opacity: 1; filter: drop-shadow(0 0 40px rgba(196, 
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--sage-green);
+  color: var(--muted);
   display: block;
   margin-bottom: 14px;
 }
@@ -908,7 +908,7 @@ html.dark-mode .layer-near { opacity: 1; filter: drop-shadow(0 0 40px rgba(196, 
 }
 
 .work-cta-btn:hover {
-  background: #b85420;
+  background: var(--brand-deep);
   transform: translateY(-2px);
   box-shadow: 0 14px 36px rgba(196,98,42,0.38);
 }

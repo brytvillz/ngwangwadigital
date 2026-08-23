@@ -63,7 +63,7 @@
   position: absolute;
   inset: 0;
   transform: rotateY(180deg);
-  background: #f0f4ff;
+  background: var(--surface);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -94,8 +94,6 @@
 
   /* Legacy tokens — kept for backward compat (removed in Step 3) */
   --off-white:     #FAF6EE;
-  --sage-green:    #5B7A43;
-  --dark-olive:    #2B4A1C;
   --near-black:    #1a1a1a;
   --orange-accent: var(--brand);  /* orange → moss green */
 
@@ -235,7 +233,7 @@ html.dark-mode .hero-nav .theme-toggle:hover {
 
 /* ===== MEANING STRIP ===== */
 .meaning-strip {
-  background: #0a1205;
+  background: var(--brand-tint);
   padding: 96px 0 112px;
   position: relative;
   overflow: hidden;
@@ -352,7 +350,7 @@ html.dark-mode .hero-nav .theme-toggle:hover {
   font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--sage-green);
+  color: var(--muted);
   margin-bottom: 22px;
   font-family: var(--font-body);
 }
@@ -369,7 +367,7 @@ html.dark-mode .hero-nav .theme-toggle:hover {
 
 .meaning-heading em {
   font-style: normal;
-  color: var(--sage-green);
+  color: var(--muted);
 }
 
 .meaning-subhead {
@@ -589,7 +587,7 @@ p {
 }
 
 .navigation.scrolled {
-  background: var(--off-white);
+  background: var(--bg);
   border-bottom: 1px solid var(--border-light);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
@@ -597,11 +595,11 @@ p {
 /* Scrolled navigation - dark text on white background */
 .navigation.scrolled .logo,
 .navigation.scrolled .nav-links a {
-  color: var(--dark-olive);
+  color: var(--brand-deep);
 }
 
 .navigation.scrolled .menu-toggle span {
-  background: var(--dark-olive);
+  background: var(--brand-deep);
 }
 
 .nav-container {
@@ -618,7 +616,7 @@ p {
   align-items: center;
   gap: 10px;
   font-size: 1.5rem;
-  color: var(--dark-olive);
+  color: var(--brand-deep);
 }
 
 .logo-img {
@@ -651,7 +649,7 @@ p {
 .nav-links a {
   font-size: 0.9rem;
   letter-spacing: 0.05em;
-  color: var(--dark-olive);
+  color: var(--brand-deep);
   font-weight: 500;
 }
 
@@ -674,13 +672,13 @@ p {
 .menu-toggle span {
   width: 25px;
   height: 2px;
-  background: var(--dark-olive);
+  background: var(--brand-deep);
   transition: all 0.3s ease;
   border-radius: 2px;
 }
 
 .navigation.dark .menu-toggle span {
-  background: var(--off-white);
+  background: var(--bg);
 }
 
 /* Hamburger Animation to X */
@@ -720,21 +718,21 @@ p {
 
 .btn-secondary {
   background: transparent;
-  border: 1px solid var(--sage-green);
+  border: 1px solid var(--brand);
   color: var(--off-white);
 }
 
 .btn-secondary:hover {
-  background: var(--sage-green);
+  background: var(--brand);
 }
 
 .btn-dark {
-  background: var(--near-black);
+  background: #111309;
   color: var(--off-white);
 }
 
 .btn-dark:hover {
-  background: var(--dark-olive);
+  background: var(--brand-deep);
 }
 
 .btn-group {
@@ -747,7 +745,7 @@ p {
 /* ===== HERO SECTION ===== */
 .hero {
   min-height: 100vh;
-  background: var(--near-black);
+  background: #111309;
   display: flex;
   align-items: center;
   position: relative;
@@ -781,7 +779,7 @@ p {
 }
 
 .hero-label {
-  color: var(--sage-green);
+  color: var(--muted);
 }
 
 .hero-headline {
@@ -795,7 +793,7 @@ p {
 }
 
 .hero-subheadline {
-  color: var(--sage-green);
+  color: var(--muted);
   font-size: 1.25rem;
   max-width: 520px;
   line-height: 1.7;
@@ -835,7 +833,7 @@ p {
 }
 
 .hero-floating-card .company {
-  color: var(--sage-green);
+  color: var(--muted);
   font-size: 0.9rem;
   margin-bottom: 16px;
 }
@@ -843,13 +841,13 @@ p {
 .hero-floating-card .qr-placeholder {
   width: 120px;
   height: 120px;
-  background: var(--off-white);
+  background: var(--bg);
   border-radius: 8px;
   margin: 20px 0;
 }
 
 .hero-floating-card p {
-  color: var(--sage-green);
+  color: var(--muted);
   font-size: 0.9rem;
 }
 
@@ -904,19 +902,19 @@ p {
 }
 
 .card h3 {
-  color: var(--near-black);
+  color: var(--ink);
   font-size: 1.5rem;
   margin-bottom: 12px;
 }
 
 .card p {
-  color: var(--dark-olive);
+  color: var(--brand-deep);
   line-height: 1.8;
 }
 
 /* Dark Cards */
 .card-dark {
-  background: #242424;
+  background: #1A1D13;
   border: 1px solid var(--dark-grey);
   position: relative;
   overflow: hidden;
@@ -944,7 +942,7 @@ p {
 }
 
 .card-dark p {
-  color: var(--sage-green);
+  color: var(--muted);
   position: relative;
   z-index: 1;
 }
@@ -979,13 +977,13 @@ p {
   line-height: 1.08;
   letter-spacing: -1.5px;
   margin: 16px 0 24px;
-  color: var(--near-black);
+  color: var(--ink);
 }
 
 .problem-intro {
   font-size: 1rem;
   line-height: 1.72;
-  color: var(--dark-olive);
+  color: var(--brand-deep);
   margin-bottom: 40px;
   max-width: 520px;
 }
@@ -1023,20 +1021,20 @@ p {
   display: block;
   font-size: 1rem;
   font-weight: 700;
-  color: var(--near-black);
+  color: var(--ink);
   margin-bottom: 4px;
 }
 
 .problem-item-body p {
   font-size: 0.88rem;
   line-height: 1.6;
-  color: var(--dark-olive);
+  color: var(--brand-deep);
   margin: 0;
 }
 
 .problem-cta-line {
   font-size: 1rem;
-  color: var(--near-black);
+  color: var(--ink);
 }
 
 /* Right: figure column */
@@ -1120,17 +1118,17 @@ p {
 
 /* ===== SECTIONS ===== */
 .section-light {
-  background: var(--off-white);
-  color: var(--near-black);
+  background: var(--bg);
+  color: var(--ink);
 }
 
 .section-dark {
-  background: var(--near-black);
+  background: #111309;
   color: var(--off-white);
 }
 
 .section-sage {
-  background: var(--sage-green);
+  background: var(--brand);
   color: var(--off-white);
 }
 
@@ -1180,7 +1178,7 @@ p {
 
 /* ===== FOOTER ===== */
 .footer {
-  background: var(--near-black);
+  background: #111309;
   color: var(--off-white);
   padding: 60px 0 20px;
 }
@@ -1198,7 +1196,7 @@ p {
 }
 
 .footer-tagline {
-  color: var(--sage-green);
+  color: var(--muted);
   font-size: 0.95rem;
   line-height: 1.6;
 }
@@ -1218,7 +1216,7 @@ p {
 }
 
 .footer-links a {
-  color: var(--sage-green);
+  color: var(--muted);
   font-size: 0.9rem;
 }
 
@@ -1227,7 +1225,7 @@ p {
 }
 
 .footer-contact p {
-  color: var(--sage-green);
+  color: var(--muted);
   margin-bottom: 8px;
   font-size: 0.9rem;
 }
@@ -1249,7 +1247,7 @@ p {
   display: block;
   margin-bottom: 8px;
   font-weight: 500;
-  color: var(--dark-olive);
+  color: var(--brand-deep);
 }
 
 .form-input,
@@ -1268,7 +1266,7 @@ p {
 .form-select:focus,
 .form-textarea:focus {
   outline: none;
-  border-color: var(--sage-green);
+  border-color: var(--muted);
   box-shadow: 0 0 0 3px rgba(122, 140, 104, 0.1);
 }
 
@@ -1360,7 +1358,7 @@ p {
 }
 
 .slide-text p {
-  color: var(--sage-green);
+  color: var(--muted);
   font-size: 1rem;
   line-height: 1.85;
   margin: 0;
@@ -1463,7 +1461,7 @@ p {
     top: 70px;
     left: 0;
     right: 0;
-    background: var(--off-white);
+    background: var(--bg);
     flex-direction: column;
     gap: 0;
     padding: 20px;
@@ -1483,13 +1481,13 @@ p {
   }
 
   .nav-links a {
-    color: var(--dark-olive) !important;
+    color: var(--brand-deep) !important;
     font-weight: 600;
   }
 
   /* Force dark text in mobile menu even on dark nav */
   .navigation.dark .nav-links a {
-    color: var(--dark-olive) !important;
+    color: var(--brand-deep) !important;
   }
 
   .btn-group {
@@ -1555,7 +1553,7 @@ p {
 .industry-card h3 {
   font-size: 1rem;
   font-weight: 700;
-  color: var(--near-black);
+  color: var(--ink);
   margin-bottom: 8px;
 }
 .industry-card p {
@@ -1573,7 +1571,7 @@ p {
 
 /* ── VIRTUAL WAITRESS — Flagship Product ──────────────────── */
 .vw-section {
-  background: #0a0a0a;
+  background: #111309;
   padding: 100px 0;
 }
 .vw-grid {
@@ -1627,7 +1625,7 @@ p {
   font-size: 0.8rem;
 }
 .product-browser {
-  background: #141414;
+  background: #111309;
   border-radius: 10px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -1679,7 +1677,7 @@ p {
 
 /* ── TRUST STRIP ──────────────────────────────────────────── */
 .trust-strip {
-  background: var(--near-black);
+  background: #111309;
   border-top: 1px solid rgba(250, 246, 238, 0.06);
   border-bottom: 1px solid rgba(250, 246, 238, 0.06);
   padding: 14px 24px;
@@ -1779,7 +1777,7 @@ p {
   display: inline-flex;
   align-items: center;
   background: transparent;
-  color: var(--near-black);
+  color: var(--ink);
   border: 1.5px solid rgba(26, 26, 26, 0.2);
   border-radius: 100px;
   padding: 10px 22px;
@@ -1815,7 +1813,7 @@ html.dark-mode .industry-tag:hover {
 .work-card-stat {
   font-size: 0.7rem;
   font-weight: 600;
-  color: var(--sage-green);
+  color: var(--muted);
   letter-spacing: 0.04em;
   opacity: 0.8;
 }
@@ -1857,7 +1855,7 @@ html.dark-mode .industry-tag:hover {
   gap: 6px;
 }
 .founder-note-text p {
-  color: var(--dark-olive);
+  color: var(--brand-deep);
   font-size: 0.95rem;
   line-height: 1.75;
   margin: 0;
