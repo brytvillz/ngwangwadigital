@@ -151,6 +151,31 @@ html.dark-mode {
   --theme-surface-border: rgba(250, 244, 232, 0.09);
 }
 
+/* OS-level dark preference — applies when user hasn't explicitly chosen light */
+@media (prefers-color-scheme: dark) {
+  :root:not(.light-mode) {
+    --bg:            #111309;
+    --surface:       #1A1D13;
+    --surface-2:     #22261A;
+    --ink:           #ECEBE0;
+    --muted:         #A0A491;
+    --faint:         #7E836F;
+    --brand:         #8FB047;
+    --brand-deep:    #A8C563;
+    --brand-tint:    #1E2413;
+    --line:          #2B2F21;
+    --line-strong:   #3D4230;
+    --theme-bg:          #0c0c0c;
+    --theme-bg-surface:  #161616;
+    --theme-text:        #FAF4E8;
+    --theme-text-muted:  rgba(250, 244, 232, 0.42);
+    --theme-text-subtle: rgba(250, 244, 232, 0.22);
+    --theme-border:      rgba(250, 244, 232, 0.08);
+    --theme-surface:     rgba(255, 255, 255, 0.04);
+    --theme-surface-border: rgba(250, 244, 232, 0.09);
+  }
+}
+
 /* ===== THEME TOGGLE BUTTON ===== */
 
 /* Standalone version — delivery.html (no pill nav) */

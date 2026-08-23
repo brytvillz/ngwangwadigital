@@ -23,8 +23,10 @@
   function applyTheme (theme) {
     if (theme === 'dark') {
       ROOT.classList.add('dark-mode');
+      ROOT.classList.remove('light-mode');
     } else {
       ROOT.classList.remove('dark-mode');
+      ROOT.classList.add('light-mode');   // blocks prefers-color-scheme media query
     }
     updateToggleButton(theme === 'dark');
   }
@@ -43,6 +45,11 @@
   // ── Toggle ─────────────────────────────────────────────────────────────────
   function toggle () {
     var isDark = ROOT.classList.toggle('dark-mode');
+    if (isDark) {
+      ROOT.classList.remove('light-mode');
+    } else {
+      ROOT.classList.add('light-mode');
+    }
     localStorage.setItem(STORE_KEY, isDark ? 'dark' : 'light');
     updateToggleButton(isDark);
   }
@@ -88,6 +95,6 @@
  * of the wrong theme.
  *
  * <script>
- * !function(){var r=document.documentElement,p=r.getAttribute('data-page-theme')||'light',u=localStorage.getItem('ngwangwa-theme'),a=null!==u?u:p;'dark'===a&&r.classList.add('dark-mode')}();
+ * !function(){var r=document.documentElement,p=r.getAttribute('data-page-theme')||'light',u=localStorage.getItem('ngwangwa-theme'),a=null!==u?u:p;if(a==='dark'){r.classList.add('dark-mode')}else if(a==='light'){r.classList.add('light-mode')}}();
  * </script>
  */
