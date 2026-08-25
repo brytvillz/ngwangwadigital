@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Virtual Waitress — Menu Demo</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #f4f4f0;
+    min-height: 100vh;
+    color: #1a1a1a;
+  }
+
+  /* ── Header ── */
+  .vw-header {
+    background: #fff;
+    border-bottom: 1px solid #e8e8e4;
+    padding: 14px 18px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .vw-header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+  .vw-restaurant-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #111;
+    letter-spacing: -0.01em;
+  }
+  .vw-table-badge {
+    background: #f0f7e6;
+    color: #3d6b1a;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    border: 1px solid #c5e09a;
+  }
+
+  /* ── Category tabs ── */
+  .vw-cats {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-bottom: 2px;
+  }
+  .vw-cats::-webkit-scrollbar { display: none; }
+  .vw-cat {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+    border: 1.5px solid transparent;
+    background: #f0f0eb;
+    color: #555;
+    transition: all 0.15s;
+  }
+  .vw-cat.active {
+    background: #4a7c1e;
+    color: #fff;
+    border-color: #4a7c1e;
+  }
+
+  /* ── Menu items ── */
+  .vw-menu { padding: 10px 14px 80px; }
+  .vw-section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #999;
+    margin: 14px 0 8px;
+  }
+
+  .vw-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 8px;
+    border: 1px solid #ebebeb;
+    transition: box-shadow 0.15s;
+  }
+  .vw-item:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
+  .vw-item-img {
+    width: 56px;
+    height: 56px;
+    border-radius: 10px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+  }
+  .vw-item-body { flex: 1; min-width: 0; }
+  .vw-item-name { font-size: 13px; font-weight: 600; color: #111; margin-bottom: 3px; }
+  .vw-item-desc { font-size: 11px; color: #888; line-height: 1.4; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .vw-item-price { font-size: 13px; font-weight: 700; color: #4a7c1e; white-space: nowrap; }
+  .vw-item-add {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #4a7c1e;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 300;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+  .vw-item-add.added {
+    background: #c8e89a;
+    color: #2d5c0e;
+  }
+
+  /* ── Sold out ── */
+  .vw-item.sold-out { opacity: 0.5; }
+  .vw-sold-badge {
+    font-size: 10px;
+    background: #fef0f0;
+    color: #c0392b;
+    border: 1px solid #fac9c9;
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-weight: 600;
+  }
+
+  /* ── Call waiter / bottom bar ── */
+  .vw-bottom {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    padding: 10px 14px;
+    background: #fff;
+    border-top: 1px solid #e8e8e4;
+    display: flex;
+    gap: 8px;
+    z-index: 20;
+  }
+  .vw-btn-cart {
+    flex: 1;
+    background: #4a7c1e;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .vw-cart-count {
+    background: #fff;
+    color: #4a7c1e;
+    border-radius: 50%;
+    width: 22px; height: 22px;
+    font-size: 12px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .vw-btn-waiter {
+    background: #f0f7e6;
+    color: #3d6b1a;
+    border: 1.5px solid #c5e09a;
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  /* ── Waiter called toast ── */
+  .vw-toast {
+    position: fixed;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+    background: #111;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 24px;
+    font-size: 13px;
+    font-weight: 500;
+    opacity: 0;
+    transition: opacity 0.25s, transform 0.25s;
+    pointer-events: none;
+    white-space: nowrap;
+    z-index: 99;
+  }
+  .vw-toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  /* ── VW branding ── */
+  .vw-powered {
+    text-align: center;
+    font-size: 10px;
+    color: #bbb;
+    padding: 6px 0 4px;
+    letter-spacing: 0.03em;
+  }
+  .vw-powered a { color: #7cb342; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<header class="vw-header">
+  <div class="vw-header-top">
+    <div class="vw-restaurant-name">Nnewi Buka</div>
+    <div class="vw-table-badge">Table 4</div>
+  </div>
+  <div class="vw-cats">
+    <div class="vw-cat active" onclick="selectCat(this,'soups')">Soups</div>
+    <div class="vw-cat" onclick="selectCat(this,'mains')">Main Dishes</div>
+    <div class="vw-cat" onclick="selectCat(this,'sides')">Sides</div>
+    <div class="vw-cat" onclick="selectCat(this,'drinks')">Drinks</div>
+  </div>
+</header>
+
+<div class="vw-toast" id="toast">🔔 Waiter is on the way!</div>
+
+<div class="vw-menu">
+
+  <!-- Soups -->
+  <div class="vw-section" id="soups">
+    <div class="vw-section-label">Soups</div>
+
+    <div class="vw-item">
+      <div class="vw-item-img" style="background:#fff8e8;">🍲</div>
+      <div class="vw-item-body">
+        <div class="vw-item-name">Ofe Onugbu</div>
+        <div class="vw-item-desc">Bitter leaf soup · rich, slow-cooked</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px">
+        <div class="vw-item-price">₦2,500</div>
+        <button class="vw-item-add" onclick="addItem(this)">+</button>
+      </div>
+    </div>
+
+    <div class="vw-item">
+      <div class="vw-item-img" style="background:#fff3f0;">🥘</div>
+      <div class="vw-item-body">
+        <div class="vw-item-name">Ofe Owerri</div>
+        <div class="vw-item-desc">Owerri soup · assorted meats</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px">
+        <div class="vw-item-price">₦3,000</div>
+        <button class="vw-item-add" onclick="addItem(this)">+</button>
+      </div>
+    </div>
+
+    <div class="vw-item sold-out">
+      <div class="vw-item-img" style="background:#f5f5f5;">🫕</div>
+      <div class="vw-item-body">
+        <div class="vw-item-name">Egusi Soup</div>
+        <div class="vw-item-desc">Ground melon · assorted meat &amp; fish</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px">
+        <div class="vw-sold-badge">Sold Out</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mains (hidden by default) -->
+  <div class="vw-section" id="mains" style="display:none">
+    <div class="vw-section-label">Main Dishes</div>
+
+    <div class="vw-item">
+      <div class="vw-item-img" style="background:#fff8e8;">🍚</div>
+      <div class="vw-item-body">
+        <div class="vw-item-name">White Rice + Stew</div>
+        <div class="vw-item-desc">Served with chicken stew &amp; salad</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px">
+        <div class="vw-item-price">₦2,000</div>
+        <button class="vw-item-add" onclick="addItem(this)">+</button>
+      </div>
+    </div>
+
+    <div class="vw-item">
+      <div class="vw-item-img" style="background:#f8ffe8;">🍖</div>
+      <div class="vw-item-body">
+        <div class="vw-item-name">Grilled Chicken</div>
+        <div class="vw-item-desc">Whole leg · peppered or plain</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px">
+        <div class="vw-item-price">₦3,500</div>
+        <button class="vw-item-add" onclick="addItem(this)">+</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sides (hidden) -->
+  <div class="vw-section" id="sides" style="display:none">
+    <div class="vw-section-label">Sides</div>
+
+    <div class="vw-item">
+      <div class="vw-item-img" style="background:#fffbe8;">🫓</div>
+      <div class="vw-item-body">
+        <div class="vw-item-name">Eba (Large)</div>
+        <div class="vw-item-desc">Cassava fufu, freshly made</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px">
+        <div class="vw-item-price">₦400</div>
+        <button class="vw-item-add" onclick="addItem(this)">+</button>
+      </div>
+    </div>
+
+    <div class="vw-item">
+      <div class="vw-item-img" style="background:#fff3f0;">🌾</div>
+      <div class="vw-item-body">
+        <div class="vw-item-name">Pounded Yam</div>
+        <div class="vw-item-desc">Smooth &amp; fresh, medium size</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px">
+        <div class="vw-item-price">₦500</div>
+        <button class="vw-item-add" onclick="addItem(this)">+</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Drinks (hidden) -->
+  <div class="vw-section" id="drinks" style="display:none">
+    <div class="vw-section-label">Drinks</div>
+
+    <div class="vw-item">
+      <div class="vw-item-img" style="background:#e8f5ff;">🧃</div>
+      <div class="vw-item-body">
+        <div class="vw-item-name">Chivita Juice</div>
+        <div class="vw-item-desc">Mango · Orange · Guava · 35cl</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px">
+        <div class="vw-item-price">₦400</div>
+        <button class="vw-item-add" onclick="addItem(this)">+</button>
+      </div>
+    </div>
+
+    <div class="vw-item">
+      <div class="vw-item-img" style="background:#fff0f0;">🍺</div>
+      <div class="vw-item-body">
+        <div class="vw-item-name">Star Lager</div>
+        <div class="vw-item-desc">Cold, 600ml bottle</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px">
+        <div class="vw-item-price">₦600</div>
+        <button class="vw-item-add" onclick="addItem(this)">+</button>
+      </div>
+    </div>
+
+    <div class="vw-item">
+      <div class="vw-item-img" style="background:#f0fff4;">💧</div>
+      <div class="vw-item-body">
+        <div class="vw-item-name">Table Water</div>
+        <div class="vw-item-desc">Eva · 50cl</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px">
+        <div class="vw-item-price">₦150</div>
+        <button class="vw-item-add" onclick="addItem(this)">+</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="vw-powered">Powered by <a href="https://virtualwaitress.com" target="_blank">VirtualWaitress.com</a></div>
+</div>
+
+<div class="vw-bottom">
+  <button class="vw-btn-cart" id="cartBtn">
+    <span id="cartLabel">View Order</span>
+    <span class="vw-cart-count" id="cartCount">0</span>
+  </button>
+  <button class="vw-btn-waiter" onclick="callWaiter()">🔔 Call Waiter</button>
+</div>
+
+<script>
+  var cartItems = 0;
+
+  function addItem(btn) {
+    cartItems++;
+    btn.textContent = '✓';
+    btn.classList.add('added');
+    document.getElementById('cartCount').textContent = cartItems;
+    setTimeout(function() {
+      btn.textContent = '+';
+      btn.classList.remove('added');
+    }, 1000);
+  }
+
+  function selectCat(el, id) {
+    document.querySelectorAll('.vw-cat').forEach(function(c){ c.classList.remove('active'); });
+    el.classList.add('active');
+    document.querySelectorAll('.vw-section').forEach(function(s){ s.style.display = 'none'; });
+    document.getElementById(id).style.display = 'block';
+  }
+
+  function callWaiter() {
+    var t = document.getElementById('toast');
+    t.classList.add('show');
+    setTimeout(function(){ t.classList.remove('show'); }, 2500);
+  }
+</script>
+</body>
+</html>
