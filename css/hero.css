@@ -46,6 +46,56 @@
 
 .hero-nav-links a:hover { color: #fff; }
 
+/* ── Industries dropdown ── */
+.hero-nav-links .nav-has-dropdown { position: relative; }
+.hero-nav-links .nav-has-dropdown > a { cursor: default; }
+
+.nav-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1a1d13;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 8px 0;
+  min-width: 210px;
+  list-style: none;
+  z-index: 200;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.45);
+}
+.nav-dropdown::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  background: #1a1d13;
+  border-left: 1px solid rgba(255,255,255,0.1);
+  border-top: 1px solid rgba(255,255,255,0.1);
+  rotate: 45deg;
+}
+.hero-nav-links .nav-has-dropdown:hover .nav-dropdown { display: block; }
+
+.nav-dropdown li { padding: 0; border: none; }
+.nav-dropdown li a {
+  display: block;
+  padding: 9px 18px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.65);
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.nav-dropdown li:last-child a { border-bottom: none; }
+.nav-dropdown li a:hover {
+  background: rgba(143,176,71,0.12);
+  color: #c8dc8a;
+}
+
 .hero-nav-cta {
   background: var(--orange-accent);
   color: #fff;
