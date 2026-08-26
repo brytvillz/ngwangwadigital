@@ -97,6 +97,10 @@
   --near-black:    #1a1a1a;
   --orange-accent: var(--brand);  /* orange → moss green */
 
+  /* Historical alias tokens — resolve to canonical palette so they adapt to dark mode */
+  --sage-green:    var(--brand);   /* was #7a8c68; now maps to brand (#4A5D23 light / #8FB047 dark) */
+  --dark-olive:    var(--muted);   /* was #3d4f2e; now maps to muted (#5E6353 light / #A0A491 dark) */
+
   /* Neutral Colors */
   --dark-grey:    #2a2a2a;
   --medium-grey:  #444;
@@ -1905,4 +1909,37 @@ html.dark-mode .industry-tag:hover {
     align-items: center;
     gap: 20px;
   }
+}
+
+/* ===== DARK MODE — CROSS-PAGE CARD + TEXT FIXES ===== */
+/* Override class-based hardcoded-white elements across all pages */
+html.dark-mode .portfolio-item,
+html.dark-mode .filter-tab,
+html.dark-mode .coming-soon-card,
+html.dark-mode .contact-form-wrapper {
+  background: var(--surface);
+  border-color: var(--line);
+}
+
+html.dark-mode .filter-tab {
+  color: var(--ink);
+}
+
+html.dark-mode .portfolio-item h3 {
+  color: var(--ink);
+}
+
+html.dark-mode .portfolio-item p,
+html.dark-mode .btn-want-this {
+  color: var(--muted);
+}
+
+html.dark-mode .feature-tag {
+  background: var(--brand-tint);
+  border-color: var(--line-strong);
+  color: var(--brand);
+}
+
+html.dark-mode .portfolio-item:hover {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
 }
