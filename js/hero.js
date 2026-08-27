@@ -87,6 +87,16 @@
       a.addEventListener('click', function () { setOpen(false); });
     });
 
+    // Industries tap-to-expand in mobile menu
+    mobileMenuEl.querySelectorAll('.mobile-ind-trigger').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var wrap = btn.closest('.mobile-ind-wrap');
+        var isOpen = wrap.classList.toggle('open');
+        btn.setAttribute('aria-expanded', String(isOpen));
+      });
+    });
+
     document.addEventListener('click', function (e) {
       if (!navEl.contains(e.target) && !mobileMenuEl.contains(e.target)) {
         setOpen(false);

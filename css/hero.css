@@ -723,6 +723,47 @@ html.dark-mode .layer-near { opacity: 1; filter: drop-shadow(0 0 40px rgba(196, 
   color: #fff;
 }
 
+/* Mobile Industries accordion */
+.mobile-ind-trigger {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  padding: 15px 0;
+  color: rgba(255,255,255,0.68);
+  font-size: 15px;
+  font-family: var(--font-body);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: color 0.18s;
+}
+.mobile-ind-trigger:hover { color: #fff; }
+.mobile-ind-trigger .ind-arrow { transition: transform 0.2s; display: inline-block; }
+.mobile-ind-wrap.open .ind-arrow { transform: rotate(180deg); }
+.mobile-ind-list {
+  display: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.mobile-ind-wrap.open .mobile-ind-list { display: block; }
+.mobile-ind-list li a {
+  display: block;
+  padding: 10px 0 10px 14px;
+  color: rgba(255,255,255,0.48);
+  font-size: 13px;
+  font-family: var(--font-body);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  transition: color 0.15s;
+}
+.mobile-ind-list li:last-child a { border-bottom: none; }
+.mobile-ind-list li a:hover { color: #c8dc8a; }
+
 .hero-nav-mobile-cta {
   display: block;
   margin-top: 16px;
