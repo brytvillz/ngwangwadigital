@@ -74,6 +74,14 @@
     <priority>0.75</priority>
   </url>
 
+  <!-- Service landing pages -->
+  <url>
+    <loc>https://ngwangwadigital.com/services/website-design-nnewi</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
   <!-- Secondary pages -->
   <url>
     <loc>https://ngwangwadigital.com/portfolio</loc>
