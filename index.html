@@ -399,7 +399,8 @@
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-2L3DB45018"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-2L3DB45018');</script>
-  </head>
+    <script defer src="/_vercel/insights/script.js"></script>
+</head>
   <body>
     <div id="page-loader">
       <div class="loader-inner">
@@ -562,7 +563,7 @@
             Building products that work in the real world — not just on a pitch deck — is how we prove our technology is ready for yours.
           </p>
           <p style="color: rgba(250,246,238,0.65); font-size: 1.05rem; line-height: 1.8; margin: 16px 0 32px">
-            One waiter can only attend one table at a time. When three tables need attention at once, service breaks down. Virtual Waitress helps hospitality teams manage tables, orders, and service requests clearly — so staff can move faster and no customer gets forgotten. Customers interact through a QR code: browse the menu, place their order, or call for assistance. Staff see every request from a shared screen. No special hardware required.
+            One waiter can only attend one table at a time. When three tables need attention at once, service breaks down. Virtual Waitress helps hospitality teams manage tables, orders, and service requests clearly — so staff can move faster and no customer gets forgotten. Customers interact through a QR code: browse the menu, place their order, or call for assistance. Orders land on the owner's screen the second a waiter sends them, with his name and the time on them. No special hardware required.
           </p>
           <div class="vw-stats">
             <div class="vw-stat">
@@ -578,9 +579,13 @@
               <span>Available now</span>
             </div>
           </div>
-          <div class="btn-group" style="margin-top: 36px">
+          <div style="margin: 24px 0; padding: 16px 18px; border-left: 3px solid var(--brand); background: rgba(143,176,71,0.08); border-radius: 0 8px 8px 0;">
+            <p style="color: var(--off-white); font-weight: 600; margin: 0 0 6px; font-size: 0.95rem;">Virtual Waitress is live, and in limited pilot.</p>
+            <p style="color: rgba(250,246,238,0.65); font-size: 0.88rem; line-height: 1.7; margin: 0;">We are running it with a small number of bars and lounges before we open it to everyone. If you run a venue and want to be one of them, message us and we will set you up with an access code.</p>
+          </div>
+          <div class="btn-group" style="margin-top: 24px">
             <a href="https://virtualwaitress.com" class="btn btn-primary" target="_blank" rel="noopener">Visit VirtualWaitress.com →</a>
-            <a href="https://wa.me/2347018814381?text=Hi%2C%20I%27d%20like%20a%20Virtual%20Waitress%20demo" class="btn btn-secondary" target="_blank" rel="noopener">Request a Demo</a>
+            <a href="https://wa.me/2347018814381?text=Hi%2C%20I%20run%20a%20venue%20and%20I%20would%20like%20to%20join%20the%20Virtual%20Waitress%20pilot." class="btn btn-secondary" target="_blank" rel="noopener">Request a Demo</a>
           </div>
           <p class="vw-more-products animate-on-scroll fade-in">
             <a href="/products">More Ngwangwa products in development →</a>
@@ -594,7 +599,11 @@
               <span class="bento-dot g"></span>
               <span class="product-url">virtualwaitress.com</span>
             </div>
-            <iframe src="https://app.virtualwaitress.com/get-filed/1?demo=1" class="product-iframe" title="Virtual Waitress — Live Menu"></iframe>
+            <!-- swap src here when replacing demo with waiter-screen recording -->
+            <iframe src="https://app.virtualwaitress.com/nnewi-buka/1?demo=1" class="product-iframe" title="Virtual Waitress — Live Menu Demo"></iframe>
+          </div>
+          <div style="text-align:center; margin-top:12px;">
+            <a href="https://wa.me/2347018814381?text=Hi%2C%20I%20would%20like%20to%20see%20Virtual%20Waitress%20working." class="btn btn-secondary" target="_blank" rel="noopener" style="font-size:0.88rem; padding:10px 20px;">See it working →</a>
           </div>
         </div>
       </div>
@@ -725,32 +734,47 @@
         </div>
 
         <span class="label animate-on-scroll fade-in" style="color: var(--sage-green); font-size: 0.7rem; letter-spacing: 0.1em; display: block; margin-bottom: 16px;">CLIENT WORK</span>
-        <div class="work-cards stagger-container">
-          <a href="/portfolio" class="work-card animate-on-scroll fade-up">
+        <div class="work-cards stagger-container" style="margin-bottom: 48px;">
+          <div class="work-card animate-on-scroll fade-up">
             <div class="work-card-inner">
-              <span class="work-card-cat">Web Design</span>
-              <h3 class="work-card-title">Industrial Manufacturing</h3>
+              <span class="work-card-cat">Web Design · Google Business</span>
+              <h3 class="work-card-title">TRICIA-V Beauty Spa and Salon · Nnewi</h3>
               <p class="work-card-desc">
-                Digital catalogue and presence for a Nigerian industrial supplier targeting international buyers.
+                Website, Google Business Profile and local search for a unisex salon and spa. Built so a woman who finds her on Google is one tap from booking on WhatsApp.
               </p>
               <div class="work-card-footer">
-                <span class="work-card-stat">First intl. inquiry · 30 days</span>
-                <span class="work-card-link">View Project →</span>
+                <span class="work-card-stat">Launching October 2026</span>
               </div>
             </div>
             <div class="work-card-glow"></div>
-          </a>
+          </div>
 
-          <a href="/portfolio" class="work-card animate-on-scroll fade-up">
+          <div class="work-card animate-on-scroll fade-up">
             <div class="work-card-inner">
-              <span class="work-card-cat">Web Design + SEO</span>
-              <h3 class="work-card-title">Agricultural Export</h3>
+              <span class="work-card-cat">Online Store</span>
+              <h3 class="work-card-title">Sonne Solutions · Nnewi</h3>
               <p class="work-card-desc">
-                International website and SEO strategy for a Nigerian agro export business targeting UK buyers.
+                Online store for a solar, inverter and battery dealer. Customers browse the range, see what is in stock, and order.
               </p>
               <div class="work-card-footer">
-                <span class="work-card-stat">First UK buyer inquiry</span>
-                <span class="work-card-link">View Project →</span>
+                <span class="work-card-stat">In build</span>
+              </div>
+            </div>
+            <div class="work-card-glow"></div>
+          </div>
+        </div>
+
+        <span class="label animate-on-scroll fade-in" style="color: var(--sage-green); font-size: 0.7rem; letter-spacing: 0.1em; display: block; margin-bottom: 16px;">BUILT TO SHOW WHAT WE CAN DO</span>
+        <div class="work-cards stagger-container" style="margin-bottom: 48px;">
+          <a href="/portfolio" class="work-card animate-on-scroll fade-up">
+            <div class="work-card-inner">
+              <span class="work-card-cat">Demonstration Builds</span>
+              <h3 class="work-card-title">Five Industry Demo Projects</h3>
+              <p class="work-card-desc">
+                Manufacturing, agricultural export, auto parts, engineering, and a client portal — built to show what we can make. Ask us for something similar.
+              </p>
+              <div class="work-card-footer">
+                <span class="work-card-link">View demos →</span>
               </div>
             </div>
             <div class="work-card-glow"></div>
@@ -759,7 +783,7 @@
 
         <div class="work-cta animate-on-scroll fade-up">
           <a href="/portfolio" class="work-cta-btn">
-            View All Case Studies
+            View All Work
             <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M4 10h12M10 4l6 6-6 6" />
             </svg>

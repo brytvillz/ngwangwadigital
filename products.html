@@ -248,7 +248,8 @@
         ]
       }
     </script>
-  </head>
+    <script defer src="/_vercel/insights/script.js"></script>
+</head>
   <body>
     <!-- Floating Pill Navbar -->
     <nav class="hero-nav" id="heroNav">
@@ -379,6 +380,11 @@
               download. No special hardware required.
             </p>
 
+            <div style="margin-bottom: 28px; padding: 16px 18px; border-left: 3px solid var(--brand); background: rgba(143,176,71,0.08); border-radius: 0 8px 8px 0;">
+              <p style="color: var(--off-white); font-weight: 600; margin: 0 0 6px; font-size: 0.95rem;">Virtual Waitress is live, and in limited pilot.</p>
+              <p style="color: rgba(250,246,238,0.65); font-size: 0.88rem; line-height: 1.7; margin: 0;">We are running it with a small number of bars and lounges before we open it to everyone. If you run a venue and want to be one of them, message us and we will set you up with an access code.</p>
+            </div>
+
             <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 32px;">
               <a
                 href="https://virtualwaitress.com"
@@ -388,50 +394,41 @@
               >
                 Visit VirtualWaitress.com →
               </a>
-              <a href="#get-vw" class="btn btn-secondary">Get It for Your Restaurant</a>
+              <a href="#get-vw" class="btn btn-secondary">Join the Pilot</a>
             </div>
           </div>
 
         </div>
 
-        <!-- Waitlist Section -->
+        <!-- Pilot Access Section -->
         <div
           id="get-vw"
           class="content-wrapper text-center"
           style="margin-top: 80px; padding: 60px 40px; background: var(--near-black); border-radius: 20px;"
         >
           <h2 class="animate-on-scroll fade-up" style="color: var(--off-white); margin-bottom: 16px;">
-            Get Virtual Waitress for Your Restaurant
+            Get Virtual Waitress for Your Venue
           </h2>
 
-          <p class="animate-on-scroll fade-up" style="color: var(--sage-green); font-size: 1.1rem; margin-bottom: 32px;">
-            Enter your email and we will be in touch to set it up.
+          <p class="animate-on-scroll fade-up" style="color: var(--off-white); font-weight: 600; font-size: 1.05rem; margin-bottom: 8px;">
+            Virtual Waitress is live, and in limited pilot.
           </p>
 
-          <form
-            class="waitlist-form animate-on-scroll fade-up"
-            style="max-width: 500px; margin: 0 auto"
-            name="waitlist"
-            method="POST"
+          <p class="animate-on-scroll fade-up" style="color: rgba(250,246,238,0.6); font-size: 1rem; line-height: 1.8; margin-bottom: 32px; max-width: 520px; margin-left: auto; margin-right: auto;">
+            We are running it with a small number of bars and lounges before we open it to everyone. If you run a venue and want to be one of them, message us and we will set you up with an access code.
+          </p>
+
+          <a
+            href="https://wa.me/2347018814381?text=Hi%2C%20I%20run%20a%20venue%20and%20I%20would%20like%20to%20join%20the%20Virtual%20Waitress%20pilot."
+            class="btn btn-primary animate-on-scroll fade-up"
+            target="_blank"
+            rel="noopener"
           >
-            <input type="hidden" name="access_key" value="fb681904-a34d-4365-9491-782a2f86de8e" />
-            <input type="hidden" name="subject" value="New Waitlist Signup — Virtual Waitress" />
-            <input type="hidden" name="redirect" value="false" />
-            <p style="display: none">
-              <label>Don't fill this out if you're human: <input name="bot-field" /></label>
-            </p>
-            <input
-              type="email"
-              name="email"
-              placeholder="Enter your email address"
-              required
-              aria-label="Email address"
-            />
-            <button type="submit">Get Started</button>
-          </form>
+            Message Us to Join the Pilot →
+          </a>
 
           <p style="color: var(--light-grey); font-size: 0.85rem; margin-top: 16px;">
-            ✓ We reply within 24 hours. No spam.
+            ✓ We reply within one working day.
           </p>
         </div>
       </div>
